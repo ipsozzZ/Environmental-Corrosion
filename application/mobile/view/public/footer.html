@@ -35,13 +35,14 @@
   </footer>
 {/if}
 </body>
+<script src="/static/mobile/custom/js/router.js"></script>
 <script>
   let backBtn = $("#backBtn")
   /*
     点击返回按钮时，返回上一页
   */
   backBtn.click(e => {
-    window.history.go(-1)
+    this.router.go(-1)
   })
   let footerNavLinks = $("footer .link")
   /*
