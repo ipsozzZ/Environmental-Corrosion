@@ -76,7 +76,7 @@
     $('.mood-item .content').click(e => {
       let mid = parseInt(e.currentTarget.dataset.mid)
       console.log(window.location)
-      window.location.href = "/mobile/mood"
+      this.router.push("/mood")
     })
   </script>
 {include file="public/footer"}
