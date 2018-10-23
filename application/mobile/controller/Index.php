@@ -7,10 +7,7 @@ class Index extends Controller
     public function index()
     {
         $this -> assign("pageTitle", "首页");
+        $this -> assign('curPageIndex', 1); //当前页面索引，用来控制footer下面的icon
         return view();
-    }
-    public function user () {
-        $this -> assign("pageTitle", "用户");
-        return view('index');
     }
 }
