@@ -1,3 +1,82 @@
 {include file="public/header"}
-<p>index html</p>
+
+<div class="swipper">
+  <p>幻灯片</p>
+</div>
+
+<div class="card">
+   <div class="head">
+     <div class="title">动态</div>
+     <div class="more">更多</div>
+   </div>
+   <div class="content">
+     <div class="active">
+        <p>【消息】张三宝宝：完成了初级第一阶段... <span>2分钟前</span></p>
+        <p>【消息】老张宝宝：完成了初级第一阶段... <span>一小时前</span></p>
+        <p>【消息】李四宝宝：获得了证书... <span>昨天</span></p>
+     </div>
+   </div>
+</div>
+
+<div class="card">
+  <div class="head">
+    <div class="title">训练营</div>
+    <div class="more">更多</div>
+  </div>
+  <div class="content">
+    <div class="train">
+        <div class="train-card" style="background-image: url('/static/mobile/image/primary-level.png')">
+          <p>初级训练营</p>
+        </div>
+        <div class="train-card" style="background-image: url('/static/mobile/image/middle-level.png')">
+          <p>中级训练营</p>
+        </div>
+        <div class="train-card" style="background-image: url('/static/mobile/image/high-level.png')">
+          <p>高级训练营</p>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+    <div class="head">
+      <div class="title">学习心情</div>
+      <div class="more">更多</div>
+    </div>
+    <div class="content">
+      <div class="mood-item">
+         <div class="avatar">
+           <img src="/static/mobile/image/avatar-test.jpg">
+         </div>
+         <div class="content" data-mid="1">
+          <p class="name">大宝</p>
+          <p>在学习了第一周的课程之后，我的逻辑思维...</p>
+         </div>
+         <div class="other">
+          <p class="time">2小时前</p>
+          <p class="like"><img src="/static/mobile/image/icon/like-selected.png"></p>
+         </div>
+      </div>
+      <div class="mood-item">
+          <div class="avatar">
+            <img src="/static/mobile/image/avatar-test.jpg">
+          </div>
+          <div class="content" data-mid="2">
+           <p class="name">大宝</p>
+           <p>在学习了第一周的课程之后，我的逻辑思维...</p>
+          </div>
+          <div class="other">
+           <p class="time">2小时前</p>
+           <p class="like"><img src="/static/mobile/image/icon/like.png"></p>
+          </div>
+       </div>
+    </div>
+  </div>
+  <script>
+    $('.mood-item .content').click(e => {
+      let mid = parseInt(e.currentTarget.dataset.mid)
+      console.log(window.location)
+      window.location.href = "/mobile/mood"
+    })
+  </script>
 {include file="public/footer"}
