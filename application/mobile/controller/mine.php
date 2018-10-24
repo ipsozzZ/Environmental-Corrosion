@@ -31,4 +31,10 @@ class Mine extends Controller
     return view('diplomas');
   }
 
+  public function mySubject () {
+    $this -> assign('pageTitle', '我的课程');
+    $this -> assign('noShowFooter', true);
+    return view('mySubject');
+  }
+
 }
