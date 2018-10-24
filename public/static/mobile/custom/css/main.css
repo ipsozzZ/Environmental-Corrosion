@@ -1,125 +1,3 @@
-html {
-  font-size: 62.5%;
-}
-
-body {
-  margin        : 0;
-  padding       : 0;
-  background    : rgb(245, 245, 245);
-  padding-bottom: 6.1rem;
-  padding-top   : 4.5rem;
-}
-
-p {
-  margin: 0;
-}
-
-a {
-  text-decoration: none;
-  color          : #444;
-}
-
-header {
-  height    : 4.5rem;
-  background: #ff7c42;
-  position  : fixed;
-  top       : 0;
-  width     : 100%;
-  z-index   : 1;
-  /* box-shadow: 0 .1rem .5rem 0rem #ccc; */
-}
-
-header div {
-  float          : left;
-  display        : flex;
-  justify-content: center;
-  align-content  : center;
-  align-items    : center;
-  height         : 100%;
-  color          : #fff;
-  font-size      : 2.2rem;
-  font-weight    : 300;
-}
-
-header div.left {
-  width: 20%;
-}
-
-header div.left span{
-  padding        : 1rem 2rem;
-  display        : flex;
-  justify-content: center;
-  align-items    : center;
-}
-
-header div.right {
-  width: 20%;
-}
-
-header div.right img,
-header div.left img {
-  width : 2.2rem;
-  height: 2.2rem;
-}
-
-header div.middle {
-  width: 60%;
-}
-
-footer {
-  height    : 5rem;
-  background: #fff;
-  border-top: 1px solid #ddd;
-  position  : fixed;
-  bottom    : 0;
-  width     : 100%;
-  z-index   : 1;
-}
-
-footer div {
-  float          : left;
-  height         : 100%;
-  display        : flex;
-  justify-content: center;
-  align-items    : center;
-  flex-direction : column;
-  width          : 25%;
-}
-
-footer div img {
-  width : 2.5rem;
-  height: 2.5rem;
-}
-footer div p {
-  color: #444;
-}
-footer div p.active {
-  color: #ff7c42;
-}
-
-
-/****************************************************/
-/******** common ************************************/
-/****************************************************/
-
-.filter-container {
-  display        : flex;
-  justify-content: center;
-  align-items    : center;
-  background     : #fff;
-}
-
-.filter-container select {
-  padding  : .7rem .9rem;
-  margin   : 0 .7rem;
-  font-size: 1.3rem;
-  outline  : none;
-}
-
-.card {
-  border-radius: .5rem;
-}
-
 /****************************************************/
 /******** 主页 ***************************************/
 /****************************************************/
@@ -717,4 +595,20 @@ footer div p.active {
   content         : attr(data-text);
   transition      : all 1s ease;
   /* transform       : translateY(-100%); */
+}
+
+
+/*
+
+
+*/
+
+.cell .right .avatar {
+  width        : 4rem;
+  height       : 4rem;
+  border-radius: 50%;
+}
+
+.cell-group div.avatar {
+  height: 6rem;
 }
