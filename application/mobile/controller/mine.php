@@ -25,4 +25,10 @@ class Mine extends Controller
     return view('security');
   }
 
+  public function diplomas () {
+    $this -> assign('pageTitle', '孩子证书');
+    $this -> assign('notShowFooter', true);
+    return view('diplomas');
+  }
+
 }
