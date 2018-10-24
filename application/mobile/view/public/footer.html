@@ -1,6 +1,6 @@
 {if condition='@!$notShowFooter'}
   <footer>
-    <div class="link" data-to="index">
+    <div class="link" data-to="/index">
       {if condition='$curPageIndex eq 1'}
           <img src="/static/mobile/image/icon/home-selected.png">
         {else /}
@@ -8,7 +8,7 @@
       {/if}
       <p class="{$curPageIndex == 1?'active':''}">首页</p>
     </div>
-    <div class="link" data-to="train">
+    <div class="link" data-to="/train">
       {if condition='$curPageIndex eq 2'}
           <img src="/static/mobile/image/icon/train-selected.png">
         {else /}
@@ -16,7 +16,7 @@
       {/if}
       <p class="{$curPageIndex == 2?'active':''}">训练营</p>
     </div>
-    <div class="link" data-to="plan">
+    <div class="link" data-to="/plan">
       {if condition='$curPageIndex eq 3'}
           <img src="/static/mobile/image/icon/book-selected.png">
         {else /}
@@ -24,7 +24,7 @@
       {/if}
       <p class="{$curPageIndex == 3?'active':''}">学习计划</p>
     </div>
-    <div class="link" data-to="mine">
+    <div class="link" data-to="/mine">
       {if condition='$curPageIndex eq 4'}
           <img src="/static/mobile/image/icon/user-selected.png">
         {else /}
@@ -68,7 +68,7 @@
     }
     if(curHref == to || (curHref == "mobile" && to == "index")) return
 
-    window.location.href = toHref
+    this.router.push(to)
   })
 </script>
 </html>
