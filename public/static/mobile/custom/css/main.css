@@ -594,14 +594,7 @@
   background-color: rgba(0, 0, 0, 0.2);
   content         : attr(data-text);
   transition      : all 1s ease;
-  /* transform       : translateY(-100%); */
 }
-
-
-/*
-
-
-*/
 
 .cell .right .avatar {
   width        : 4rem;
@@ -611,4 +604,21 @@
 
 .cell-group div.avatar {
   height: 6rem;
+}
+
+/****************************************************/
+/******** 我的课程 ***********************************/
+/****************************************************/
+.train-process {
+  display    : flex;
+  align-items: center;
+  width      : 75%;
+  margin     : 0 auto;
+}
+
+.train-process .text {
+  width: 25%;
+}
+.train-process .process-container {
+  width: 75%;
 }

@@ -168,3 +168,55 @@ footer div p.active {
   width      : 1.3rem;
   margin-left: 1rem;
 }
+
+/********** 进度条 **************/
+.process-container {
+  background-color: #fdd2be;
+  height          : .7rem;
+  width           : 100%;
+  overflow        : hidden;
+  position        : relative;
+  border-radius   : .5rem;
+  border          : .1rem solid #ff7c42;
+  padding         : 0;
+}
+.process-container .process {
+  background-color: #ff7c42;
+  display         : inline-block;
+  position        : absolute;
+  top             : 0;
+  left            : 0;
+  width           : 33.3%;
+  height          : 100%;
+  border-radius   : .5rem;
+  border          : .1rem solid #ff7c42;
+  box-sizing      : border-box;
+}
+.baby-select {
+  display        : flex;
+  justify-content: center;
+  align-items    : center;
+  padding        : 1rem 0;
+}
+.baby-select img {
+  width: 100%;
+}
+.baby-select div {
+  position     : relative;
+  margin       : 0 1rem;
+  height       : 4.5rem;
+  width        : 4.5rem;
+  border-radius: 50%;
+  overflow     : hidden;
+}
+.baby-select div.disable:after {
+  position        : absolute;
+  left            : 0;
+  top             : 0;
+  display         : block;
+  width           : 100%;
+  height          : 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  content         : attr(data-text);
+  transition      : all 1s ease;
+}
