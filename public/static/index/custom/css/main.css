@@ -1,0 +1,541 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+/* index start */
+
+#Header{
+    width: 1440px;
+    height: 715px;
+    font-size: 18px;
+    background-image: url("../image/bg-banner.jpg");
+    /* text-align: center; */
+}
+
+#Header .logo{
+    margin-top: 20px;
+}
+
+#Header .logo img{
+    margin-top: -5px;
+    margin-left: 150px;
+    float: left;
+}
+
+#Header .nav{
+    margin-top: 20px;
+}
+
+#Header .nav span{
+    margin-left: 80px;
+}
+
+#Header .login{
+    color: #ffffff;
+    text-align: center;
+    margin-top: 20px;
+}
+
+#Header .login a{
+    color: #ffffff;
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+#Content{
+    width: 1440px;
+    /* border: 1px solid; */
+    position: relative;
+    margin: auto;
+    /* text-align: center; */
+}
+
+#Content .Item{
+    height: auto;
+    padding: 10px;
+    padding-bottom: 30px;
+}
+
+#Content .Dome{
+    background-color: #ffffff;
+}
+
+#Content .Train{
+    background-color: #f2f2f2;
+}
+
+#Content .Mood{
+    background-color: #ffffff;
+}
+
+#Content .Mood hr{
+    background-color: #f2f2f2;
+    width: 850px;
+    margin: auto;
+    margin-top: 10px;
+}
+
+#Content .Title{
+    width: 400px;
+    position: relative;
+    margin: auto;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#Content .Title h2 a{
+    display:block;
+    width: auto;
+    padding: 0 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #f37942;
+}
+
+
+#Content .Title .mark{
+    display: inline-block;
+    width: 30px;
+    height: 2px;
+    background-color: #8F8F8F;
+}
+
+#Content .List{
+    width: 850px;
+    margin: auto;
+    margin-top: 30px;
+    text-align: center;
+}
+
+#Content .List .List-Item a img{
+    text-align: center;
+    /* display: flex; */
+    width: 265px;
+    height: 180px;
+    margin-top: 20px;
+}
+
+#Content .List .List-Item a{
+    text-align: enter;
+}
+
+#Content .List .List-Item span{
+    display: block;
+    margin-top: 10px;
+}
+
+#Content .More{
+    width: 100px;
+    margin: 5px auto;
+    margin-top: 60px;
+    border: 1px solid;
+    background-color: #f37942;
+    text-align: center;
+    padding: 5px;
+    border-radius: 20px;
+    -webkit-border-radius:20px;
+    -moz-border-radius:20px; 
+}
+
+#Content .More a{
+    text-align: center;
+    color: #ffffff;
+    /* display: flex; */
+    width: 80px;
+    height: 20px;
+}
+
+#Content .Mood-List{
+    width: 850px;
+    margin: auto;
+    margin-top: 50px;
+    margin-top: 50px;
+    display: flex;
+    /* text-align: center; */
+}
+
+#Content .Mood-List .List-img{
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    -webkit-border-radius:100px;
+    -moz-border-radius:100px; 
+    /* margin-left: 200px;
+    margin-top: 12px;
+    display: flex; */
+}
+
+#Content .Mood-List .Item-Info{
+    margin-left: 20px;
+}
+
+#Content .Mood-List .Item-Info p{
+    /* display: flex; */
+    font-size: 18px;
+    margin-top: 20px;
+    color: #999999;
+}
+
+#Content .Mood-List .Item-Info .title{
+    font-size: 16px;
+    margin-top: 8px;
+}
+
+#Content .Mood-List .Item-Info .time{
+    font-size: 16px;
+    margin-left: 50px;
+    color: #999999;
+}
+
+#Content .Mood-List .fabul span{
+    float: right;
+    display: flex;
+    font-size: 24px;
+    color: #999999;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    margin-top: 40px;
+}
+
+#Content .Mood-List .fabul span>div{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#Content .Mood-List .fabul img{
+    width: 16px;
+    height: 20px;
+    float: right;
+    display: flex;
+    margin-top: 2px;
+}
+
+#Content .Mood-List .List-Text-fabul{
+    float: right;
+    display: flex;
+}
+
+/* index end */
+
+
+/* login start */
+#Login-Header{
+    width: 1440px;
+    font-size: 18px;
+    margin-left: 100px;
+}
+
+#Login-Header .logo{
+    margin-top: 20px;
+}
+
+#Login-Header .logo img{
+    margin-top: -5px;
+    margin-left: 150px;
+    float: left;
+}
+
+#Login-Header .nav{
+    margin-top: 20px;
+}
+
+#Login-Header .nav span{
+    margin-left: 80px;
+}
+
+#Login {
+    width: 1440px;
+    height: 715px;
+    background-image: url("../image/login-bg.jpg");
+    background-repeat: no-repeat;
+    background-position-x: 0px;
+    background-size: 110% 100%;
+    margin-top: 30px;
+    border-top: #f37942 solid 2px;
+}
+
+#Login .Login-Info form{
+    width: 450px;
+    /* height: 350px; */
+    background-color: #fdd79e;
+    margin-left: 795px;
+    margin-top: 190px;
+    filter:alpha(Opacity=60);
+    -moz-opacity:0.6;opacity: 0.6;
+    border: 2px solid;
+    border-color: #f2f2f2;
+    border-radius: 10px;
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    text-align: center;
+}
+
+#Login .Login-Info img{
+    margin-left: 110%;
+    width: 70%;
+    margin-top: 25px;
+}
+
+#Login .Login-Info span{
+    width: 150px;
+    margin-left: 112%;
+    margin-top: 3px;
+    display: flex;
+    font-size: 16px;
+    color: #999999;
+}
+
+#Login-Nav{
+    width: 200px;
+    margin: auto;
+    text-align: center;
+    margin-top: 80px;
+    display: flex;
+    font-size: 24px;
+}
+
+#Login-Nav .Login-login{
+    /* margin-left: 10px; */
+    color: #f37942;
+    width: 50px
+}
+
+#Login-Nav .Login-reg{
+    margin-left: 100px;
+    color: #FFFFFF;
+}
+
+#Login .login hr{
+    display: inline-block;
+    width: 150px;
+    height: 3px;
+    margin-left: 0px;
+}
+
+#Login .login .login-hr{
+    background-color: #f37942;
+}
+
+#Login .login .reg-hr{
+    background-color: #FFFFFF;
+}
+
+#Login .login .Form-Item {
+    width: 310px;
+    margin: 10px auto;
+    border: 1px solid #FFFFFF;
+}
+
+#Login .login .submit{
+    width: 312px;
+    margin: 10px auto;
+    background-color: #f37942;
+    margin-bottom: 20px;
+}
+
+#Login .login span>a{
+    margin-left: -190px;
+    color: #f37942;
+    margin-bottom: 20px;
+}
+
+/* login end */
+
+/* register start */
+
+#Login-Nav .register-login{
+    /* margin-left: 10px; */
+    color: #FFFFFF;
+    width: 50px
+}
+
+#Login-Nav .register-reg{
+    margin-left: 100px;
+    color: #f37942;
+}
+
+
+#Login .login .register-login-hr{
+    background-color: #FFFFFF;
+}
+
+#Login .login .register-reg-hr{
+    background-color: #f37942;
+}
+/* register end */
+
+/* 试玩专区 start */
+
+#login-nav .login-header{
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    -webkit-border-radius:100%;
+    -moz-border-radius:100%;
+    background-color: #f37942;
+    margin-left: -50px;
+    margin-top: 50px;
+}
+
+#Dome-Header{
+    width: 1440px;
+    font-size: 18px;
+    margin-left: 100px;
+    margin-top: 30px;
+    border-bottom: 2px solid #f37942;
+    padding: 20px;
+}
+
+#Dome-Header .logo{
+    margin-top: 20px;
+}
+
+#Dome-Header .logo img{
+    margin-top: -5px;
+    margin-left: 150px;
+    float: left;
+}
+
+#Dome-Header .nav{
+    margin-top: 20px;
+}
+
+#Dome-Header .nav span{
+    margin-left: 80px;
+}
+
+.login-use{
+    margin-top: 50px;
+    display: flex;
+}
+
+#Content .detail{
+    width: 800px;
+    height: 580px;
+    /* margin: auto; */
+    margin-left: 230px;
+}
+
+#Content .detail img{
+    width: 450px;
+    height: 370px;
+    margin-top: 50px;
+    /* margin: auto; */
+    border-radius: 10px;
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+
+}
+
+#Content .detail .descrition{
+    margin-top: 30px;
+    font-size: 24px;
+    width: 450px;
+    color: #4b4a4a;
+}
+
+#Content .Submit{
+    margin-left: 900px;
+    width: 150px;
+    height: 50px;
+    background-color: #f37942;
+}
+
+#retrieval{
+    width: 830px;
+    margin: auto;
+    display: flex;
+    margin-top: 40px;
+}
+
+#retrieval select{
+    width: 160px;
+    height: 48px;
+    border-radius: 5px;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    clear: both;
+    border: 2px solid #bbe8f2;
+}
+
+#retrieval select:first-child{
+    margin-left: -110px;
+}
+
+#retrieval select:last-child{
+    margin-left: 50px;
+}
+
+#search input{
+    margin-left: 50px;
+    width: 400px;
+    height: 46px;
+    border-radius: 5px;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    clear: both;
+    border: 2px solid #bbe8f2;
+}
+
+#search img{
+    float: right;
+    position:absolute;
+    margin-left: 420px;
+    margin-top: -36px;
+    z-index: 1;
+}
+
+/* 试玩专区 end */
+
+/* 训练营 start */
+#Psearch input{
+    margin-left: 50px;
+    width: 302px;
+    height: 46px;
+    border-radius: 5px;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    clear: both;
+    border: 2px solid #bbe8f2;
+}
+
+#Psearch img{
+    /* float: right; */
+    position:absolute;
+    margin-left: -40px;
+    margin-top: 13px;
+    z-index: 1;
+}
+
+#Psearch span{
+    margin-left: 22px;
+    font-size: 18px;
+}
+
+#Unlock-info {
+    display: flex;
+    /* width: 600px;
+    height: 600px; */
+    /* margin: 300px; */
+    /* text-align: center; */
+    margin-left: 150px;
+}
+
+/* #Unlock-info .Exit{
+    width: 30px;
+    position: absolute;
+    margin-left: 500px;
+} */
+
+#Unlock-info .pay-info{
+    margin-top: 50px;
+    width: 400px;
+    height: 300px;
+    text-align: center;
+}
+/* 训练营 end */
