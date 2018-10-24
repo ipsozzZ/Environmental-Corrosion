@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:81:"E:\xampp\xampp\htdocs\disney\public/../application/index\view\practice\index.html";i:1540307836;s:73:"E:\xampp\xampp\htdocs\disney\application\index\view\common\login-nav.html";i:1540287665;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:81:"E:\xampp\xampp\htdocs\disney\public/../application/index\view\practice\index.html";i:1540308792;s:73:"E:\xampp\xampp\htdocs\disney\application\index\view\common\login-nav.html";i:1540367090;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,19 +23,19 @@
     <div id="login-nav" class="layui-col-xs6 layui-col-sm6 layui-col-md4 nav">
         <div class="grid-demo">
             <span>
-                <a href="#">首页</a>
+                <a href="<?php echo url('/index/index/index'); ?>">首页</a>
             </span>
             <span>
-                <a href="#">试玩专区</a>
+                <a href="<?php echo url('/index/dome/index'); ?>">试玩专区</a>
             </span>
             <span>
-                <a href="#">训练营</a>
+                <a href="<?php echo url('/index/practice/index'); ?>">训练营</a>
             </span>
         </div>
     </div>
     <div class="layui-col-xs4 layui-col-sm12 layui-col-md4">
             <div class="grid-demo login-user">
-                <span><img class="login-header" src="/static/index/custom/image/login-header.png"> <span>BABYC</span> |
+                <span><a href="<?php echo url('/index/personal'); ?>"><img class="login-header" src="/static/index/custom/image/login-header.png"></a> <span>BABYC</span> |
                 <a href="#">注销</a>
             </div>
         </div>
@@ -51,7 +51,7 @@
             <div class="Title">
                 <i class="mark"></i>
                 <h2>
-                    <a href="#">试玩专区</a>
+                    <a href="#">训练营</a>
                 </h2>
                 <i class="mark"></i>
             </div>
@@ -135,7 +135,6 @@
         </div>
     </div>
     <!-- content end -->
-
     <script src="/static/index/vendor/js/jquery-3.0.0.js"></script>
     <script src="/static/vendor/layui/layui.js"></script>
     <script>
@@ -153,15 +152,6 @@
                 maxmin: true,
                 content: '<?php echo url("index/practice/info"); ?>'
                 });
-
-                // layer.open({
-                //     type: 2,
-                //     title: '图片',
-                //     area: ['700px', '450px'],
-                //     fixed: false, //不固定
-                //     maxmin: true,
-                //     content: '<?php echo url("admin/article/pics"); ?>?aid=' + aid,
-                // });
                 // 这里点击按钮默认是会自动跳转回来当前页面的，所以用preventDefault()阻止默认事件
                 e.preventDefault(); // 阻止默认事件，
                 // return false;

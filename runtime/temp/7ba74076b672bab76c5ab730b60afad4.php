@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:78:"E:\xampp\xampp\htdocs\disney\public/../application/index\view\dome\detail.html";i:1540304095;s:73:"E:\xampp\xampp\htdocs\disney\application\index\view\common\login-nav.html";i:1540287665;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:78:"E:\xampp\xampp\htdocs\disney\public/../application/index\view\dome\detail.html";i:1540304095;s:73:"E:\xampp\xampp\htdocs\disney\application\index\view\common\login-nav.html";i:1540367090;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,19 +23,19 @@
     <div id="login-nav" class="layui-col-xs6 layui-col-sm6 layui-col-md4 nav">
         <div class="grid-demo">
             <span>
-                <a href="#">首页</a>
+                <a href="<?php echo url('/index/index/index'); ?>">首页</a>
             </span>
             <span>
-                <a href="#">试玩专区</a>
+                <a href="<?php echo url('/index/dome/index'); ?>">试玩专区</a>
             </span>
             <span>
-                <a href="#">训练营</a>
+                <a href="<?php echo url('/index/practice/index'); ?>">训练营</a>
             </span>
         </div>
     </div>
     <div class="layui-col-xs4 layui-col-sm12 layui-col-md4">
             <div class="grid-demo login-user">
-                <span><img class="login-header" src="/static/index/custom/image/login-header.png"> <span>BABYC</span> |
+                <span><a href="<?php echo url('/index/personal'); ?>"><img class="login-header" src="/static/index/custom/image/login-header.png"></a> <span>BABYC</span> |
                 <a href="#">注销</a>
             </div>
         </div>

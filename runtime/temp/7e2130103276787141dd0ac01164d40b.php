@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:78:"E:\xampp\xampp\htdocs\disney\public/../application/index\view\index\index.html";i:1540308566;s:75:"E:\xampp\xampp\htdocs\disney\application\index\view\common\bannerOrNav.html";i:1540308336;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:78:"E:\xampp\xampp\htdocs\disney\public/../application/index\view\index\index.html";i:1540356943;s:75:"E:\xampp\xampp\htdocs\disney\application\index\view\common\bannerOrNav.html";i:1540308685;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,7 +26,7 @@
                     <a href="<?php echo url('/index/index/index'); ?>">首页</a>
                 </span>
                 <span>
-                    <a href="<?php echo url('/index/mode/index'); ?>">试玩专区</a>
+                    <a href="<?php echo url('/index/dome/index'); ?>">试玩专区</a>
                 </span>
                 <span>
                     <a href="<?php echo url('/index/practice/index'); ?>">训练营</a>
@@ -36,7 +36,7 @@
         <div class="layui-col-xs4 layui-col-sm12 layui-col-md4 login">
             <div class="grid-demo">
                 <a href="<?php echo url('index/login/index'); ?>">登录</a> |
-                <a href="#">注册</a>
+                <a href="<?php echo url('index/login/register'); ?>">注册</a>
             </div>
         </div>
     </div>
@@ -78,7 +78,7 @@
                 </div>
             </div>
             <div class="grid-demo grid-demo-bg2 More">
-                <a href="#">查看更多</a>
+                <a href="<?php echo url('/index/dome/index'); ?>">查看更多</a>
             </div>
         </div>
 
@@ -119,7 +119,7 @@
         <div class="Item Mood">
             <div class="Title">
                 <i class="mark"></i>
-                <h2> <a href="#">学习心情</a> </h2>
+                <h2> <a href="<?php echo url('/index/mood/index'); ?>">学习心情</a> </h2>
                 <i class="mark"></i>
             </div>
 
@@ -203,7 +203,7 @@
                     </div>
 
             <div class="grid-demo grid-demo-bg2 More">
-                <a href="#">查看更多</a>
+                <a href="<?php echo url('/index/mood/index'); ?>">查看更多</a>
             </div>
         </div>
     </div>
