@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:78:"E:\xampp\xampp\htdocs\disney\public/../application/index\view\login\index.html";i:1540284556;s:67:"E:\xampp\xampp\htdocs\disney\application\index\view\common\nav.html";i:1540308410;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:78:"E:\xampp\xampp\htdocs\disney\public/../application/index\view\login\index.html";i:1540284556;s:67:"E:\xampp\xampp\htdocs\disney\application\index\view\common\nav.html";i:1540308609;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,7 +26,7 @@
                 <a href="<?php echo url('/index/index/index'); ?>">首页</a>
             </span>
             <span>
-                <a href="<?php echo url('/index/mode/index'); ?>">试玩专区</a>
+                <a href="<?php echo url('/index/dome/index'); ?>">试玩专区</a>
             </span>
             <span>
                 <a href="<?php echo url('/index/practice/index'); ?>">训练营</a>
