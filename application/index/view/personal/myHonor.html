@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Practice</title>
+    <link rel="stylesheet" href="__VENDOR__/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="__INDEX__/custom/css/main.css">
+    <link rel="stylesheet" href="__INDEX__/custom/css/pageinfo.css">
+</head>
+
+<body>
+    <!-- header start -->
+    <div id="Dome-Header" class="layui-container">
+        {include file="/common/login-nav"}
+    </div>
+    <!-- header end -->
+
+    <!-- content start -->
+
+    <div id="Content">
+        <div class="Item Mood">
+            <div class="Title">
+                <i class="mark"></i>
+                <h2>
+                    <a href="#">我的证书</a>
+                </h2>
+                <i class="mark"></i>
+            </div>
+
+            <div class="layui-row layui-col-space5 List">
+                <div class="layui-col-md4 List-Item">
+                    <div class="grid-demo grid-demo-bg1">
+                        <a href="#">
+                            <img class="Paying" src="__INDEX__/custom/image/honor.jpg">
+                        </a>
+                    </div>
+                </div>
+                <div class="layui-col-md4 List-Item">
+                    <div class="grid-demo">
+                        <a href="#">
+                            <img class="Paying" src="__INDEX__/custom/image/honor.jpg">
+                        </a>
+                    </div>
+                </div>
+                <div class="layui-col-md4 List-Item">
+                    <div class="grid-demo grid-demo-bg1">
+                        <a href="#">
+                            <img class="Paying" src="__INDEX__/custom/image/honor.jpg">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="layui-col-md4 List-Item">
+                        <div class="grid-demo grid-demo-bg1">
+                            <a href="#">
+                                <img class="Paying" src="__INDEX__/custom/image/honor.jpg">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="layui-col-md4 List-Item">
+                        <div class="grid-demo">
+                            <a href="#">
+                                <img class="Paying" src="__INDEX__/custom/image/honor.jpg">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="layui-col-md4 List-Item">
+                        <div class="grid-demo grid-demo-bg1">
+                            <a href="#">
+                                <img class="Paying" src="__INDEX__/custom/image/honor.jpg">
+                            </a>
+                        </div>
+                    </div>
+            </div>
+            <!-- pageinfo start -->
+            <div id="Pageinfo" class="grid-demo grid-demo-bg2">
+            </div>
+            <!-- pageinfo end -->
+        </div>
+    </div>
+    <!-- content end -->
+
+    <script src="__VENDOR__/layui/layui.js" charset="utf-8"></script>
+    <script>
+        layui.use('laypage', function () {
+            var laypage = layui.laypage;
+
+            //执行一个laypage实例
+            laypage.render({
+                elem: 'Pageinfo' //注意，这里的 test1 是 ID，不用加 # 号
+                , count: 50 //数据总数，从服务端得到
+                , limit: 9
+                , prev: '<'
+                , next: '>'
+                , theme: "#f37942"
+            });
+        });
+    </script>
+</body>
+
+</html>
