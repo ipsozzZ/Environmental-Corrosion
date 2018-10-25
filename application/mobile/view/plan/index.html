@@ -1,0 +1,120 @@
+{include file="public/header"}
+
+<div class="plan-header">
+  <img src="/static/mobile/image/avatar-test.jpg">
+  <img src="/static/mobile/image/avatar-test.jpg">
+  <span>+</span>
+</div>
+{if condition="$isEdit"}
+<div class="filter-container">
+  <select class="cate">
+    <option value="1">初级阶段</option>
+    <option value="1">中级阶段</option>
+    <option value="1">高级阶段</option>
+  </select>
+  <select class="cate">
+    <option value="1">第一阶段</option>
+    <option value="1">第二阶段</option>
+  </select>
+  <select class="cate">
+    <option value="1">第一周训练</option>
+    <option value="1">第二周训练</option>
+  </select>
+</div>
+{/if}
+<p class="sys-recommend">系统推荐计划</p>
+<div class="plan-detail-container">
+  <div class="plan-detail-item">
+    <div class="dot"></div>
+    <p class="time">
+      2018-8-15
+      {if condition="$isEdit"}
+      <span class="edit-time">></span>
+      {/if}
+    </p>
+    <div class="detail">
+      <ul>
+        <li>
+          第一阶段第一周第一课《课程名称》
+          <span>已训练</span>
+        </li>
+        <li>
+          第一阶段第一周第一课《课程名称》
+          <span>已训练</span>
+        </li>
+        <li>
+          第一阶段第一周第一课《课程名称》
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="plan-detail-item">
+    <div class="dot"></div>
+    <p class="time">
+      2018-8-15
+      {if condition="$isEdit"}
+      <span class="edit-time">></span>
+      {/if}
+    </p>
+    <div class="detail">
+      <ul>
+        <li>
+          第一阶段第一周第一课《课程名称》
+          <span>已训练</span>
+        </li>
+        <li>
+          第一阶段第一周第一课《课程名称》
+          <span>已训练</span>
+        </li>
+        <li>
+          第一阶段第一周第一课《课程名称》
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="plan-detail-item">
+    <div class="dot"></div>
+    <p class="time">
+      2018-8-15
+      {if condition="$isEdit"}
+      <span class="edit-time">></span>
+      {/if}
+    </p>
+    <div class="detail">
+      <ul>
+        <li>
+          第一阶段第一周第一课《课程名称》
+          <span>已训练</span>
+        </li>
+        <li>
+          第一阶段第一周第一课《课程名称》
+          <span>已训练</span>
+        </li>
+        <li>
+          第一阶段第一周第一课《课程名称》
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div id="time"></div>
+<script>
+  var calendar = new datePicker()
+  calendar.init({
+    'trigger': '#time', //'.plan-detail-container .edit-time',
+    /*按钮选择器，用于触发弹出插件*/
+    'type': 'date',
+    /*模式：date日期；datetime日期时间；time时间；ym年月；*/
+    'minDate': '1900-1-1',
+    'maxDate': '2100-12-31',
+    'onSubmit': function () { /*确认时触发事件*/
+      var theSelectData = calendar.value;
+      console.log("新的时间为", theSelectData)
+    },
+    'onClose': function () { /*取消时触发事件*/ }
+  });
+  $(".plan-detail-container .edit-time").click(e => {
+    $("#time").click()
+  })
+</script>
+{include file="public/footer"}
