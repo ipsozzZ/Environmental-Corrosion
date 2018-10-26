@@ -33,8 +33,15 @@ class Mine extends Controller
 
   public function mySubject () {
     $this -> assign('pageTitle', '我的课程');
-    $this -> assign('noShowFooter', true);
+    $this -> assign('notShowFooter', true);
     return view('mySubject');
+  }
+
+  public function analysis () {
+    $this -> assign('pageTitle', "分析报告");
+    $this -> assign('notShowFooter', true);
+
+    return view("analysis");
   }
 
 }

@@ -622,3 +622,58 @@
 .train-process .process-container {
   width: 75%;
 }
+
+
+
+/****************************************************/
+/******** 分析报告 *************************************/
+/****************************************************/
+
+.analysis-select {
+  justify-content: left;
+  background     : #ffc0a5;
+}
+.analysis-container {
+  padding         : 1rem 1.5rem;
+  background-color: #fff;
+}
+
+.analysis-container .analysis-item {
+  width        : 100%;
+  display      : flex;
+  justify-items: center;
+  padding      : 1rem 0;
+}
+.analysis-item .left, .analysis-item .mid, .analysis-item .right {
+  display        : flex;
+  justify-content: center;
+  align-items    : center;
+}
+.analysis-container .analysis-item .left {
+  flex: 1;
+}
+
+.analysis-container .analysis-item .left img {
+  width : 3.5rem;
+  height: 3.5rem;
+}
+
+.analysis-container .analysis-item .mid {
+  flex: 4;
+}
+
+.analysis-container .analysis-item .right {
+  flex: 1;
+}
+
+.share-analysis {
+  display        : flex;
+  justify-content: right;
+  align-items    : center;
+  padding        : 1rem 1.5rem;
+  flex-direction : row-reverse;
+}
+
+.share-analysis button {
+  margin-left: 1rem;
+}
