@@ -3,7 +3,7 @@ namespace app\index\controller;
 
 use think\Controller;
 
-class Dome extends Controller
+class Dome extends Common
 {
     public function index(){
         return view();

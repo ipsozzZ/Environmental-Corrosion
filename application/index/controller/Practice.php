@@ -11,7 +11,7 @@ namespace app\index\controller;
 
 use think\Controller;
 
-class Practice extends Controller
+class Practice extends Common
 {
     public function index(){
         return view();

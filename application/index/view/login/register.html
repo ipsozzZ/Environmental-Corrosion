@@ -18,7 +18,7 @@
     <!-- header end -->
     <div id="Login" class="layui-container layui-row">
         <div class="Login-Info login">
-            <form class="layui-col-md3 layui-col-md-offset1 layui-form" action="index/login/index" method="post">
+            <form class="layui-col-md3 layui-col-md-offset1 layui-form" action="register" method="post">
                 <div class="layui-col-xs6 layui-col-sm6 layui-col-md4">
                     <div class="grid-demo grid-demo-bg1 logo">
                         <img src="__INDEX__/custom/image/logo.png" style="margin-right:10px">
@@ -33,15 +33,15 @@
                 <hr class="register-reg-hr">
 
                 <div class="layui-form-item Form-Item">
-                        <input type="text" name="title" required lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input"> 
+                        <input type="text" name="name" required lay-verify="required" placeholder="请输入账号" autocomplete="off" class="layui-input"> 
                 </div>
                 <div class="layui-form-item Form-Item">
-                    <input type="text" name="title" required lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input"> 
+                    <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input"> 
                 </div>
                 <div class="layui-form-item Form-Item">
-                        <input type="text" name="title" required lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input"> 
+                        <input type="password" name="repassword" required lay-verify="required" placeholder="请重新输入密码" autocomplete="off" class="layui-input"> 
                 </div>
-                <input type="submit" class="layui-btn layui-btn-fluid submit">
+                <input type="submit" value="注册" class="layui-btn layui-btn-fluid submit">
             </form>
         </div>
     </div>
