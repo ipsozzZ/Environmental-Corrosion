@@ -20,7 +20,7 @@
     <!-- content start -->
 
     <div id="Content">
-        <form id="SafeInfo" class="layui-form" action="?">
+        <form id="SafeInfo" class="layui-form" action="?" method="post">
             <h2>基本信息修改</h2>
 
             <div id="SafeInfoNav">
@@ -37,7 +37,7 @@
             <div class="layui-form-item">
                 <label class="layui-form-label">原始密码</label>
                 <div class="layui-input-inlne">
-                    <input type="password" style="width:400px;" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+                    <input type="password" style="width:400px;" name="pass" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
                 </div>
             </div>
 
@@ -51,14 +51,14 @@
             <div class="layui-form-item">
                 <label class="layui-form-label">确认密码</label>
                 <div class="layui-input-inlne">
-                    <input type="password" style="width:400px;" name="password" required lay-verify="required" placeholder="请重新输入密码" autocomplete="off" class="layui-input">
+                    <input type="password" style="width:400px;" name="repassword" required lay-verify="required" placeholder="请重新输入密码" autocomplete="off" class="layui-input">
                 </div>
             </div>
 
             <div class="layui-form-item">
                 <div class="layui-input-block">
-                    <button class="layui-btn" style="background-color:#f37942; width:100px;margin-left:20px;" lay-submit lay-filter="formDemo">保存</button>
-                    <button type="reset" style="background-color:#b2b2b2; width:100px; margin-left:90px;" class="layui-btn layui-btn-primary">取消</button>
+                    <input type="submit" class="layui-btn" value="保存" style="background-color:#f37942; width:100px;margin-left:20px;" lay-submit>
+                    <input type="reset" value="取消" style="background-color:#b2b2b2; width:100px; margin-left:90px;" class="layui-btn layui-btn-primary">
                 </div>
             </div>
         </form>
