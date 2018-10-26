@@ -538,24 +538,22 @@ body{
     text-align: center;
 }
 /* 训练营 end */
+/*  */
+/* personal start */ 
 
-/* personal start */
-
-#Personal .Personal-List{
+#Personal .Personal-List {
     width: 850px;
-    height: 60px;
+    height: 80px;
     margin: auto;
-    margin-top: 50px;
-    margin-top: 50px;
-    display: flex;
 }
 
 #Personal .List-img{
     width: 120px;
     height: 120px;
+    margin-top: 30px;
     border-radius: 100%;
     -webkit-border-radius:100%;
-    -moz-border-radius:100%; 
+    -moz-border-radius:100%;
 }
 
 #Personal .List-img>img{
@@ -568,6 +566,7 @@ body{
     margin-left: 350px;
     width: 500px;
     font-size: 18px;
+    margin-top:30px;
 }
 
 #Content .Personal-List .Item-Info p{
@@ -617,6 +616,10 @@ body{
     position: absolute;
     margin-top: 10px;
     margin-left: -110px;
+}
+
+#Content .Personal-List .Operation .Safe{
+    margin-top: 30px;
 }
 
 #Content .Personal-List .Operation .Safe img{
@@ -900,3 +903,125 @@ body{
 }
 
 /* 发表动态 end */
+
+/* 已购买训练 start */
+
+#retrieval .Select{
+    width: 105px;
+    height: 48px;
+    border-radius: 5px;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    clear: both;
+    border: 2px solid #bbe8f2;
+}
+
+#retrieval select:first-child{
+    margin-left: -110px;
+}
+
+#retrieval .Second-select{
+    margin-left: 20px;
+}
+
+#retrieval select:last-child{
+    margin-left: 20px;
+}
+
+#search input{
+    margin-left: 50px;
+    width: 400px;
+    height: 46px;
+    border-radius: 5px;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    clear: both;
+    border: 2px solid #bbe8f2;
+}
+
+#search img{
+    float: right;
+    position:absolute;
+    margin-left: 420px;
+    margin-top: -36px;
+    z-index: 1;
+}
+
+/* 已购买训练 end */
+
+/* 历史训练成绩 start */
+
+#Content .Achievement-List{
+    width: 850px;
+    margin: auto;
+    margin-top: 20px;
+    display: flex;
+    /* text-align: center; */
+}
+
+#Content .Achievement-List .List-img{
+    width: 80px;
+    height: 80px;
+    background-color: #74a0f9; 
+}
+
+#Content .Achievement-List .List-img>img{
+    margin: 8px 0 0 15px;
+}
+
+#Content .Achievement-List .Item-Info{
+    margin-left: 20px;
+}
+
+#Content .Achievement-List .Item-Info p{
+    /* display: flex; */
+    font-size: 18px;
+    margin-top: 20px;
+    color: #999999;
+}
+
+#Content .Achievement-List .Item-Info .title{
+    font-size: 16px;
+    margin-top: 8px;
+}
+
+#Content .Achievement-List .Item-Info .time{
+    font-size: 16px;
+    margin-left: 50px;
+    color: #999999;
+}
+
+#Content .smallTitle{
+    width: 850px;
+    margin: auto;
+    margin-top: 30px;
+}
+
+#Content .Achievement-List .fabul{
+    margin-top: 20px;
+}
+
+#Content .Achievement-List .fabul span{
+    float: right;
+    display: flex;
+    font-size: 24px;
+    color: #999999;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    /* margin-top: 40px; */
+}
+
+#Content .Achievement-List .fabul span>div{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#Content .Achievement-List .fabul img{
+    width: 16px;
+    height: 20px;
+    float: right;
+    display: flex;
+    margin-top: 2px;
+}
+
+/* 历史训练成绩 end */
