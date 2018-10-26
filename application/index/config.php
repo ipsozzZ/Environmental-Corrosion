@@ -6,4 +6,9 @@ return [
         '__INDEX__'    => '/static/index',
         '__VENDOR__'   => '/static/vendor',
     ],
+    'session'          => [
+        'prefix'       => 'index',
+        'type'         => '',
+        'auto_start'   => true,
+    ],
 ];
