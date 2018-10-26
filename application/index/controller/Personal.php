@@ -44,4 +44,24 @@ class Personal extends Controller
    public function editNews(){
        return view('editNews');
    }
+
+   /* 我的已经购买的训练 */
+   public function myPractice(){
+       return view("myPractice");
+   }
+
+   /* 历史训练 */
+   public function historyTrain(){
+       return view("historyTrain");
+   }
+
+   /* 历史训练成绩 */
+   public function achievement(){
+       return view();
+   }
+
+   /* 我的证书 */
+   public function myHonor(){
+       return view('myHonor');
+   }
 }
