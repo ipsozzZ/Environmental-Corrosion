@@ -11,6 +11,15 @@ create table user (
 create unique index user_id_uindex on user (id);
 ALTER table user comment = '用户表';
 
+# token
+create table token (
+  id int PRIMARY key not null auto_increment,
+  token VARCHAR(32) not null,
+  expire timestamp default current_timestamp
+);
+create unique index token_id_uindex on token (id);
+alter table token comment='token表';
+
 # 课程
 create table subject (
   id int PRIMARY KEY NOT NULL auto_increment,
@@ -55,6 +64,13 @@ create table mood (
 create unique index mood_id_uindex on mood (id);
 alter table mood comment='学习心情';
 
+
+
+
+/*********          分割线             ***********/
+
+
+
 # 用户购买表
 create table userbuy (
   id int PRIMARY KEY NOT NULL auto_increment,
@@ -75,7 +91,6 @@ create unique index trainhis_id_uindex on trainhis (id);
 alter table trainhis comment='课程历史';
 
 # 成绩
-
 create table score (
   id int PRIMARY KEY not null auto_increment,
   uid int not null comment '用户id',
@@ -106,15 +121,6 @@ create table activity (
 );
 create unique index activity_id_uindex on activity (id);
 alter table activity comment='动态';
-
-# token
-create table token (
-  id int PRIMARY key not null auto_increment,
-  token VARCHAR(32) not null,
-  expire timestamp default current_timestamp
-);
-create unique index token_id_uindex on token (id);
-alter table token comment='token表';
 
 # 管理员
 create table admin (
