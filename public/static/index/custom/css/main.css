@@ -518,18 +518,16 @@ body{
 
 #Unlock-info {
     display: flex;
-    /* width: 600px;
-    height: 600px; */
-    /* margin: 300px; */
-    /* text-align: center; */
     margin-left: 150px;
 }
 
-/* #Unlock-info .Exit{
-    width      : 30px;
-    position   : absolute;
-    margin-left: 500px;
-} */
+#Content .List .List-Item .Lock{
+    position: absolute;
+    margin-top: 32px;
+    margin-left: 235px;
+    width: 15px;
+    height: 20px;
+}
 
 #Unlock-info .pay-info{
     margin-top: 50px;
