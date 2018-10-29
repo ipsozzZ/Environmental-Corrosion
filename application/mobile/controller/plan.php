@@ -8,6 +8,7 @@ class Plan extends Controller
     {
         $this -> assign('pageTitle', '学习计划');
         $this -> assign('curPageIndex', 3);
+        $this -> assign('notShowFooter', false); // 显示footer
         $this -> assign('isEdit', false);
     }
 
