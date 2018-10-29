@@ -23,6 +23,9 @@ a {
   text-decoration: none;
   color          : #444;
 }
+button:active {
+  outline: none;
+}
 
 header {
   height    : 4.5rem;
@@ -30,7 +33,7 @@ header {
   position  : fixed;
   top       : 0;
   width     : 100%;
-  z-index   : 1;
+  z-index   : 2;
   /* box-shadow: 0 .1rem .5rem 0rem #ccc; */
 }
 
@@ -107,6 +110,24 @@ footer div p.active {
   color: #ff7c42;
 }
 
+button {
+  color           : #ff7c42;
+  border-radius   : .3rem;
+  background-color: #fff;
+  border          : .1rem solid #ff7c42;
+}
+
+button.active {
+  background-color: #ff7c42;
+  color           : #fff;
+}
+
+button.small {
+  padding: .4rem .7rem;
+}
+
+
+
 
 /****************************************************/
 /******** common ************************************/
@@ -120,10 +141,15 @@ footer div p.active {
 }
 
 .filter-container select {
-  padding  : .7rem .9rem;
+  padding  : .7rem 0;
   margin   : 0 .7rem;
   font-size: 1.3rem;
+  flex     : 1;
   outline  : none;
+}
+
+.filter-container select option {
+  text-align: center;
 }
 
 .card {
@@ -167,4 +193,57 @@ footer div p.active {
   height     : 1.3rem;
   width      : 1.3rem;
   margin-left: 1rem;
+}
+
+/********** 进度条 **************/
+.process-container {
+  background-color: #fdd2be;
+  height          : .7rem;
+  width           : 100%;
+  overflow        : hidden;
+  position        : relative;
+  border-radius   : .5rem;
+  border          : .1rem solid #ff7c42;
+  padding         : 0;
+  box-sizing      : border-box;
+}
+.process-container .process {
+  background-color: #ff7c42;
+  display         : inline-block;
+  position        : absolute;
+  top             : 0;
+  left            : 0;
+  width           : 33.3%;
+  height          : 100%;
+  border-radius   : .5rem;
+  border          : .1rem solid #ff7c42;
+  box-sizing      : border-box;
+}
+.avatar-select {
+  display        : flex;
+  justify-content: center;
+  align-items    : center;
+  padding        : 1rem 0;
+}
+.avatar-select img {
+  width: 100%;
+}
+.avatar-select div {
+  position     : relative;
+  margin       : 0 1rem;
+  height       : 4.5rem;
+  width        : 4.5rem;
+  border-radius: 50%;
+  overflow     : hidden;
+}
+.avatar-select div.disable:after {
+  position        : absolute;
+  left            : 0;
+  top             : 0;
+  display         : block;
+  width           : 100%;
+  height          : 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  content         : attr(data-text);
+  transition      : all 1s ease;
 }

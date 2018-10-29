@@ -594,14 +594,7 @@
   background-color: rgba(0, 0, 0, 0.2);
   content         : attr(data-text);
   transition      : all 1s ease;
-  /* transform       : translateY(-100%); */
 }
-
-
-/*
-
-
-*/
 
 .cell .right .avatar {
   width        : 4rem;
@@ -611,4 +604,164 @@
 
 .cell-group div.avatar {
   height: 6rem;
+}
+
+/****************************************************/
+/******** 我的课程 ***********************************/
+/****************************************************/
+.train-process {
+  display    : flex;
+  align-items: center;
+  width      : 75%;
+  margin     : 0 auto;
+}
+
+.train-process .text {
+  width: 25%;
+}
+.train-process .process-container {
+  width: 75%;
+}
+
+
+
+/****************************************************/
+/******** 分析报告 *************************************/
+/****************************************************/
+
+.analysis-select {
+  justify-content: left;
+  background     : #ffc0a5;
+}
+.analysis-container {
+  padding         : 1rem 1.5rem;
+  background-color: #fff;
+}
+
+.analysis-container .analysis-item {
+  width        : 100%;
+  display      : flex;
+  justify-items: center;
+  padding      : 1rem 0;
+}
+.analysis-item .left, .analysis-item .mid, .analysis-item .right {
+  display        : flex;
+  justify-content: center;
+  align-items    : center;
+}
+.analysis-container .analysis-item .left {
+  flex: 1;
+}
+
+.analysis-container .analysis-item .left img {
+  width : 3.5rem;
+  height: 3.5rem;
+}
+
+.analysis-container .analysis-item .mid {
+  flex: 4;
+}
+
+.analysis-container .analysis-item .right {
+  flex: 1;
+}
+
+.share-analysis {
+  display        : flex;
+  justify-content: right;
+  align-items    : center;
+  padding        : 1rem 1.5rem;
+  flex-direction : row-reverse;
+}
+
+.share-analysis button {
+  margin-left: 1rem;
+}
+
+.share-pop-container {
+  position        : fixed;
+  height          : 100%;
+  width           : 100%;
+  z-index         : 3;
+  top             : 0;
+  left            : 0;
+  display         : none;
+  background-color: rgba(80, 80, 80, .7);
+}
+
+.share-pop-container .share-pop {
+  height          : 12rem;
+  background-color: #fff;
+  position        : absolute;
+  bottom          : 0;
+  width           : 100%;
+}
+
+.share-pop-container .share-pop p {
+  padding   : 1rem 1.5rem;
+  box-sizing: border-box;
+  font-size : 1.6rem;
+  color     : #444;
+  width     : 100%;
+}
+
+.share-pop-container .share-pop p img {
+  float : right;
+  width : 2rem;
+  height: 2rem;
+}
+
+.share-pop-container .share-pop .share-items {
+  width  : 100%;
+  display: flex;
+  /* align-content  : center; */
+  /* justify-content: center; */
+  flex-direction: row;
+  padding       : 0 1.5rem;
+  margin-top    : 1rem;
+}
+
+.share-pop-container .share-pop .share-items .share-item {
+  display        : flex;
+  justify-content: center;
+  align-items    : center;
+  flex-direction : column;
+  padding        : 0 1rem;
+}
+
+.share-pop-container .share-pop .share-item img {
+  width : 3rem;
+  height: 3rem;
+}
+
+.share-pop-container .share-pop .share-item span {
+  font-size : 1.5rem;
+  color     : #444;
+  margin-top: .5rem;
+}
+
+
+/****************************************************/
+/******** 孩子动态 ***********************************/
+/****************************************************/
+
+.analysis-select span {
+  position : absolute;
+  right    : 1.5rem;
+  font-size: 1.7rem;
+  color    : #ff7c42;
+}
+
+.activity-tree {
+  padding-top: 2rem;
+}
+.activity-tree .plan-detail-item .detail ul li span {
+  display        : flex;
+  justify-content: center;
+  font-size      : 1.4rem;
+}
+.activity-tree .plan-detail-item .detail ul li span img {
+  width        : 1.6rem;
+  height       : 1.6rem;
+  padding-right: .4rem;
 }

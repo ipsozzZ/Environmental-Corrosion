@@ -14,9 +14,10 @@ class Index extends Common
             // 'currMessager' => $currMessager,
         ]);
     }
-    
     public function index()
     {
         return view();
     }
 }
+
+

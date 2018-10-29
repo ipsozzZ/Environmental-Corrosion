@@ -5,6 +5,9 @@ use think\Controller;
 
 class Index extends Controller
 {
+  public function _initialize () {
+    $this -> assign('notShowFooter', false); // 显示footer
+  }
   public function index ()
   {
     $this -> assign("pageTitle", "首页");

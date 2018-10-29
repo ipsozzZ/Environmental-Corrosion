@@ -8,6 +8,7 @@ class Train extends Controller
     {
         $this -> assign("pageTitle", "训练营");
         $this -> assign('curPageIndex', 2);
+        $this -> assign('notShowFooter', false); // 显示footer
         return view();
     }
 }
