@@ -23,6 +23,9 @@ a {
   text-decoration: none;
   color          : #444;
 }
+button:active {
+  outline: none;
+}
 
 header {
   height    : 4.5rem;

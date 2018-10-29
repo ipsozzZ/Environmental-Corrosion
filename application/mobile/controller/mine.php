@@ -9,6 +9,7 @@ class Mine extends Controller
     $this -> assign('pageTitle', '用户');
     $this -> assign('curPageIndex', 4);
     $this -> assign('showBackBtn', true);
+    $this -> assign('notShowFooter', false); // 显示footer
   }
 
   public function index() {
@@ -42,6 +43,13 @@ class Mine extends Controller
     $this -> assign('notShowFooter', true);
 
     return view("analysis");
+  }
+
+  public function activity () {
+    $this -> assign('pageTitle', "孩子动态");
+    $this -> assign('notShowFooter', true);
+
+    return view("activity");
   }
 
 }
