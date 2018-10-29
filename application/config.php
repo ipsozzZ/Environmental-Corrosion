@@ -56,7 +56,7 @@ return [
     // 默认模块名
     'default_module'         => 'index',
     // 禁止访问模块
-    'deny_module_list'       => ['common'],
+    'deny_module_list'       => [],
     // 默认控制器名
     'default_controller'     => 'Index',
     // 默认操作名
@@ -143,11 +143,9 @@ return [
     ],
 
      // 视图输出字符串内容替换
-     'view_replace_str'       => [
-        '__PUBLIC__' => '/static',
-        '__UPLOADS__' => '/uploads',
-        '__LAYUI__' => '/vendor/layui',
-    ],
+    //  'view_replace_str'       => [
+        
+    // ],
     // 默认跳转页面对应的模板文件
     'dispatch_success_tmpl'  => THINK_PATH . 'tpl' . DS . 'dispatch_jump.tpl',
     'dispatch_error_tmpl'    => THINK_PATH . 'tpl' . DS . 'dispatch_jump.tpl',
