@@ -96,7 +96,7 @@
   </div>
 </div>
 <div class="share-analysis">
-  <button class="small active">
+  <button id="share" class="small active">
     分享成绩
   </button>
   <button class="small">
@@ -104,4 +104,42 @@
   </button>
 </div>
 
-{include file="public/footer"}
+<div class="share-pop-container">
+  <div class="share-pop">
+    <p>
+      <span>分享到</span>
+      <img class="share-close" src="__ICON__/close.png">
+    </p>
+    <div class="share-items">
+      <div class="share-item">
+          <img src="__ICON__/wechat.png">
+          <span>微信</span>
+        </div>
+        <div class="share-item">
+          <img src="__ICON__/weibo.png">
+          <span>微博</span>
+        </div>
+        <div class="share-item">
+          <img src="__ICON__/wechat-friend.png">
+          <span>朋友圈</span>
+        </div>
+        <div class="share-item">
+          <img src="__ICON__/qq.png">
+          <span>QQ</span>
+        </div>
+        <div class="share-item">
+          <img src="__ICON__/qzone.png">
+          <span>空间</span>
+        </div>
+    </div>
+  </div>
+
+  <script>
+    $("#share").click(e => {
+      $(".share-pop-container").show()
+    })
+    $(".share-close").click(e => {
+      $(".share-pop-container").hide()
+    })
+  </script>
+  {include file="public/footer"}
