@@ -116,5 +116,9 @@
   $(".plan-detail-container .edit-time").click(e => {
     $("#time").click()
   })
+
+  $(".plan-header span").click(e => {
+    this.router.push("/plan/edit")
+  })
 </script>
 {include file="public/footer"}
