@@ -2,6 +2,18 @@
 
 <!-- 内容主体区域 -->
 <div class="layui-body">
+    <form style="margin:auto;margin-top:50px; width: 500px;" class="layui-form" action="?" method="post">
+        <div class="layui-form-item">
+            <label class="layui-form-label">选择课程</label>
+            <div class="layui-input-block">
+                <select name="sid" id="sid" lay-verify="required">
+                    <option value=""></option>
+                    <option value="0">课程1</option>
+                    <option value="1">课程2</option>
+                </select>
+            </div>
+        </div>
+    </form>
     <div style="padding: 15px;">
         <table class="layui-table">
             <colgroup>
@@ -13,21 +25,25 @@
                 <tr>
                     <th>ID</th>
                     <th>课程封面</th>
+                    <th>课程名</th>
                     <th>课名</th>
                     <th>操作</th>
                 </tr>
             </thead>
             <tbody>
                 <!--循环输出管理员列表-->
-                {volist name="Subject" id="vo"}
+                {volist name="Subjects" id="vo"}
                 <tr>
-                    <td>{$vo.id}</td>
-                    <td>{$vo.cover}</td>
-                    <td>{$vo.name}</td>
+                    <td>{$vo.lid}</td>
                     <td>
-                        <a href="#" class="layui-btn layui-btn-warm layui-btn-mini">
+                        <img src="{$vo.cover}">
+                    </td>
+                    <td>{$vo.name}</td>
+                    <td>{$vo.sname}</td>
+                    <td>
+                        <a data-id="{$vo.lid}" class="edit layui-btn layui-btn-warm layui-btn-mini">
                             <i class="layui-icon">&#xe642;</i>编辑</a>
-                        <a href="#" class="layui-btn layui-btn-danger layui-btn-mini del">
+                        <a data-id="{$vo.lid}" class="delete layui-btn layui-btn-danger layui-btn-mini del">
                             <i class="layui-icon">&#xe640;</i>删除</a>
                     </td>
                 </tr>
@@ -37,5 +53,15 @@
 
     </div>
 </div>
+<script>
+    layui.use('form', function () {
+        var form = layui.form;
+    });
 
+    $(".edit").click(e => {
+        let src = e.currentTarget
+        let id = src.dataset.id
+        this.router.push("/subject/edit?lid=" + id)
+    })
+</script>
 {include file="public/footer"}
