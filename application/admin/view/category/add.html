@@ -1,0 +1,46 @@
+{include file="public/header"}
+
+
+<div class="layui-body">
+    <div style="padding: 15px;">
+      <div style="background-color:#DEDEDE; height:60px;"><h2 style="width:200px;margin:auto;padding:10px;">添加分类</h2></div>
+      <form  style="margin:auto;margin-top:50px;" class="layui-form" action="add" method="get">
+        <div class="layui-form-item">
+          <label class="layui-form-label">选择课程</label>
+          <div class="layui-input-block">
+            <select name="sid" lay-verify="required">
+              <option value=""></option>
+              {volist name="Subjects" id="vo"}
+                <option value="{$vo.id}">{$vo.name}</option>
+              {/volist}
+            </select>
+          </div>
+        </div>
+        <div class="layui-form-item">
+          <label class="layui-form-label">课名</label>
+          <div class="layui-input-inline">
+            <input type="text" name="name" required lay-verify="required" placeholder="请输入课名" autocomplete="off" class="layui-input">
+          </div>
+        </div>
+        <div class="layui-form-item">
+          <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="formDemo">添加</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+<script>
+    layui.use('form', function(){
+      var form = layui.form;
+
+      //监听提交
+      form.on('submit(formDemo)', function(data){
+        layer.msg("添加成功");
+        //return false;
+      });
+    });
+</script>
+
+{include file="public/footer"}

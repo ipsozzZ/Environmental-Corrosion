@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="__LAYUI__/css/layui.css" media="all">
   <link rel="stylesheet" href="__ADMIN_CSS__/font-awesome.min.css">
   <script src="__ADMIN_JS__/jquery.min.js"></script>
+  <script src="__LAYUI__/layui.js"></script>
   <script src="/static/admin/custom/js/router.js"></script>
 </head>
 <body class="layui-layout-body">
@@ -65,33 +66,30 @@
           <a >课程管理</a>
           <dl class="layui-nav-child">
             <dd data-url='/subject/index'><a>课程列表</a></dd>
-            <dd data-url='/'><a>增加课程</a></dd>
-            <dd data-url='/'><a>试玩课程</a></dd>
+            <dd data-url='/subject/add'><a>增加课程</a></dd>
+            <!-- <dd data-url='/'><a>试玩课程</a></dd> -->
           </dl>
         </li>
         <li class="layui-nav-item">
             <a>分类管理</a>
             <dl class="layui-nav-child">
               <dd data-url='/category/index'><a>分类列表</a></dd>
-              <dd data-url='/'><a>添加分类</a></dd>
+              <dd data-url='/category/add'><a>添加分类</a></dd>
             </dl>
           </li>
-        <li class="layui-nav-item" data-url='/'><a href="">发布商品</a></li>
+        <!-- <li class="layui-nav-item" data-url='/'><a href="">发布商品</a></li> -->
       </ul>
     </div>
   </div>
   <script>
     //页面载入时，获取页面地址，设置当前tab
     let url = window.location.href
-    let route = url.split("admin")
-    route = route[route.length - 1]
-    console.log(route)
 
     let tabs = $(".layui-nav-item dd")
 
     for(var i in tabs) {
       let tab = $(tabs[i])
-      if(tab.data('url') == route) {
+      if(url.indexOf(tab.data('url')) != -1) {
         tab.addClass("layui-this")
         $(tab.parent().parent()).addClass("layui-nav-itemed")
         break
