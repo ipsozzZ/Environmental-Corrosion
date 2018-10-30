@@ -32,7 +32,12 @@ class User extends Model
     ];
     $model = $this -> newInstance();
     $passMD5 = md5($pass);
-    $user = $model -> where('name', $name) -> where('pass', $pass) -> find();
+    $user = $model -> where('name', $name) -> where('pass', $passMD5) -> find();
+
+    if(@!$user['id']) {
+      $res['status'] = false;
+      return $res;
+    }
 
     $tokenModel = new Token();
     $token = $tokenModel -> addToken($user['id']);

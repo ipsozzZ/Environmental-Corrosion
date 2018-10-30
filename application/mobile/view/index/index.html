@@ -16,7 +16,7 @@
   </div>
 </div>
 
-<div class="card">
+<div class="card activity">
    <div class="head">
      <div class="title">动态</div>
      <div class="more">更多</div>
@@ -30,7 +30,7 @@
    </div>
 </div>
 
-<div class="card">
+<div class="card train">
   <div class="head">
     <div class="title">训练营</div>
     <div class="more">更多</div>
@@ -50,7 +50,7 @@
   </div>
 </div>
 
-<div class="card">
+<div class="card" style="padding-bottom: 5rem">
     <div class="head">
       <div class="title">学习心情</div>
       <div class="more">更多</div>
@@ -85,6 +85,7 @@
     </div>
   </div>
   <script>
+    //点击心情中的内容，跳到心情页
     $('.mood-item .content').click(e => {
       let mid = parseInt(e.currentTarget.dataset.mid)
       console.log(window.location)
@@ -97,9 +98,25 @@
       carousel.render({
         elem: '#carousel'
         ,width: '100%' //设置容器宽度
+        ,height: '18rem'
         ,arrow: 'always' //始终显示箭头
         //,anim: 'updown' //切换动画方式
       });
     });
+
+    /* 当训练营的更多被点击时，跳转到训练营 */
+    $('.train .more').click(e => {
+      this.router.push("/train")
+    })
+    /* 当训练营的项目被点击时，跳转到训练营 */
+    $('.train .train-card').click(e => {
+      this.router.push("/train")
+    })
+
+    /* 当动态的更多被点击时，跳转到动态 */
+    $('.activity .more').click(e => {
+      this.router.push("/mine/activity")
+    })
   </script>
+
 {include file="public/footer"}

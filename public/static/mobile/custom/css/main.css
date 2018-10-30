@@ -3,8 +3,7 @@
 /****************************************************/
 
 .swipper {
-  padding        : 4.5rem 0;
-  height         : 12rem;
+  height         : 18rem;
   background     : #ddd;
   display        : flex;
   justify-content: center;
@@ -487,6 +486,11 @@
   transition      : all 1s ease;
   z-index         : -1;
 }
+
+.user-card-container .user-card p.not-login {
+  font-size: 1.8rem;
+  color    : #444444;
+}
 .user-card-container .left img {
   width        : 7rem;
   height       : 7rem;
@@ -766,4 +770,16 @@
   width        : 1.6rem;
   height       : 1.6rem;
   padding-right: .4rem;
+}
+
+/****************************************************/
+/******** 登录 ***************************************/
+/****************************************************/
+
+.login-form {
+  padding: 1rem 1.5rem;
+}
+
+.login-form button.submit {
+  margin-left: 9.5rem;
 }
