@@ -1,15 +1,23 @@
 <?php
 namespace app\mobile\controller;
 use think\Controller;
+use think\Cookie;
 
 class Mine extends Controller
 {
+  private $userModel;
   public function _initialize()
   {
+    $this -> assign('logined', false);
     $this -> assign('pageTitle', '用户');
     $this -> assign('curPageIndex', 4);
     $this -> assign('showBackBtn', true);
     $this -> assign('notShowFooter', false); // 显示footer
+    // $cookie = new Cookie();
+    $token = cookie('disney_token');
+    if($token) {
+      $this -> assign('logined', true);
+    }
   }
 
   public function index() {
