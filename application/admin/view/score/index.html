@@ -1,38 +1,47 @@
 {include file="public/header"}
 
-<!-- 内容主体区域 -->
 <div class="layui-body">
     <div style="padding: 15px;">
         <table class="layui-table" lay-size="sm">
             <colgroup>
                 <col width="80">
                 <col>
-                <col width="150">
-                <col width="100">
+                <col width="80">
+                <col width="80">
+                <col width="80">
+                <col width="80">
+                <col width="80">
                 <col width="350">
             </colgroup>
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>购买时间</th>
                     <th>用户ID</th>
-                    <th>课程ID</th>
+                    <th>IQ</th>
+                    <th>CQ</th>
+                    <th>EQ</th>
+                    <th>SQ</th>
+                    <th>HQ</th>
                     <th>操作</th>
                 </tr>
             </thead>
             <tbody>
                 <!--循环输出管理员列表-->
-                {volist name="Buyinfo" id="vo"}
+                {volist name="Score" id="vo"}
                 <tr>
                     <td>{$vo.id}</td>
-                    <td>{$vo.btime}</td>
                     <td>{$vo.uid}</td>
-                    <td>{$vo.sid}</td>
+                    <td>{$vo.iq}</td>
+                    <td>{$vo.cq}</td>
+                    <td>{$vo.eq}</td>
+                    <td>{$vo.sq}</td>
+                    <td>{$vo.hq}</td>
+                    <td>{$vo.sids}</td>
                     <td>
                         <a href="{:url('edit')}?id={$vo.id}" class="layui-btn layui-btn-warm layui-btn-mini">
                             <i class="layui-icon">&#xe642;</i>编辑</a>
-                            <a href="{:url('info')}?id={$vo.sid}" class="layui-btn layui-btn-warm layui-btn-mini">
-                                <i class="layui-icon">&#xe66f;</i>详情</a>
+                        <a href="{:url('info')}?id={$vo.id}" class="layui-btn layui-btn-warm layui-btn-mini">
+                            <i class="layui-icon">&#xe66f;</i>详情</a>
                     </td>
                 </tr>
                 {/volist}
