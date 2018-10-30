@@ -1,0 +1,115 @@
+{include file="public/header"}
+
+<div class="user-card-container">
+  <div class="user-card">
+    {if condition="$logined"}
+    <div class="left">
+      <img src="__IMG__/avatar.png">
+    </div>
+    <div class="right">
+      <p class="name">
+        大宝妈妈
+        <a href="{:url('mine/edit')}">修改</a>
+      </p>
+      <p class="phone">
+        手机号：176****0028
+        <a href="{:url('mine/security')}">安全设置</a>
+      </p>
+    </div>
+    {else }
+    <p class="not-login">未登录, 点击登录</p>
+    {/if}
+  </div>
+</div>
+
+<div class="card activity">
+    <div class="head">
+      <div class="title">动态</div>
+      <div class="more">更多</div>
+    </div>
+    <div class="content">
+      <div class="active">
+         <p>【消息】张三宝宝：完成了初级第一阶段... <span>2分钟前</span></p>
+         <p>【消息】老张宝宝：完成了初级第一阶段... <span>一小时前</span></p>
+         <p>【消息】李四宝宝：获得了证书... <span>昨天</span></p>
+      </div>
+    </div>
+ </div>
+
+ <div class="card anslysis">
+    <div class="head">
+      <div class="title">分析报告</div>
+      <div class="more">更多</div>
+    </div>
+    <div class="content">
+      <div class="active">
+         <p>【消息】张三宝宝：完成了初级第一阶段... <span>2分钟前</span></p>
+         <p>【消息】老张宝宝：完成了初级第一阶段... <span>一小时前</span></p>
+         <p>【消息】李四宝宝：获得了证书... <span>昨天</span></p>
+      </div>
+    </div>
+ </div>
+
+ <div class="card">
+    <div class="head">
+      <div class="title">我的课程</div>
+    </div>
+    <div class="content">
+      <div class="mysubject">
+          <div class="mysubject-card card" style="background-image: url('__IMG__/train-level1.jpg')">
+            <p>初级训练营</p>
+          </div>
+          <div class="mysubject-card card" style="background-image: url('__IMG__/train-level2.jpg')">
+            <p>中级训练营</p>
+          </div>
+          <div class="mysubject-card card" style="background-image: url('__IMG__/train-level3.jpg')">
+            <p>高级训练营</p>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+      <div class="head">
+        <div class="title">孩子证书</div>
+        <div class="more"><a href="{:url('mine/diplomas')}">更多</a></div>
+      </div>
+      <div class="content">
+        <div class="diploma">
+            <div class="diploma-card card" style="background-image: url('__IMG__/diploma1.jpg')">
+              <p>初级训练营</p>
+            </div>
+            <div class="diploma-card card" style="background-image: url('__IMG__/diploma2.jpg')">
+              <p>中级训练营</p>
+            </div>
+            <div class="diploma-card card" style="background-image: url('__IMG__/diploma3.jpg')">
+              <p>高级训练营</p>
+            </div>
+        </div>
+      </div>
+    </div>
+
+
+<script>
+  //我的课程被点击
+  $(".mysubject").click(e => {
+    this.router.push("/mine/mySubject")
+  })
+
+  //分析报告的更多被点击
+  $(".anslysis .more").click(e => {
+    this.router.push("/mine/analysis")
+  })
+
+  //动态的更多被点击
+  $(".activity .more").click(e => {
+    this.router.push("/mine/activity")
+  })
+
+  //点击登录，跳转到登录页面
+  $(".not-login").click(e => {
+    this.router.push('/login')
+  })
+</script>
+
+{include file="public/footer"}

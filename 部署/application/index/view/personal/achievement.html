@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Achievement</title>
+    <link rel="stylesheet" href="__VENDOR__/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="__INDEX__/custom/css/main.css">
+    <link rel="stylesheet" href="__INDEX__/custom/css/pageinfo.css">
+    <link rel="stylesheet" href="__INDEX__/custom/css/Speed.css">
+</head>
+
+<body>
+    <!-- header start -->
+    <div id="Dome-Header" class="layui-container">
+        {include file="/common/login-nav"}
+    </div>
+    <!-- header end -->
+
+    <!-- content start -->
+
+    <div id="Content" style="background-color:#f8f8f8">
+        <div class="Item Demo">
+
+            <div class="Title">
+                <i class="mark"></i>
+                <h2>
+                    <a href="#">历史训练成绩</a>
+                </h2>
+                <i class="mark"></i>
+            </div>
+
+            <div id="retrieval">
+                <div class="layui-input-block">
+                    <select class="Select" name="city" lay-verify="">
+                        <option value="">初级阶段</option>
+                        <option value="010">中级阶段</option>
+                        <option value="021">高级阶段</option>
+                    </select>
+                    <select class="Select Second-select" name="city" lay-verify="">
+                        <option value="">第一阶段</option>
+                        <option value="010">第二阶段</option>
+                        <option value="021">第三阶段</option>
+                        <option value="0571">第四阶段</option>
+                    </select>
+                    <select class="Select" name="city" lay-verify="">
+                        <option value="">第一周阶段</option>
+                        <option value="010">第二周阶段</option>
+                        <option value="021">第三周阶段</option>
+                        <option value="0571">第四周阶段</option>
+                    </select>
+                </div>
+                <div id="Psearch">
+                    <select class="" name="city" lay-verify="">
+                        <option value="">课程题目1</option>
+                        <option value="010">课程题目2</option>
+                        <option value="021">课程题目3</option>
+                        <option value="0571">课程题目4</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="smallTitle">
+                <h3>
+                    <span>A级</span>
+                    <span>第一阶段</span>第一周
+                    <span></span>成绩</h3>
+            </div>
+
+            <div class="layui-row layui-col-space5 Achievement-List">
+                <div class="layui-col-md4" style="width:80px">
+                    <div class="grid-demo grid-demo-bg1 List-img">
+                        <img src="__INDEX__/custom/image/history1.png">
+                    </div>
+                </div>
+                <div class="layui-col-md4" style="width:487px">
+                    <div class="grid-demo Item-Info">
+                        <div id="Speed">
+                            <div style="margin-top:30px; background-color:#f8f8f8" class="layui-progress layui-progress-big">
+                                <div style="background-color:#6bd4e9" class="layui-progress-bar" lay-percent="40%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-md4">
+                    <div class="grid-demo grid-demo-bg1 fabul">
+                        <span>
+                            <span>+</span>
+                            <div>8</div>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="layui-row layui-col-space5 Achievement-List">
+                <div class="layui-col-md4" style="width:80px">
+                    <div class="grid-demo grid-demo-bg1 List-img">
+                        <img style="position:absolute;margin-top:-5px;" src="__INDEX__/custom/image/history2.png">
+                    </div>
+                </div>
+                <div class="layui-col-md4" style="width:487px">
+                    <div class="grid-demo Item-Info">
+                        <div id="Speed">
+                            <div style="margin-top:30px; background-color:#f8f8f8" class="layui-progress layui-progress-big">
+                                <div style="background-color:#6bd4e9" class="layui-progress-bar" lay-percent="70%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-md4">
+                    <div class="grid-demo grid-demo-bg1 fabul">
+                        <span>
+                            <span>+</span>
+                            <div>15</div>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="layui-row layui-col-space5 Achievement-List">
+                <div class="layui-col-md4" style="width:80px">
+                    <div class="grid-demo grid-demo-bg1 List-img">
+                        <img style="position:absolute; margin-left:4px;" src="__INDEX__/custom/image/history3.png">
+                    </div>
+                </div>
+                <div class="layui-col-md4" style="width:487px">
+                    <div class="grid-demo Item-Info">
+                        <div id="Speed">
+                            <div style="margin-top:30px; background-color:#f8f8f8" class="layui-progress layui-progress-big">
+                                <div style="background-color:#6bd4e9" class="layui-progress-bar" lay-percent="20%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-md4">
+                    <div class="grid-demo grid-demo-bg1 fabul">
+                        <span>
+                            <span>+</span>
+                            <div>4</div>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="layui-row layui-col-space5 Achievement-List">
+                <div class="layui-col-md4" style="width:80px">
+                    <div style="background-color:#4ed396" class="grid-demo grid-demo-bg1 List-img">
+                        <div style="width:60px;height:60px;position:absolute; margin:10px 0 0 10px; background-color:#ffffff"></div>
+                    </div>
+                </div>
+                <div class="layui-col-md4" style="width:487px">
+                    <div class="grid-demo Item-Info">
+                        <div id="Speed">
+                            <div style="margin-top:30px; background-color:#f8f8f8" class="layui-progress layui-progress-big">
+                                <div style="background-color:#6bd4e9" class="layui-progress-bar" lay-percent="60%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-md4">
+                    <div class="grid-demo grid-demo-bg1 fabul">
+                        <span>
+                            <span>+</span>
+                            <div>12</div>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="layui-row layui-col-space5 Achievement-List">
+                <div class="layui-col-md4" style="width:80px">
+                    <div class="grid-demo grid-demo-bg1 List-img">
+                        <img style="position:absolute;margin-left:2px;" src="__INDEX__/custom/image/history5.png">
+                    </div>
+                </div>
+                <div class="layui-col-md4" style="width:487px">
+                    <div class="grid-demo Item-Info">
+                        <div id="Speed">
+                            <div style="margin-top:30px; background-color:#f8f8f8" class="layui-progress layui-progress-big">
+                                <div style="background-color:#6bd4e9" class="layui-progress-bar" lay-percent="80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-md4">
+                    <div class="grid-demo grid-demo-bg1 fabul">
+                        <span>
+                            <span>+</span>
+                            <div>20</div>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="Pageinfo" class="grid-demo grid-demo-bg2">
+            </div>
+        </div>
+    </div>
+    <!-- content end -->
+    <script src="__INDEX__/vendor/js/jquery-3.0.0.js"></script>
+    <script src="__VENDOR__/layui/layui.js"></script>
+    <script>
+        /* form模块用来监控表单控件的，layer模块弹出层的依赖模块，laypage模块分页的依赖模块，element模块进度条的依赖模块 */
+        layui.use(['form', 'layer', 'laypage', 'element'], function () {
+            /* 实例化一个弹出层对象 */
+            var form = layui.form, layer = layui.layer;
+            /* 实例化一个分页对象 */
+            var laypage = layui.laypage;
+            /* 实例化一个element对象 */
+            var element = layui.element;
+            /* 执行一个实例 */
+            laypage.render({
+                elem: 'Pageinfo',
+                count: 50, // 从后台获取
+                limit: 9,
+                prev: '<',
+                next: '>',
+                theme: '#f37942',
+            })
+        })
+    </script>
+</body>
+
+</html>

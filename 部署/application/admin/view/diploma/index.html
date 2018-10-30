@@ -1,0 +1,40 @@
+{include file="public/header"}
+
+<div class="layui-body">
+    <div style="padding: 15px;">
+        <table class="layui-table" lay-size="sm">
+            <colgroup>
+                <col width="80">
+                <col>
+                <col width="150">
+                <col width="350">
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>证书缩略图</th>
+                    <th>电话</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!--循环输出管理员列表-->
+                {volist name="Diploma" id="vo"}
+                <tr>
+                    <td>{$vo.id}</td>
+                    <td><img src="{$vo.img}" style="height: 50px;"></td>
+                    <td>{$vo.uid}</td>
+                    <td>
+                        <a href="{:url('edit')}?id={$vo.id}" class="layui-btn layui-btn-warm layui-btn-mini">
+                            <i class="layui-icon">&#xe642;</i>编辑</a>
+                        <a href="{:url('info')}?id={$vo.id}" class="layui-btn layui-btn-warm layui-btn-mini">
+                            <i class="layui-icon">&#xe66f;</i>详情</a>
+                    </td>
+                </tr>
+                {/volist}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{include file="public/footer"}
