@@ -16,7 +16,7 @@ use think\Session;
 class Login extends Common
 {
     /* 用户登录 */
-    public function index(){
+    public function index () {
         if(request() -> isPost()){
             $data    = input('post.');
             // dump($data);die;

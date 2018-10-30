@@ -19,5 +19,3 @@ class Index extends Common
         return view();
     }
 }
-
-
