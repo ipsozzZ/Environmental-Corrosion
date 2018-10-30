@@ -15,7 +15,8 @@ ALTER table user comment = '用户表';
 create table token (
   id int PRIMARY key not null auto_increment,
   token VARCHAR(32) not null,
-  expire timestamp default current_timestamp
+  expire timestamp default current_timestamp,
+  uid int NOT NULL COMMENT '用户id'
 );
 create unique index token_id_uindex on token (id);
 alter table token comment='token表';

@@ -3,6 +3,7 @@ namespace app\index\controller;
 
 use think\Controller;
 use app\common\model\User;
+use app\common\model\Token;
 
 class Index extends Common
 {
@@ -14,8 +15,7 @@ class Index extends Common
     public function test () {
         $userModel = new User();
 
-        $user = $userModel -> login('5555', '12345');
-
+        $user = $userModel -> login("iimT", "123456");
         return $user;
     }
 }
