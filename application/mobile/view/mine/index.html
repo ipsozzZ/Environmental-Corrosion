@@ -2,6 +2,7 @@
 
 <div class="user-card-container">
   <div class="user-card">
+    {if condition="$logined"}
     <div class="left">
       <img src="__IMG__/avatar.png">
     </div>
@@ -15,6 +16,9 @@
         <a href="{:url('mine/security')}">安全设置</a>
       </p>
     </div>
+    {else }
+    <p class="not-login">未登录, 点击登录</p>
+    {/if}
   </div>
 </div>
 
@@ -87,15 +91,24 @@
 
 
 <script>
+  //我的课程被点击
   $(".mysubject").click(e => {
     this.router.push("/mine/mySubject")
   })
+
+  //分析报告的更多被点击
   $(".anslysis .more").click(e => {
     this.router.push("/mine/analysis")
   })
 
+  //动态的更多被点击
   $(".activity .more").click(e => {
     this.router.push("/mine/activity")
+  })
+
+  //点击登录，跳转到登录页面
+  $(".not-login").click(e => {
+    this.router.push('/login')
   })
 </script>
 
