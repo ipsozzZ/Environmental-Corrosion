@@ -23,9 +23,9 @@
    </div>
    <div class="content">
      <div class="active">
-        <p>【消息】张三宝宝：完成了初级第一阶段... <span>2分钟前</span></p>
-        <p>【消息】老张宝宝：完成了初级第一阶段... <span>一小时前</span></p>
-        <p>【消息】李四宝宝：获得了证书... <span>昨天</span></p>
+        {volist name="activitys" id="ac"}
+          <p data-uid="{$ac.uid}">{$ac.content} <span class="format-time">{$ac.ctime}</span></p>
+        {/volist}
      </div>
    </div>
 </div>
@@ -116,6 +116,16 @@
     /* 当动态的更多被点击时，跳转到动态 */
     $('.activity .more').click(e => {
       this.router.push("/mine/activity")
+    })
+
+    /** 页面加载完成之后，将所有需要带着format-time 标签的时间格式化 */
+    $(document).ready(e => {
+      let formats = $(".format-time")
+      let t = ''
+      for(var i in formats) {
+        t = $(formats[i]).html()
+        $(formats[i]).html(this.formatTime.getDateDiff(t))
+      }
     })
   </script>
 
