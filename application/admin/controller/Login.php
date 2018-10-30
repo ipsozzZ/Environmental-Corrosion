@@ -19,7 +19,8 @@ class Login extends Controller
                 $this->error($result['msg']);
             }
             /* 登录成功 */
-            $this->success($result['msg'], 'admin/index/index');
+            // $this->success($result['msg'], '');
+            $this->redirect('admin/index/index');
         }
         return view();
     }

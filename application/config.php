@@ -237,9 +237,16 @@ return [
     ],
 
     //分页配置
-    'paginate'               => [
+    'paginate'      => [
         'type'      => 'bootstrap',
         'var_page'  => 'page',
         'list_rows' => 15,
+    ],
+
+    'captcha'       => [
+        'fontSize'  => 30,
+        'length'    => 4,
+        /* 是否关闭验证码杂点 */
+        'useNoise'  => false,
     ],
 ];
