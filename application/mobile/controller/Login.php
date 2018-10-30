@@ -22,7 +22,6 @@ class Login extends Controller
       if($token['status']) {
         //登录成功
         //设置cookie
-        // $token = Cookie() -> set('disney_token', $token['token']);
         cookie('disney_token', $token['token']);
         $this -> assign('status', 1);
         return $this -> redirect('/mobile/mine');
