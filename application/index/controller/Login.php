@@ -39,25 +39,12 @@ class Login extends Common
             $data      = input('post.');
             /* 数据验证 */
             $result    = $this -> registerCheck($data);
-            /* 登录成功 */
-            if($result['code'] == 1){
-                /* 整理数据将数据写入数据库 */
-                $data['pass']  = $data['password'];
-                // unset($data['password']);
-                $User  =  new User();
-                $User  -> data($data);
-                $sql   = $User  -> allowField(true) -> save();
-                // dump($sql);die;
-                if($sql){
-                    $this      -> success($result['msg'],'\indexlogin\index');
-                }else{
-                    /* 登录失败 */
-                    $this      -> error('登录异常');
-                }
-            }else{
-                /* 登录失败 */
+            if($result['code'] == 0){
+                /* 注册失败 */
                 $this          -> error($result['msg']);
             }
+            /* 注册成功 */
+            $this -> success($result['msg'],'login/index');
         }
         return view();
     }
@@ -121,6 +108,18 @@ class Login extends Common
             ];
         }
 
+        /* 通过验证,整理数据将数据写入数据库 */
+        $data['pass']  = $data['password'];
+        $User  =  new User();
+        $User  -> data($data);
+        $sql   = $User  -> allowField(true) -> save();
+        // dump($sql);die;
+        if(!$sql){
+           return [
+               'code' => 0,
+               'msg'  => '服务器异常',
+           ];
+        }
         /* 注册成功 */
         return [
             'code' => 1,

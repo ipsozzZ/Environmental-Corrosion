@@ -51,5 +51,4 @@ class Mine extends Controller
 
     return view("activity");
   }
-
 }
