@@ -9,6 +9,14 @@ class Index extends Common
 {
     public function index()
     {
+        $isLogin = session('user');
+        // dump($isLogin);die;
+        if(!$isLogin){
+            $status = 0;
+        }else{
+            $status = 1;
+        }
+        $this -> assign("Status", $status);
         return view();
     }
 
