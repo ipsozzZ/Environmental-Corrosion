@@ -4,10 +4,15 @@ namespace app\admin\controller;
 use think\Controller;
 
 
-class Index extends Controller
+class Index extends Common
 {
     public function  _initialize () {
-        $this -> assign("pageTitle", "首页");
+        parent::_initialize();
+
+        $this -> assign([
+            "pageTitle"    => "首页",
+            // 'currMessager' => $currMessager,
+        ]);
     }
     public function index()
     {
