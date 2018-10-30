@@ -3,11 +3,13 @@
 /****************************************************/
 
 .swipper {
-  height         : 15rem;
+  padding        : 4.5rem 0;
+  height         : 12rem;
   background     : #ddd;
   display        : flex;
   justify-content: center;
   align-items    : center;
+  overflow       : hidden;
 }
 
 .swipper p {
