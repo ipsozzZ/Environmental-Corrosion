@@ -1,7 +1,15 @@
 {include file="public/header"}
 
 <div class="swipper">
-  <p>幻灯片</p>
+  <div class="layui-carousel" id="carousel">
+    <div carousel-item>
+      <div>条目1</div>
+      <div>条目2</div>
+      <div>条目3</div>
+      <div>条目4</div>
+      <div>条目5</div>
+    </div>
+  </div>
 </div>
 
 <div class="card">
@@ -78,5 +86,16 @@
       console.log(window.location)
       this.router.push("/mood")
     })
+
+    layui.use('carousel', function(){
+      var carousel = layui.carousel;
+      //建造实例
+      carousel.render({
+        elem: '#carousel'
+        ,width: '100%' //设置容器宽度
+        ,arrow: 'always' //始终显示箭头
+        //,anim: 'updown' //切换动画方式
+      });
+    });
   </script>
 {include file="public/footer"}
