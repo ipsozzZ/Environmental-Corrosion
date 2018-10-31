@@ -3,7 +3,8 @@ namespace app\mobile\controller;
 
 use think\Controller;
 use think\Cookie;
-use app\common\model\User;
+use app\common\controller\User;
+use function Qiniu\json_decode;
 
 class Login extends Controller
 {
@@ -19,6 +20,7 @@ class Login extends Controller
     if($name != '' && $pass != '') {
       $userModel = new User();
       $token = $userModel -> login($name, $pass);
+      $token = json_decode($token);
       if($token['status']) {
         //登录成功
         //设置cookie
