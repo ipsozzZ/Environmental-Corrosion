@@ -17,12 +17,13 @@ class Token extends Model {
   /**
    * 新增一个token
    * @param uid 用户id
+   * @param type 用户类型 1 孩子 2 家长 3 管理员
    * @return [
    *  status: bool 状态，
    *  token: 新的token
    * ]
    */
-  public function addToken ($uid) {
+  public function addToken ($uid, $type) {
     $this -> deleteByUid($uid);
 
     $model = $this -> newInstance();
@@ -32,7 +33,8 @@ class Token extends Model {
     $newToken = $this -> genToken($name);
 
     $model -> token = $newToken;
-    $model -> uid   = 1;//$user['id'];
+    $model -> uid   = 1; //$user['id'];
+    $model -> type  = $type;
     $model -> expire = date('Y-m-d H:i:s',strtotime('+1 day'));
 
     $res = $model -> save();

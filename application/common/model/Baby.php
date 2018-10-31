@@ -5,7 +5,7 @@ namespace app\common\model;
 use think\Model;
 use app\common\model\Token;
 
-class User extends Model
+class Baby extends Model
 {
 
   /**
@@ -40,7 +40,7 @@ class User extends Model
     }
 
     $tokenModel = new Token();
-    $token = $tokenModel -> addToken($user['id'], 2);
+    $token = $tokenModel -> addToken($user['id'], 1);
     if($token['status'] == true) {
       $res['token'] = $token['token'];
     } else {

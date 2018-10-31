@@ -2,14 +2,28 @@
 create table user (
   id int PRIMARY KEY not null auto_increment,
   `name` VARCHAR(16) not null unique comment '用户名',
+  nickname VARCHAR(16) not null unique comment '昵称',
+  pass VARCHAR(32) not null comment '密码',
+  phone VARCHAR(12) DEFAULT '' comment '手机号',
+  avatar VARCHAR(300) comment '头像'
+);
+create unique index user_id_uindex on user (id);
+ALTER table user comment = '用户表';
+
+# 孩子
+create table baby (
+  id int PRIMARY KEY not null auto_increment,
+  `name` VARCHAR(16) not null unique comment '用户名',
   pass VARCHAR(32) not null comment '密码',
   phone VARCHAR(12) DEFAULT '' comment '手机号',
   activite int DEFAULT 0 comment '活跃度',
   getlike int DEFAULT 0 comment '获赞',
-  gender int DEFAULT 1 comment '性别 男1 女0'
+  saying text comment '一句话介绍自己',
+  gender int DEFAULT 1 comment '性别 男1 女0',
+  avatar VARCHAR(300) comment '头像'
 );
-create unique index user_id_uindex on user (id);
-ALTER table user comment = '用户表';
+create unique index baby_id_uindex on baby (id);
+ALTER table baby comment = '孩子表';
 
 # token
 create table token (
