@@ -3,6 +3,8 @@ namespace app\common\model;
 
 use think\Model;
 use app\common\model\User;
+use app\common\model\Admin;
+use app\common\model\Baby;
 
 class Token extends Model {
   private $expireDay;
@@ -27,8 +29,14 @@ class Token extends Model {
     $this -> deleteByUid($uid);
 
     $model = $this -> newInstance();
-    $userModel = new User();
-    $user = $userModel -> getById($uid);
+    if($type == 1){
+      $typeModel = new Baby();
+    }elseif(type == 2){
+      $typeModel = new User();
+    }else {
+      $typeModel = new Admin();
+    }
+    $user = $typeModel -> getById($uid);
     $name = $user['name'];
     $newToken = $this -> genToken($name);
 
