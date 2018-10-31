@@ -4,6 +4,7 @@ namespace app\common\model;
 
 use think\Model;
 use app\common\model\Token;
+use app\common\model\Msg;
 
 class User extends Model
 {
@@ -39,6 +40,41 @@ class User extends Model
       return $res;
     }
 
+    $tokenModel = new Token();
+    $token = $tokenModel -> addToken($user['id'], 2);
+    if($token['status'] == true) {
+      $res['token'] = $token['token'];
+    } else {
+      $res['status'] = false;
+    }
+    return $res;
+  }
+
+  /**
+   * 短信登录
+   * @param phone 用户名
+   * @param code 用户密码
+   *
+   * @return res [
+   *  status: true,
+   *  token: 'asdasdas9dasd7',
+   * ]
+   */
+  public function msgLogin($phone, $code) {
+    $msgModel = new Msg();
+    $res = [
+      'status' => true,
+      'token' => '',
+    ];
+    if(!$msgModel -> checkCode($phone, $code)) {
+      //验证码无效
+      $res['status'] = false;
+      return $res;
+    }
+
+    //验证码有效
+    $model = $this -> newInstance();
+    $user = $model -> where('phone', $phone) -> find();
     $tokenModel = new Token();
     $token = $tokenModel -> addToken($user['id'], 2);
     if($token['status'] == true) {
