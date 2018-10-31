@@ -9,8 +9,7 @@
 namespace app\index\controller;
 
 use think\Controller;
-use app\index\model\User;
-use think\console\command\make\Model;
+use app\common\model\User;
 use think\Session;
 
 class Login extends Common
@@ -19,15 +18,13 @@ class Login extends Common
     public function index () {
         if(request() -> isPost()){
             $data    = input('post.');
-            // dump($data);die;
             /* 登录数据验证 */
             $result  = $this -> loginCheck($data);
             /* 登录异常 */
             if($result['code'] == 0){
                 $this -> error($result['msg'],'','','2');
             }
-            /* 登录成功跳转到首页 */
-            $this -> success($result['msg'],'index/index');
+            $this -> redirect('index/index');
         }
         return view();
     }
@@ -65,25 +62,17 @@ class Login extends Common
             ];
         }
 
-        /* 验证用户名是否存在数据库中 */
-        $User = new User(); // 实例化模型类
-        if(!$User -> where('name',$date['name']) -> find()){
+        /* 验证用户名和密码是否存在数据库中 */
+        $user = new User(); // 实例化模型类
+        $result  = $user -> login($data['name'],$data['pass']);
+        if($result['status'] == false){
             return [
                 'code' => 0,
-                'msg'  => '用户名不存在'
+                'msg'  => '用户名或密码不正确!'
             ];
         }
-
-        /* 验证用户密码是否正确 */
-        if(!$User -> where('pass',$date['password']) -> find()){
-            return [
-                'code' => 0,
-                'msg'  => '用户名密码不正确!',
-            ];
-        }
-
-        /* 登录成功，将用户名存到session */
-        session('user',$date['name'],'index');
+        /* 登录成功，将token存到cookie */
+        cookie('disney_token', $result['token']);
         return [
             'code' => 1,
             'msg'  => '登录成功',
@@ -111,9 +100,10 @@ class Login extends Common
         /* 通过验证,整理数据将数据写入数据库 */
         $data['pass']  = $data['password'];
         $User  =  new User();
-        $User  -> data($data);
-        $sql   = $User  -> allowField(true) -> save();
-        // dump($sql);die;
+        $sql   = $User  -> register($data);
+        if($sql != 1){
+            
+        }
         if(!$sql){
            return [
                'code' => 0,

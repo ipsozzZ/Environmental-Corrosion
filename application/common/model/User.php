@@ -61,7 +61,7 @@ class User extends Model
     $model -> name = $data['name'];
     $model -> pass = md5($data['pass']);
 
-    $res = $model -> save();
+    $res = $model -> allowField(true) -> save();
     return $res == 1;
   }
 
