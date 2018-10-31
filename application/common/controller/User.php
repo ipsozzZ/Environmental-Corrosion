@@ -20,4 +20,17 @@ class User extends Controller
 
     return json_encode($model -> login($user, $pass));
   }
+
+  /**
+   * 短信登录
+   * @param phone 手机号
+   * @param code 验证码
+   */
+  public function msgLogin ($phone, $code) {
+    $model = new Model();
+    $res = $model -> msgLogin($phone, $code);
+    if($res['status'])
+      cookie("disney_token", $res['token']);
+    return json_encode($res);
+  }
 }
