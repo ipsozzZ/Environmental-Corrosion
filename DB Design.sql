@@ -146,3 +146,17 @@ create table admin (
 )
 create unique index token_id_uindex on token (id);
 alter table token comment='管理员表';
+
+#验证码
+create table disney.msg
+(
+  id    int auto_increment,
+  code  varchar(6)  not null,
+  phone varchar(12) not null,
+  constraint msg_id_uindex
+  unique (id)
+);
+
+alter table disney.msg
+  add primary key (id);
+

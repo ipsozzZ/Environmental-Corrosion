@@ -1,43 +1,28 @@
 {include file="public/header"}
-
-<form class="layui-form login-form">
-    <div class="layui-form-item">
-      <label class="layui-form-label">用户名</label>
-      <div class="layui-input-block">
-        <input type="text" name="name" required  lay-verify="required" placeholder="用户名" autocomplete="off" class="layui-input">
-      </div>
+<div class="layui-tab layui-tab-card" style="margin-top: 0">
+  <ul class="layui-tab-title" style="display:flex; justify-content: center">
+    <li class="layui-this">密码登录</li>
+    <li>短信登录</li>
+  </ul>
+  <div class="layui-tab-content">
+    <div class="layui-tab-item layui-show">
+      {include file="login/nameLogin"}
     </div>
-    <div class="layui-form-item">
-      <label class="layui-form-label">密码</label>
-      <div class="layui-input-inline">
-        <input type="password" name="pass" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
-      </div>
+    <div class="layui-tab-item">
+      {include file="login/msgLogin"}
     </div>
-    {if condition="$status == -1"}
-      <script>
-        layui.use('layer', function(){
-          layer.msg("用户名或密码错误！");
-        })
-      </script>
-    {elseif condition="$status == 1"}
-      <script>
-        layui.use('layer', function(){
-          layer.msg("登录成功！");
-        });
-      </script>
-    {/if}
-    <button class="submit active" lay-submit lay-filter="login-form">登录</button>
-</form>
+  </div>
+</div>
 
 <script>
-    layui.use('form', function(){
-      var form = layui.form;
 
-      //监听提交
-      form.on('submit(login-form)', function(data){
-        //layer.msg(JSON.stringify(data.field));
-      });
-    });
+layui.use('element', function(){
+  var element = layui.element;
+  
+  //…
+});
+
 </script>
+
 
 {include file="public/footer"}
