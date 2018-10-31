@@ -75,4 +75,25 @@
       </div>
 </div>
 
+<div class="cell-group">
+    <div class="cell exit">
+        <div class="cell-con">
+          退出
+        </div>
+      </div>
+</div>
+
+<script>
+  $(".exit").click(e => {
+    $.ajax({
+      url: '/common/User/logout',
+      method: 'get',
+      success: r => {
+        console.log(r)
+        this.router.push("/mine")
+      }
+    })
+  })
+</script>
+
 {include file="public/footer"}
