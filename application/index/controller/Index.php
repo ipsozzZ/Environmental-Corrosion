@@ -19,11 +19,4 @@ class Index extends Common
         $this -> assign("Status", $status);
         return view();
     }
-
-    public function test () {
-        $userModel = new User();
-
-        $user = $userModel -> login("iimT", "123456");
-        return $user;
-    }
 }

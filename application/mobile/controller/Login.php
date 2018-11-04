@@ -4,7 +4,6 @@ namespace app\mobile\controller;
 use think\Controller;
 use think\Cookie;
 use app\common\controller\User;
-use function Qiniu\json_decode;
 
 class Login extends Controller
 {
@@ -21,10 +20,10 @@ class Login extends Controller
       $userModel = new User();
       $token = $userModel -> login($name, $pass);
       $token = json_decode($token);
-      if($token['status']) {
+      if($token -> status) {
         //登录成功
         //设置cookie
-        cookie('disney_token', $token['token']);
+        cookie('disney_token', $token -> token);
         $this -> assign('status', 1);
         return $this -> redirect('/mobile/mine');
       } else {

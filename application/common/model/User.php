@@ -109,4 +109,14 @@ class User extends Model
 
     return $model -> get($id);
   }
+
+  /**
+   * 更新用户信息
+   */
+  public function updateById ($id, $data) {
+    $model = $this -> newInstance();
+
+    $res = $model -> save($data, ['id' => $id]);
+    return $res;
+  }
 }

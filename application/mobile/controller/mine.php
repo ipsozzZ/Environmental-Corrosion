@@ -1,26 +1,54 @@
 <?php
 namespace app\mobile\controller;
+
 use think\Controller;
 use think\Cookie;
+use app\common\controller\User;
+use app\common\controller\Activity;
 
 class Mine extends Controller
 {
   private $userModel;
-  public function _initialize()
-  {
-    $this -> assign('logined', false);
-    $this -> assign('pageTitle', '用户');
-    $this -> assign('curPageIndex', 4);
-    $this -> assign('showBackBtn', true);
-    $this -> assign('notShowFooter', false); // 显示footer
-    // $cookie = new Cookie();
-    $token = cookie('disney_token');
-    if($token) {
-      $this -> assign('logined', true);
+  private $user;
+  private $token;
+  private $isLogin;
+
+  public function _initialize() {
+    $this -> token = cookie('disney_token');
+    if($this -> token) {
+      $this -> isLogin = true;
+    } else {
+      $this -> isLogin = false;
     }
+    $this -> user = $this -> getUser($this -> token);
+    if(!is_object($this -> user)) {
+      $this -> isLogin = false;
+    }
+    $this -> assign('user', $this -> user); //用户信息
+    $this -> assign('pageTitle', '用户'); //页面标题
+    $this -> assign('curPageIndex', 4); //页面底部索引
+    $this -> assign('showBackBtn', true); //是否显示返回按钮
+    $this -> assign('notShowFooter', false); // 显示footer
+    $this -> assign('logined', $this -> isLogin); //登录状态
+  }
+
+  private function getUser ($token) {
+    $userModel = new User();
+    $user = $userModel -> getByToken($token);
+    $user = json_decode($user);
+
+    return $user -> data;
   }
 
   public function index() {
+    $activityModel = new Activity();
+    if($this -> isLogin) {
+      $activity = $activityModel -> getUserBabyActivity($this -> user -> id);
+    } else {
+      $activity = $activityModel -> getActivity();
+    }
+    $activity = json_decode($activity);
+    $this -> assign('activitys', $activity);
     return view();
   }
 
