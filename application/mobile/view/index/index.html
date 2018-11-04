@@ -24,7 +24,7 @@
    <div class="content">
      <div class="active">
         {volist name="activitys" id="ac"}
-          <p data-uid="{$ac.uid}">{$ac.content} <span class="format-time">{$ac.ctime}</span></p>
+          <p data-uid="{$ac->bid}">{$ac->content} <span class="format-time">{$ac->ctime}</span></p>
         {/volist}
      </div>
    </div>
@@ -56,32 +56,21 @@
       <div class="more">更多</div>
     </div>
     <div class="content">
-      <div class="mood-item">
-         <div class="avatar">
-           <img src="/static/mobile/image/avatar-test.jpg">
-         </div>
-         <div class="content" data-mid="1">
-          <p class="name">大宝</p>
-          <p>在学习了第一周的课程之后，我的逻辑思维...</p>
-         </div>
-         <div class="other">
-          <p class="time">2小时前</p>
-          <p class="like"><img src="/static/mobile/image/icon/like-selected.png"></p>
-         </div>
-      </div>
-      <div class="mood-item">
+      {volist name="moods" id="m"}
+        <div class="mood-item">
           <div class="avatar">
-            <img src="/static/mobile/image/avatar-test.jpg">
+            <img src="{$m -> avatar}">
           </div>
-          <div class="content" data-mid="2">
-           <p class="name">大宝</p>
-           <p>在学习了第一周的课程之后，我的逻辑思维...</p>
+          <div class="content" data-mid="1">
+          <p class="name">{$m -> name}</p>
+          <p>{$m -> content}</p>
           </div>
           <div class="other">
-           <p class="time">2小时前</p>
-           <p class="like"><img src="/static/mobile/image/icon/like.png"></p>
+          <p class="time format-time">{$m -> ctime}</p>
+          <p class="like"><img src="/static/mobile/image/icon/like-selected.png"></p>
           </div>
-       </div>
+        </div>
+      {/volist}
     </div>
   </div>
   <script>

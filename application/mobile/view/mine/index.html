@@ -4,15 +4,15 @@
   <div class="user-card">
     {if condition="$logined"}
     <div class="left">
-      <img src="__IMG__/avatar.png">
+      <img src="{$user -> avatar}">
     </div>
     <div class="right">
       <p class="name">
-        大宝妈妈
+        {$user -> name}
         <a href="{:url('mine/edit')}">设置</a>
       </p>
       <p class="phone">
-        手机号：176****0028
+        手机号：{$user -> phone}
         <a href="{:url('mine/security')}">安全设置</a>
       </p>
     </div>
@@ -29,10 +29,10 @@
     </div>
     <div class="content">
       <div class="active">
-         <p>【消息】张三宝宝：完成了初级第一阶段... <span>2分钟前</span></p>
-         <p>【消息】老张宝宝：完成了初级第一阶段... <span>一小时前</span></p>
-         <p>【消息】李四宝宝：获得了证书... <span>昨天</span></p>
-      </div>
+        {volist name="activitys" id="ac"}
+          <p data-bid="{$ac->bid}">{$ac->content} <span class="format-time">{$ac->ctime}</span></p>
+        {/volist}
+     </div>
     </div>
  </div>
 

@@ -25,17 +25,17 @@ class Token extends Model {
    */
   public function addToken ($uid, $type) {
     $this -> deleteByUid($uid);
-
     $model = $this -> newInstance();
+    var_dump($type);
     $userModel = new User();
     $user = $userModel -> getById($uid);
     $name = $user['name'];
     $newToken = $this -> genToken($name);
 
     $model -> token = $newToken;
-    $model -> uid   = 1; //$user['id'];
-    $model -> type  = $type;
-    $model -> expire = date('Y-m-d H:i:s',strtotime('+1 day'));
+    $model -> uid   = $uid;
+    $model -> expire = date('Y-m-d H:i:s', strtotime('+1 day'));
+    $model -> identity  = $type;
 
     $res = $model -> save();
     return [
@@ -44,12 +44,26 @@ class Token extends Model {
     ];
   }
 
-  public function getUserByToken () {
+  /**
+   * 根据token获取uid
+   * @param token token
+   * @param type token类型
+   */
+  public function getUidByToken ($token, $type) {
+    $model = $this -> newInstance();
 
+    $res = $model
+      -> get([
+        'token' => $token,
+        'identity' => $type
+      ]);
+    if(@!$res['id']) return false;
+    return $res['uid'];
   }
 
   public function deleteByUid ($uid) {
     $model = $this -> newInstance();
+
     $tokens = $model -> where('uid',$uid) -> delete();
     return $tokens;
   }
