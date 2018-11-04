@@ -1,0 +1,132 @@
+{include file="public/header"}
+
+<div class="swipper">
+  <div class="layui-carousel" id="carousel">
+    <div carousel-item>
+      <div>
+        <img src="/static/mobile/image/carousel/1.jpg">
+      </div>
+      <div>
+        <img src="/static/mobile/image/carousel/2.jpg">
+      </div>
+      <div>
+        <img src="/static/mobile/image/carousel/3.jpg">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card activity">
+   <div class="head">
+     <div class="title">动态</div>
+     <div class="more">更多</div>
+   </div>
+   <div class="content">
+     <div class="active">
+        {volist name="activitys" id="ac"}
+          <p data-uid="{$ac.uid}">{$ac.content} <span class="format-time">{$ac.ctime}</span></p>
+        {/volist}
+     </div>
+   </div>
+</div>
+
+<div class="card train">
+  <div class="head">
+    <div class="title">训练营</div>
+    <div class="more">更多</div>
+  </div>
+  <div class="content">
+    <div class="train">
+        <div class="train-card" style="background-image: url('/static/mobile/image/primary-level.png')">
+          <p>初级训练营</p>
+        </div>
+        <div class="train-card" style="background-image: url('/static/mobile/image/middle-level.png')">
+          <p>中级训练营</p>
+        </div>
+        <div class="train-card" style="background-image: url('/static/mobile/image/high-level.png')">
+          <p>高级训练营</p>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="card" style="padding-bottom: 5rem">
+    <div class="head">
+      <div class="title">学习心情</div>
+      <div class="more">更多</div>
+    </div>
+    <div class="content">
+      <div class="mood-item">
+         <div class="avatar">
+           <img src="/static/mobile/image/avatar-test.jpg">
+         </div>
+         <div class="content" data-mid="1">
+          <p class="name">大宝</p>
+          <p>在学习了第一周的课程之后，我的逻辑思维...</p>
+         </div>
+         <div class="other">
+          <p class="time">2小时前</p>
+          <p class="like"><img src="/static/mobile/image/icon/like-selected.png"></p>
+         </div>
+      </div>
+      <div class="mood-item">
+          <div class="avatar">
+            <img src="/static/mobile/image/avatar-test.jpg">
+          </div>
+          <div class="content" data-mid="2">
+           <p class="name">大宝</p>
+           <p>在学习了第一周的课程之后，我的逻辑思维...</p>
+          </div>
+          <div class="other">
+           <p class="time">2小时前</p>
+           <p class="like"><img src="/static/mobile/image/icon/like.png"></p>
+          </div>
+       </div>
+    </div>
+  </div>
+  <script>
+    //点击心情中的内容，跳到心情页
+    $('.mood-item .content').click(e => {
+      let mid = parseInt(e.currentTarget.dataset.mid)
+      console.log(window.location)
+      this.router.push("/mood")
+    })
+
+    layui.use('carousel', function(){
+      var carousel = layui.carousel;
+      //建造实例
+      carousel.render({
+        elem: '#carousel'
+        ,width: '100%' //设置容器宽度
+        ,height: '18rem'
+        ,arrow: 'always' //始终显示箭头
+        //,anim: 'updown' //切换动画方式
+      });
+    });
+
+    /* 当训练营的更多被点击时，跳转到训练营 */
+    $('.train .more').click(e => {
+      this.router.push("/train")
+    })
+    /* 当训练营的项目被点击时，跳转到训练营 */
+    $('.train .train-card').click(e => {
+      this.router.push("/train")
+    })
+
+    /* 当动态的更多被点击时，跳转到动态 */
+    $('.activity .more').click(e => {
+      this.router.push("/mine/activity")
+    })
+
+    /** 页面加载完成之后，将所有需要带着format-time 标签的时间格式化 */
+    $(document).ready(e => {
+      let formats = $(".format-time")
+      let t = ''
+      for(var i in formats) {
+        t = $(formats[i]).html()
+        $(formats[i]).html(this.formatTime.getDateDiff(t))
+      }
+    })
+  </script>
+
+{include file="public/footer"}

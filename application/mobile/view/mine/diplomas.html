@@ -1,0 +1,21 @@
+{include file="public/header"}
+
+<div class="plan-header">
+    <img src="/static/mobile/image/avatar-test.jpg">
+    <img src="/static/mobile/image/avatar-test.jpg">
+  </div>
+
+<div class="subject-container">
+  <div class="subjects">
+    {for start="1" end="10" step="1" name="i"}
+      <div class="subject">
+        <div class="subj-card">
+          <img src="/static/mobile/image/subject{$i % 3 + 1}.png">
+          <p>证书 {$i}</p>
+        </div>
+      </div>
+    {/for}
+  </div>
+</div>
+
+{include file="public/footer"}
