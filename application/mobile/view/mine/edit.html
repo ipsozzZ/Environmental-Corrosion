@@ -1,0 +1,99 @@
+{include file="public/header"}
+
+<div class="cell-group">
+    <div class="cell avatar">
+        <div class="cell-con">
+          个人资料设置
+          <div class="right">
+            <img class="avatar" src="__IMG__/avatar.png">
+          </div>
+        </div>
+      </div>
+    <div class="cell">
+      <div class="cell-con">
+        实名认证
+        <div class="right">
+          未验证
+          <img class="next" src="__ICON__/next.png">
+        </div>
+      </div>
+    </div>
+    <div class="cell">
+        <div class="cell-con">
+          更换手机号
+          <div class="right">
+            123456789
+            <img class="next" src="__ICON__/next.png">
+          </div>
+        </div>
+      </div>
+</div>
+
+<div class="cell-group">
+    <div class="cell">
+        <div class="cell-con">
+          学生信息
+          <div class="right">
+            <img class="next" src="__ICON__/next.png">
+          </div>
+        </div>
+      </div>
+    <div class="cell">
+      <div class="cell-con">
+        消息设置
+        <div class="right">
+          <img class="next" src="__ICON__/next.png">
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="cell-group">
+    <div class="cell">
+        <div class="cell-con">
+          联系客服
+          <div class="right">
+            <img class="next" src="__ICON__/next.png">
+          </div>
+        </div>
+      </div>
+    <div class="cell">
+      <div class="cell-con">
+        清除缓存
+        <div class="right">
+          <img class="next" src="__ICON__/next.png">
+        </div>
+      </div>
+    </div>
+    <div class="cell">
+        <div class="cell-con">
+          关于我们
+          <div class="right">
+            <img class="next" src="__ICON__/next.png">
+          </div>
+        </div>
+      </div>
+</div>
+
+<div class="cell-group">
+    <div class="cell exit">
+        <div class="cell-con">
+          退出
+        </div>
+      </div>
+</div>
+
+<script>
+  $(".exit").click(e => {
+    $.ajax({
+      url: '/common/User/logout',
+      method: 'get',
+      success: r => {
+        console.log(r)
+        this.router.push("/mine")
+      }
+    })
+  })
+</script>
+
+{include file="public/footer"}

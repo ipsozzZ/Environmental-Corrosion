@@ -1,0 +1,74 @@
+{if condition='!$notShowFooter'}
+  <footer>
+    <div class="link" data-to="/index">
+      {if condition='$curPageIndex eq 1'}
+          <img src="/static/mobile/image/icon/home-selected.png">
+        {else /}
+          <img src="/static/mobile/image/icon/home.png">
+      {/if}
+      <p class="{$curPageIndex == 1?'active':''}">首页</p>
+    </div>
+    <div class="link" data-to="/train">
+      {if condition='$curPageIndex eq 2'}
+          <img src="/static/mobile/image/icon/train-selected.png">
+        {else /}
+          <img src="/static/mobile/image/icon/train.png">
+      {/if}
+      <p class="{$curPageIndex == 2?'active':''}">训练营</p>
+    </div>
+    <div class="link" data-to="/plan">
+      {if condition='$curPageIndex eq 3'}
+          <img src="/static/mobile/image/icon/book-selected.png">
+        {else /}
+          <img src="/static/mobile/image/icon/book.png">
+      {/if}
+      <p class="{$curPageIndex == 3?'active':''}">学习计划</p>
+    </div>
+    <div class="link" data-to="/mine">
+      {if condition='$curPageIndex eq 4'}
+          <img src="/static/mobile/image/icon/user-selected.png">
+        {else /}
+          <img src="/static/mobile/image/icon/user.png">
+      {/if}
+      <p class="{$curPageIndex == 4?'active':''}">我的</p>
+    </div>
+  </footer>
+{/if}
+</body>
+<script src="/static/mobile/custom/js/router.js"></script>
+<script>
+  let backBtn = $("#backBtn")
+  /*
+    点击返回按钮时，返回上一页
+  */
+  backBtn.click(e => {
+    this.router.go(-1)
+  })
+  let footerNavLinks = $("footer .link")
+  /*
+    当地步导航被点击时，切换页面
+  */
+  footerNavLinks.click(e => {
+    let to = e.currentTarget.dataset.to
+    let href = window.location.href
+    let params = href.split('/')
+    
+    if(params[params.length - 1] == "") {
+      params.pop()
+    }
+    console.log(params)
+    let curHref = params[params.length - 1]
+    let toHref = ""
+    if(curHref == "mobile") {
+      if(href[href.length - 1] == "/")
+        href = href.substr(0, href.length- 1)
+      toHref = href + "/" + to
+    } else {
+      toHref = href.replace(curHref, to)
+    }
+    if(curHref == to || (curHref == "mobile" && to == "index")) return
+
+    this.router.push(to)
+  })
+</script>
+</html>
