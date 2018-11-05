@@ -27,4 +27,14 @@ class Slist extends Common
 
     return view();
   }
+
+  public function edit ($id = 0) {
+    if($id == 0) {
+      return 0;
+    }
+    $model = new Model();
+    $astandard = $model -> get($id);
+    $this -> assign("astandard", $astandard);
+    return view();
+  }
 }
