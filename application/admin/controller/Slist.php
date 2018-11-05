@@ -21,7 +21,7 @@ class Slist extends Common
       $slist = [];
     } else {
       $model = new Model();
-      $slist =  $model -> where("sid", $sid) -> select();
+      $slist =  $model -> where("sid", $sid) -> order("id", "desc") -> select();
     }
     $this -> assign("slist", $slist);
     $this -> assign("sid", $sid);
@@ -56,13 +56,15 @@ class Slist extends Common
     ];
     $model = new Model();
     if(!$id) {
+      $data['sid'] = $this -> request -> post('sid');
       $id = $model -> add($data);
-    } else {
-      $res = $model -> updateById($id, $data);
+      return $this -> redirect("slist/index", ['sid' => $data['sid']]);
     }
+
+    $res = $model -> updateById($id, $data);
     $astandard = $model -> get($id);
     $this -> assign("astandard", $astandard);
-    return view("edit");
+    return view("edit", ['id' => $id]);
   }
 
   /**
@@ -76,5 +78,13 @@ class Slist extends Common
     $res = $carouselModel -> deleteById($id);
 
     return $this -> redirect("slist/index", ['sid' => $sid]);
+  }
+
+  public function add ($sid = 0) {
+    if($sid == 0) {
+      return 0;
+    }
+    $this -> assign("sid", $sid);
+    return view();
   }
 }

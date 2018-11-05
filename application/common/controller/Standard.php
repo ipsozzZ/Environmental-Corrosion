@@ -4,7 +4,7 @@ namespace app\common\controller;
 use think\Controller;
 use PHPExcel_IOFactory;
 use PHPExcel;
-use app\common\model\Standard as Model;
+use app\common\model\Slist as Model;
 
 class Standard extends Controller
 {
@@ -15,15 +15,16 @@ class Standard extends Controller
     /**
      * 导入excel并写入
      */
-    public function importExcel()
-    {
+    public function importExcelToStandard() {
       $res = [
         'status' => 0,
         'msg' => '',
         'data' => []
       ];
+      $sid = request() -> post("sid");
       $file = request() -> file('file');
-      if(!$file) {
+      // $sid = 2;
+      if(!$file || !$sid) {
         $res['msg'] = "没有上传文件！";
         return json_encode($res);
       }
@@ -50,7 +51,8 @@ class Standard extends Controller
         for ($i = 2; $i <= $highestRow; $i++) {
           //看这里看这里,前面小写的a是表中的字段名，后面的大写A是excel中位置
           $data = [];
-          $data['id']         = $objPHPExcel->getActiveSheet()->getCell("A" . $i)->getValue();
+          $data['sid']        = $sid;
+          // $data['id']         = $objPHPExcel->getActiveSheet()->getCell("A" . $i)->getValue();
           $data['num']        = $objPHPExcel->getActiveSheet()->getCell("B" . $i)->getValue();
           $data['name']       = $objPHPExcel->getActiveSheet()->getCell("C" . $i)->getValue() | '';
           $data['impletime']  = $objPHPExcel->getActiveSheet()->getCell("D" . $i)->getValue();
