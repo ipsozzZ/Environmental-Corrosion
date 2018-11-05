@@ -33,6 +33,11 @@ class Standard extends Common
     return view();
   }
 
+  public function add () {
+
+    return view();
+  }
+
   /**
    * 更新分类
    */
@@ -66,5 +71,66 @@ class Standard extends Common
     $res = $carouselModel -> deleteById($id);
 
     return $this -> redirect("standard/index");
+  }
+
+  public function import () {
+    $model = new Model();
+    $standards = $model -> getAll();
+
+    $this -> assign("standards", $standards);
+    return view();
+  }
+
+  public function dealExcel () {
+    ini_set('memory_limit', '1024M');
+    $file = $this -> request -> post('file');
+    $sid  = $this -> request -> post('sid');
+    if(!$file) {
+      $result = "没有上传文件！";
+      $this -> assign("result", $result);
+      return view("result");
+    }
+    //开始解析excel
+    vendor("PHPExcel.PHPExcel");
+    $model = new Model();
+    $info = $file -> move(ROOT_PATH . 'public' . DS . 'uploads');
+    $file_name = ROOT_PATH . 'public' . DS . 'uploads/' . $info->getSaveName();
+
+    $extension = strtolower(pathinfo($file_name, PATHINFO_EXTENSION)); //判断导入表格后缀格式
+    if ($extension == 'xlsx') {
+      if ($extension == 'xlsx') {
+        $objReader = PHPExcel_IOFactory::createReader('Excel2007');
+        $objPHPExcel = $objReader->load($file_name, $encode = 'utf-8');
+      } else if ($extension == 'xls') {
+        $objReader = PHPExcel_IOFactory::createReader('Excel5');
+        $objPHPExcel = $objReader->load($file_name, $encode = 'utf-8');
+      }
+      $sheet = $objPHPExcel->getSheet(0);
+      $highestRow = $sheet->getHighestRow(); //取得总行数
+      $highestColumn = $sheet->getHighestColumn(); //取得总列数
+      $dataSet = [];
+      for ($i = 2; $i <= $highestRow; $i++) {
+        //看这里看这里,前面小写的a是表中的字段名，后面的大写A是excel中位置
+        $data = [];
+        $data['sid']        = $sid;
+        $data['id']         = $objPHPExcel->getActiveSheet()->getCell("A" . $i)->getValue();
+        $data['num']        = $objPHPExcel->getActiveSheet()->getCell("B" . $i)->getValue();
+        $data['name']       = $objPHPExcel->getActiveSheet()->getCell("C" . $i)->getValue() | '';
+        $data['impletime']  = $objPHPExcel->getActiveSheet()->getCell("D" . $i)->getValue();
+        $data['department'] = $objPHPExcel->getActiveSheet()->getCell("E" . $i)->getValue();
+        //看这里看这里,这个位置写数据库中的表名
+
+        array_push($dataSet, $data);
+        $model -> add($data);
+      }
+      $res['data'] = $dataSet;
+
+      $result = "上传成功！";
+      $this -> assign("result", $result);
+      return view("result");
+    }
+    $result = "解析excel失败";
+    $this -> assign("result", $result);
+    return view("result");
   }
 }
