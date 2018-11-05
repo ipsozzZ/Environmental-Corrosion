@@ -2,21 +2,28 @@
 namespace app\index\controller;
 
 use think\Controller;
-use app\common\model\User;
-use app\common\model\Token;
+use app\index\controller\Common;
 
 class Index extends Common
 {
+    public function _initialize(){
+        parent::_initialize();
+    }
+
+    /**
+     * 前台首页
+     */
     public function index()
     {
-        $isLogin = session('user');
-        // dump($isLogin);die;
-        if(!$isLogin){
-            $status = 0;
-        }else{
-            $status = 1;
-        }
-        $this -> assign("Status", $status);
+        $this -> assign("currTitle", '首页');
+        return view();
+    }
+
+    /**
+     * 显示详情
+     */
+    public function show(){
+        $this -> assign('currTitle','详情');
         return view();
     }
 }

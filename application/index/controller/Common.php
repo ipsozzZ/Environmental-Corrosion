@@ -10,7 +10,5 @@ class Common extends Controller
 {
     protected function _initialize(){
         parent::_initialize(); // 继承父类初始化
-        /* 开启session */
-        session_start();
     }
 }

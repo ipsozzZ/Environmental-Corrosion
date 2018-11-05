@@ -145,9 +145,8 @@
   padding-bottom: .5rem;
 }
 .mood-item div.other {
-  width    : 15%;
-  font-size: 1.2rem;
-  position : relative;
+  width   : 15%;
+  position: relative;
 }
 .mood-item div.other p {
   color: #888;
@@ -784,4 +783,3 @@
 .login-form button.submit {
   margin-left: 9.5rem;
 }
-
