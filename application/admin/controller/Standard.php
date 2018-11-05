@@ -4,6 +4,7 @@ namespace app\admin\controller;
 
 use think\Controller;
 use app\common\model\Standard as Model;
+use app\common\model\Scate;
 
 class Standard extends Common
 {
@@ -27,14 +28,20 @@ class Standard extends Common
       return 0;
     }
     $model = new Model();
+    $cateModel = new Scate();
     $standard = $model -> get($id);
+    $cates = $cateModel -> where("level", 2) -> select();
     $this -> assign("standard", $standard);
+    $this -> assign("cates", $cates);
+
 
     return view();
   }
 
   public function add () {
-
+    $cateModel = new Scate();
+    $cates = $cateModel -> where("level", 2) -> select();
+    $this -> assign("cates", $cates);
     return view();
   }
 
