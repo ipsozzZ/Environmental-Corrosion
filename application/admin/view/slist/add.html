@@ -6,37 +6,37 @@
       <div class="layui-form-item">
         <label class="layui-form-label">编号</label>
         <div class="layui-input-block">
-          <input type="text" name="id" style="display: none" value="{$astandard.id}">
-          <input type="text" name="num" required lay-verify="required" value="{$astandard.num}" autocomplete="off"
+            <input type="text" name="sid" style="display: none" value="{$sid}">
+          <input type="text" name="num" required lay-verify="required" autocomplete="off"
             class="layui-input">
         </div>
       </div>
       <div class="layui-form-item">
         <label class="layui-form-label">标准名</label>
         <div class="layui-input-block">
-          <input type="text" name="name" required lay-verify="required" value="{$astandard.name}" autocomplete="off"
+          <input type="text" name="name" required lay-verify="required" autocomplete="off"
             class="layui-input">
         </div>
       </div>
       <div class="layui-form-item">
         <label class="layui-form-label">实施日期</label>
         <div class="layui-input-block">
-          <input type="text" name="impletime" value="{$astandard.impletime}" autocomplete="off"
+          <input type="text" name="impletime" required lay-verify="required" autocomplete="off"
             class="layui-input">
         </div>
       </div>
       <div class="layui-form-item">
         <label class="layui-form-label">发布单位</label>
         <div class="layui-input-block">
-          <input type="text" name="department" value="{$astandard.department}" autocomplete="off"
+          <input type="text" name="department" autocomplete="off"
             class="layui-input">
         </div>
       </div>
       <div class="layui-form-item">
         <label class="layui-form-label">PDF</label>
         <div class="layui-input-block">
-          <input type="file" id="pdf" class="layui-input"> {if condition="$astandard.pdf"} <span id="hasPdf">已有文件：{$astandard.pdf}</span>{/if}
-          <input type="text" id="pdfPath" name="pdf" style="display:none;" value="{$astandard.pdf}" autocomplete="off" class="layui-input">
+          <input type="file" id="pdf" class="layui-input">
+          <input type="text" id="pdfPath" name="pdf" style="display:none;" autocomplete="off" class="layui-input">
         </div>
       </div>
   </div>
