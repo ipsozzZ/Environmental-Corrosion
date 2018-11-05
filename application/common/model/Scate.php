@@ -6,10 +6,19 @@ use think\Model;
 use app\common\model\Token;
 
 /**
- * 标准
+ * 标准的分类层
  */
-class Standard extends Model
+class Scate extends Model
 {
+
+  /**
+   * 根据level获取所有行
+   */
+  public function getByLevel ($level) {
+    $model = $this -> newInstance();
+
+    return $model -> where("level", $level) -> select();
+  }
 
   /**
    * 获取所有行
@@ -17,7 +26,22 @@ class Standard extends Model
   public function getAll() {
     $model = $this -> newInstance();
 
-    return $model -> all();
+    $cates = $model -> all();
+    $res = [];
+    foreach($cates as $cate) {
+      $parent = $cate['parent'];
+      if(!$parent) {
+        $cate['parentname'] = '';
+      } else {
+        $model = $this -> newInstance();
+        $c = $model -> get($parent);
+        $cate['parentname'] = $c['name'];
+      }
+
+      array_push($res, $cate);
+    }
+
+    return $res;
   }
 
   /**
