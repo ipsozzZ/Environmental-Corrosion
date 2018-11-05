@@ -35,7 +35,7 @@ class Focus extends Model
   public function updateById ($id, $data) {
     $model = $this -> newInstance();
 
-    return $Model -> save($data, ['id' => $id]);
+    return $model -> save($data, ['id' => $id]);
   }
 
   /**
