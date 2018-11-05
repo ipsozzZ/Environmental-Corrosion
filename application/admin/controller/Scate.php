@@ -17,8 +17,8 @@ class Scate extends Common
   }
   public function index () {
     $model = new Model();
-    $scates = $model -> getAll();
-    $this -> assign('scates', $scates);
+    $cates = $model -> getAll();
+    $this -> assign('cates', $cates);
     return view();
   }
 
