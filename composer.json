@@ -18,7 +18,12 @@
     "require": {
         "php": ">=5.4.0",
         "topthink/framework": "5.0.*",
+<<<<<<< HEAD
         "topthink/think-captcha": "1.*"
+=======
+        "topthink/think-captcha": "1.*",
+        "phpoffice/phpexcel": "^1.8"
+>>>>>>> 74284d2f53aad22fc784289ae4d75f3a5f007785
     },
     "autoload": {
         "psr-4": {
