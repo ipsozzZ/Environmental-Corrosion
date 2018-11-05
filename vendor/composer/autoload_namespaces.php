@@ -6,5 +6,8 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+<<<<<<< HEAD
+=======
     'PHPExcel' => array($vendorDir . '/phpoffice/phpexcel/Classes'),
+>>>>>>> 74284d2f53aad22fc784289ae4d75f3a5f007785
 );
