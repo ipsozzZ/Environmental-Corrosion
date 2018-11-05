@@ -51,8 +51,10 @@ class Standard extends Common
   public function update() {
     $id = $this -> request -> post('id');
     $name = $this -> request -> post('name');
+    $cid = $this -> request -> post('cid');
     $data = [
       'name' => $name,
+      'cid'  => $cid
     ];
     $model = new Model();
     if(!$id) {
