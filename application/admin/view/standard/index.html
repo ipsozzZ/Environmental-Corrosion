@@ -9,12 +9,14 @@
             <colgroup>
                 <col width="80">
                 <col width="200">
+                <col width="150">
                 <col width="100">
             </colgroup>
             <thead>
                 <tr>
                     <th>ID</th>
                     <th>标准名</th>
+                    <th>所属分类</th>
                     <th>操作</th>
                 </tr>
             </thead>
@@ -24,6 +26,9 @@
                     <td>{$vo.id}</td>
                     <td>
                         <a href="/admin/slist/index?sid={$vo.id}">{$vo.name}</a>
+                    </td>
+                    <td>
+                        {$vo.catename}</a>
                     </td>
                     <td>
                         <a href="/admin/standard/edit?id={$vo.id}" class="layui-btn layui-btn-warm layui-btn-mini">
