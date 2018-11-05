@@ -1,0 +1,40 @@
+<div class="layui-footer">
+    <!-- 底部固定区域 -->
+    <p>2016 &copy; <a href="https://github.com/xiayulei/think_admin" target="_blank">Think Admin</a></p>
+  </div>
+</div>
+</div>
+<script>
+//JavaScript代码区域
+layui.use('element', function(){
+  var element = layui.element;
+});
+</script>
+
+<script>
+    $(document).ready(e => {
+      //页面载入时，获取页面地址，设置当前tab
+    let url = window.location.href
+
+    let tabs = $(".layui-nav-item dd")
+    console.log(tabs)
+    let status = 0
+    for(var i = 0; i < tabs.length; i++) {
+      let tab = $(tabs[i])
+      if(url.indexOf(tab.data('url')) != -1) {
+        tab.addClass("layui-this")
+        $(tab.parent().parent()).addClass("layui-nav-itemed")
+        status = 1
+        break
+      }
+    }
+
+      $("dd").click(e => {
+        let url = e.currentTarget.dataset.url
+        this.router.push(url)
+      })
+    })
+
+  </script>
+</body>
+</html>

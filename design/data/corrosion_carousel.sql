@@ -1,0 +1,2 @@
+INSERT INTO corrosion.carousel (id, img, linkto) VALUES (2, '/uploads/20181105/4d92c86d046a6de9b28cc310be25529a.jpg', '/');
+INSERT INTO corrosion.carousel (id, img, linkto) VALUES (3, '/uploads/20181105/66f96b9a8b45c9ba8a885d8b05d55581.jpg', '/');
