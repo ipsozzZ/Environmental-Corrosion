@@ -2,6 +2,7 @@
 namespace app\index\controller;
 
 use app\index\controller\Common;
+use app\index\model\Carousel as ModelBanner;
 use think\Controller;
 
 class Index extends Common
@@ -16,7 +17,12 @@ class Index extends Common
      */
     public function index()
     {
-        $this->assign("currTitle", '首页');
+        $modelBanner = new ModelBanner();
+        $banner = $modelBanner->getBanner();
+        $this->assign([
+            "currTitle" => '首页',
+            'banner' => $banner,
+        ]);
         return view();
     }
 
