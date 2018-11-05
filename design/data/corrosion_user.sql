@@ -1,0 +1,2 @@
+INSERT INTO corrosion.user (id, name, pass, phone, gender, avatar) VALUES (1, 'iimt', 'e10adc3949ba59abbe56e057f20f883e', '12345678', 1, '/uploads/20181031/5aff028e502416a22cab57304c3fee7f.jpg');
+INSERT INTO corrosion.user (id, name, pass, phone, gender, avatar) VALUES (2, 'ipso', 'e10adc3949ba59abbe56e057f20f883e', '2222', 0, '/uploads/20181031/5aff028e502416a22cab57304c3fee7f.jpg');

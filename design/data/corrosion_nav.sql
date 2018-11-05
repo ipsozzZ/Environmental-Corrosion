@@ -1,0 +1,9 @@
+INSERT INTO corrosion.nav (id, name, linkto) VALUES (1, '平台简介', '/');
+INSERT INTO corrosion.nav (id, name, linkto) VALUES (2, '基础数据', '/');
+INSERT INTO corrosion.nav (id, name, linkto) VALUES (3, '野外数据', '/');
+INSERT INTO corrosion.nav (id, name, linkto) VALUES (4, '室内数据', '/');
+INSERT INTO corrosion.nav (id, name, linkto) VALUES (5, '实时数据', '/');
+INSERT INTO corrosion.nav (id, name, linkto) VALUES (6, '标准规范', '/');
+INSERT INTO corrosion.nav (id, name, linkto) VALUES (7, '应用案例', '/');
+INSERT INTO corrosion.nav (id, name, linkto) VALUES (8, '平台简介1', '/');
+INSERT INTO corrosion.nav (id, name, linkto) VALUES (9, '平台简介', '/');
