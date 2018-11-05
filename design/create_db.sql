@@ -154,10 +154,10 @@ alter table nav
 create table scate
 (
   id     int auto_increment,
-  name   int not null,
-  parent int null
+  name   varchar(20)        not null,
+  parent int                null
   comment '父id',
-  level  int not null
+  level  int(1) default '1' not null
   comment '分类级别 1 2 3',
   constraint scate_id_uindex
   unique (id)
@@ -198,24 +198,38 @@ create table site
 alter table site
   add primary key (id);
 
-create table standard
+create table slist
 (
   id         int auto_increment
   comment '序号',
-  num        int                                 not null
+  num        varchar(50)                         not null
   comment '标准编号',
   name       varchar(100)                        not null
   comment '标准名称',
   impletime  timestamp default CURRENT_TIMESTAMP not null
   on update CURRENT_TIMESTAMP,
-  department varchar(100)                        not null
+  department varchar(100) default ''             null
   comment '发布单位',
-  pdf        varchar(200)                        not null
+  pdf        varchar(200) default ''             not null
   comment 'pdf地址',
+  sid        int default '1'                     not null
+  comment '所属标准id',
   constraint standard_id_uindex
   unique (id)
 )
-  comment '标准规范';
+  comment '标准规范条目';
+
+alter table slist
+  add primary key (id);
+
+create table standard
+(
+  id   int auto_increment,
+  name varchar(100) not null,
+  constraint standard_id_uindex
+  unique (id)
+)
+  comment '标准表';
 
 alter table standard
   add primary key (id);
