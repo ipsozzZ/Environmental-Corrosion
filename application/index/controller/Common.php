@@ -1,8 +1,10 @@
 <?php
 namespace app\index\controller;
 
-<<<<<<< HEAD
 use app\index\model\Nav as ModelNav;
+
+use app\index\model\Friends;
+use app\index\model\Site;
 use think\Controller;
 
 class Common extends Controller
@@ -10,21 +12,22 @@ class Common extends Controller
     protected function _initialize()
     {
         parent::_initialize(); // 继承父类初始化
+        /* 获取栏目 */
         $modelNav = new ModelNav();
         $Nav = $modelNav->getNav();
-        $this->assign('nav', $Nav);
-    }
-}
-=======
-use think\Controller;
-use app\index\model\User;
-use think\console\command\make\Model;
-use think\Session;
 
-class Common extends Controller
-{
-    protected function _initialize(){
-        parent::_initialize(); // 继承父类初始化
+        /* 获取友情链接 */
+        $modelFriends = new Friends();
+        $Friends = $modelFriends->getFriends();
+
+        /* 获取站点设置 */
+        $modelSite = new Site();
+        $Site = json_decode($modelSite->getSite());
+
+        $this->assign([
+            'nav' => $Nav,
+            'friends' => $Friends,
+            'site' => $Site,
+        ]);
     }
 }
->>>>>>> 74284d2f53aad22fc784289ae4d75f3a5f007785
