@@ -6,9 +6,9 @@ use think\Model;
 use app\common\model\Token;
 
 /**
- * 标准
+ * 标准列表层
  */
-class Standard extends Model
+class Slist extends Model
 {
 
   /**

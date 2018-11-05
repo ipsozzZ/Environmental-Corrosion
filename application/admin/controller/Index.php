@@ -10,8 +10,7 @@ class Index extends Common
         parent::_initialize();
 
         $this -> assign([
-            "pageTitle"    => "首页",
-            // 'currMessager' => $currMessager,
+            "pageTitle"    => "标准列表",
         ]);
     }
     public function index()
