@@ -13,13 +13,13 @@ return [
     // 数据库类型
     'type'            => 'mysql',
     // 服务器地址
-    'hostname'        => 'www.iimt.me',
+    'hostname'        => 'localhost',
     // 数据库名
-    'database'        => 'disney',
+    'database'        => 'corrosion',
     // 用户名
-    'username'        => 'iimt',
+    'username'        => 'root',
     // 密码
-    'password'        => 'ATyangguang',
+    'password'        => '',
     // 端口
     'hostport'        => '',
     // 连接dsn

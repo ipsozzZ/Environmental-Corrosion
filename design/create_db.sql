@@ -1,6 +1,6 @@
 create schema corrosion character set utf8 collate utf8_general_ci;
 
-use longhu;
+use corrosion;
 
 create table acate
 (
@@ -64,13 +64,18 @@ alter table carousel
 create table data
 (
   id       int auto_increment,
-  name     varchar(20) not null,
-  position varchar(10) not null
+  title    varchar(20)                         not null
+  comment '标题',
+  position varchar(10)                         not null
   comment '实验地址',
-  cycle    int         not null
+  cycle    int                                 not null
   comment '实验周期 月',
-  cid      int         not null
+  cid      int                                 not null
   comment '材料分类id',
+  ctime    timestamp default CURRENT_TIMESTAMP not null
+  on update CURRENT_TIMESTAMP,
+  viewer   int                                 not null,
+  content  text                                not null,
   constraint data_id_uindex
   unique (id)
 )
@@ -92,7 +97,7 @@ create table focus
 alter table focus
   add primary key (id);
 
-create table freends
+create table friends
 (
   id     int auto_increment,
   name   varchar(20)  not null,
@@ -102,7 +107,7 @@ create table freends
 )
   comment '友情链接表';
 
-alter table freends
+alter table friends
   add primary key (id);
 
 create table mcate
@@ -174,6 +179,25 @@ create table selected
 alter table selected
   add primary key (id);
 
+create table site
+(
+  id          int auto_increment,
+  title       varchar(20)  not null
+  comment '标题',
+  vicetitle   varchar(100) not null
+  comment '副标题',
+  description varchar(100) not null
+  comment '描述',
+  vicedesc    varchar(200) not null
+  comment '副描述',
+  constraint site_id_uindex
+  unique (id)
+)
+  comment '站点设置';
+
+alter table site
+  add primary key (id);
+
 create table standard
 (
   id         int auto_increment
@@ -239,3 +263,4 @@ create table user
 
 alter table user
   add primary key (id);
+

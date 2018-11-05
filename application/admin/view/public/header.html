@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <title>{$pageTitle} - 迪士尼管理后台</title>
+  <title>{$pageTitle} - 管理后台</title>
   <link rel="stylesheet" href="__LAYUI__/css/layui.css" media="all">
   <link rel="stylesheet" href="__ADMIN_CSS__/font-awesome.min.css">
   <script src="__ADMIN_JS__/jquery.min.js"></script>
@@ -47,7 +47,7 @@
       <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
       <ul class="layui-nav layui-nav-tree"  lay-filter="test">
         <li class="layui-nav-item">
-          <a class="" href="javascript:;">管理员</a>
+          <a href="javascript:;">管理员</a>
           <dl class="layui-nav-child">
             <dd data-url='/messager/index'><a>管理员列表</a></dd>
             <dd data-url='/messager/add'><a>添加管理员</a></dd>
@@ -57,39 +57,27 @@
           <a href="javascript:;">用户管理</a>
           <dl class="layui-nav-child">
             <dd data-url='/userinfo/index'><a>用户列表</a></dd>
-            <dd data-url='/userbuy/index'><a>用户购买</a></dd>
-            <dd data-url='/activity/index'><a>用户动态</a></dd>
-            <dd data-url='/trainhis/index'><a >历史课程</a></dd>
-            <dd data-url='/Score/index'><a >历史训练成绩</a></dd>
-            <dd data-url='/diploma/index'><a >用户证书</a></dd>
           </dl>
         </li>
         <li class="layui-nav-item">
-          <a >课程管理</a>
+          <a href="javascript:;">站点设置</a>
           <dl class="layui-nav-child">
-            <dd data-url='/subject/index'><a>课程列表</a></dd>
-            <dd data-url='/subject/add'><a>增加课程</a></dd>
-            <!-- <dd data-url='/'><a>试玩课程</a></dd> -->
+            <dd data-url='/site/info'><a>基础设置</a></dd>
+            <dd data-url='/site/carousel'><a>幻灯片</a></dd>
+            <dd data-url='/site/nav'><a>导航设置</a></dd>
+            <dd data-url='/site/friends'><a>友情链接</a></dd>
           </dl>
         </li>
-        <li class="layui-nav-item">
-            <a>分类管理</a>
-            <dl class="layui-nav-child">
-              <dd data-url='/category/index'><a>分类列表</a></dd>
-              <dd data-url='/category/add'><a>添加分类</a></dd>
-            </dl>
-          </li>
-        <!-- <li class="layui-nav-item" data-url='/'><a href="">发布商品</a></li> -->
       </ul>
     </div>
   </div>
   <script>
-    //页面载入时，获取页面地址，设置当前tab
+    $(document).ready(e => {
+      //页面载入时，获取页面地址，设置当前tab
     let url = window.location.href
 
     let tabs = $(".layui-nav-item dd")
-
-    for(var i in tabs) {
+    for(var i = 0; i < tabs.length; i++) {
       let tab = $(tabs[i])
       if(url.indexOf(tab.data('url')) != -1) {
         tab.addClass("layui-this")
@@ -98,9 +86,10 @@
       }
     }
 
-    $("dd").click(e => {
-      let url = e.currentTarget.dataset.url
-      this.router.push(url)
+      $("dd").click(e => {
+        let url = e.currentTarget.dataset.url
+        this.router.push(url)
+      })
     })
 
   </script>
