@@ -77,8 +77,8 @@ class Site extends Common {
   /**
    * 更新/增加carousel操作
    */
-  public function updateCarousel() {
-    $uploadModel = new Upload();
+
+  public function updateCarousel () {
     $this -> assign('modifyed', false);
     $id = $this -> request -> post('id');
     $img = $this -> request -> post('img');
