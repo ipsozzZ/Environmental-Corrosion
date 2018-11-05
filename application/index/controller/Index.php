@@ -1,12 +1,13 @@
 <?php
 namespace app\index\controller;
 
-use think\Controller;
 use app\index\controller\Common;
+use think\Controller;
 
 class Index extends Common
 {
-    public function _initialize(){
+    public function _initialize()
+    {
         parent::_initialize();
     }
 
@@ -15,15 +16,16 @@ class Index extends Common
      */
     public function index()
     {
-        $this -> assign("currTitle", '首页');
+        $this->assign("currTitle", '首页');
         return view();
     }
 
     /**
      * 显示详情
      */
-    public function show(){
-        $this -> assign('currTitle','详情');
+    public function show()
+    {
+        $this->assign('currTitle', '详情');
         return view();
     }
 }

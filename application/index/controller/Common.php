@@ -1,14 +1,16 @@
 <?php
 namespace app\index\controller;
 
+use app\index\model\Nav as ModelNav;
 use think\Controller;
-use app\index\model\User;
-use think\console\command\make\Model;
-use think\Session;
 
 class Common extends Controller
 {
-    protected function _initialize(){
+    protected function _initialize()
+    {
         parent::_initialize(); // 继承父类初始化
+        $modelNav = new ModelNav();
+        $Nav = $modelNav->getNav();
+        $this->assign('nav', $Nav);
     }
 }
