@@ -6,9 +6,9 @@ use think\Model;
 use app\common\model\Token;
 
 /**
- * 标准
+ * 室内数据
  */
-class Standard extends Model
+class Indoordata extends Model
 {
 
   /**
@@ -18,10 +18,11 @@ class Standard extends Model
     $model = $this -> newInstance();
 
     $res = $model
-      -> alias("s")
-      -> join("scate sc", "sc.id=s.cid")
-      -> field("s.*,sc.name as catename")
+      -> alias('i')
+      -> join("dcate d", "d.id = i.cid")
+      -> field("i.*, d.name as catename")
       -> select();
+
     return $res;
   }
 
@@ -48,7 +49,6 @@ class Standard extends Model
    */
   public function add ($data) {
     $model = $this -> newInstance();
-
     return $model -> save($data);
   }
 

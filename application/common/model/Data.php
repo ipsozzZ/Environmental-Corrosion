@@ -6,9 +6,9 @@ use think\Model;
 use app\common\model\Token;
 
 /**
- * 标准
+ * 室内/野外数据层
  */
-class Standard extends Model
+class Data extends Model
 {
 
   /**
@@ -17,12 +17,7 @@ class Standard extends Model
   public function getAll() {
     $model = $this -> newInstance();
 
-    $res = $model
-      -> alias("s")
-      -> join("scate sc", "sc.id=s.cid")
-      -> field("s.*,sc.name as catename")
-      -> select();
-    return $res;
+    return $model -> all();
   }
 
   /**
