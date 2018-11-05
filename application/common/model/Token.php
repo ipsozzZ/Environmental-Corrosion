@@ -3,6 +3,8 @@ namespace app\common\model;
 
 use think\Model;
 use app\common\model\User;
+use app\common\model\Admin;
+use app\common\model\Baby;
 
 class Token extends Model {
   private $expireDay;
@@ -17,7 +19,7 @@ class Token extends Model {
   /**
    * 新增一个token
    * @param uid 用户id
-   * @param type 用户类型 1 孩子 2 家长 3 管理员
+   * @param type 用户类型 1 用户 2 管理员
    * @return [
    *  status: bool 状态，
    *  token: 新的token
@@ -26,9 +28,12 @@ class Token extends Model {
   public function addToken ($uid, $type) {
     $this -> deleteByUid($uid);
     $model = $this -> newInstance();
-    var_dump($type);
-    $userModel = new User();
-    $user = $userModel -> getById($uid);
+    if($type == 1){
+      $typeModel = new Baby();
+    }else {
+      $typeModel = new Admin();
+    }
+    $user = $typeModel -> getById($uid);
     $name = $user['name'];
     $newToken = $this -> genToken($name);
 
