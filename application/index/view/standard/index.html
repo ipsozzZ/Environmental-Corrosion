@@ -60,7 +60,6 @@
         <div class="width-1200">
             <div class="sw pr clearfix">
                 <div class="platform-aside sc-fl">
-
                     {volist name="parentScate" id="parents"}
                     <a href="javascript:;" class="parentA">{$parents->name}</a>
                     <ul class="ul-down" style="display:block;">
@@ -71,7 +70,7 @@
                                 {volist name="standard" id="vo"}
                                 {if condition="$vo->cid eq $child->id"}
                                 <li>
-                                    <a href=""><img src="__INDEX__/custom/images/a39.png" alt=""><span>{$vo.name}</span></a>
+                                    <a href=""><img src="__INDEX__/custom/images/a39.png" alt=""><span>{$vo->name}</span></a>
                                 </li>
                                 {/if}
                                 {/volist}
