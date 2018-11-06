@@ -21,12 +21,14 @@ class Standard extends Common
   {
     /* 获取全部标准分类 */
     $modelScate = new commonScate();
-    $parentScate = json_encode($modelScate->getScateByLevel(1));
-    $childScate = json_encode($modelScate->getScateByLevel(2));
+    $parentScate = json_decode($modelScate->getScateByLevel(1));
+    $childScate = json_decode($modelScate->getScateByLevel(2));
 
     /* 获取全部标准 */
     $modelStandard = new commonStandard();
     $standard = json_decode($modelStandard->getStandard());
+    // dump($parentScate);
+    // die;
 
     $this->assign([
       'currTitle' => '标准规范',
