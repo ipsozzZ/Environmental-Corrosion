@@ -1,0 +1,1 @@
+INSERT INTO corrosion.data (id, title, position, cycle, cid, ctime, viewer, content, type, mname) VALUES (1, 'asdsads', '111', 4, 1, '2018-11-05 17:38:45', 3, 'sadsasa', 1, 'Na');

@@ -44,6 +44,12 @@ class Dcate extends Model
     return $res;
   }
 
+  public function getByFilter ($filter) {
+    $model = $this -> newInstance();
+
+    return $model -> where($filter) -> select();
+  }
+
   public function getByType ($type) {
     $model = $this -> newInstance();
 

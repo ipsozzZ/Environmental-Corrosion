@@ -3,17 +3,17 @@
 namespace app\admin\controller;
 
 use app\common\model\Dcate;
-use app\common\model\Indoordata as Model;
+use app\common\model\Wilddata as Model;
 use think\Controller;
 
-class Indoordata extends Common
+class Wilddata extends Common
 {
     public function _initialize()
     {
         parent::_initialize();
 
         $this->assign([
-            "pageTitle" => "室内数据管理",
+            "pageTitle" => "野外数据管理",
         ]);
     }
 
@@ -34,10 +34,10 @@ class Indoordata extends Common
         $model = new Model();
         $cateModel = new Dcate();
         $data = $model->get($id);
-        $cates = $cateModel -> where([
-            "level" => 2,
-            "type" => 1,
-        ])->select();
+        $cates = $cateModel->where([
+          "level" => 2,
+          "type" => 1,
+      ])->select();
         $this->assign("data", $data);
         $this->assign("cates", $cates);
 
@@ -51,9 +51,9 @@ class Indoordata extends Common
     {
         $cateModel = new Dcate();
         $cates = $cateModel->where([
-            "level" => 2,
-            "type" => 1,
-        ])->select();
+          "level" => 2,
+          "type" => 1,
+      ])->select();
         $this->assign("cates", $cates);
         return view();
     }
@@ -80,7 +80,7 @@ class Indoordata extends Common
             $this->assign('modifyed', true);
         }
 
-        return $this->redirect("indoordata/index");
+        return $this->redirect("wilddata/index");
     }
 
     /**
@@ -94,6 +94,6 @@ class Indoordata extends Common
         $model = new Model();
         $res = $model->deleteById($id);
 
-        return $this->redirect("indoordata/index");
+        return $this->redirect("wilddata/index");
     }
 }
