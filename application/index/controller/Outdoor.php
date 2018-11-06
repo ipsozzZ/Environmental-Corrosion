@@ -3,26 +3,63 @@ namespace app\index\controller;
 
 use think\Controller;
 use app\index\controller\Common;
+use app\common\controller\Dcate as commonDcate;
 
 class Outdoor extends Common
 {
-  public function _initialize(){
+  public function _initialize()
+  {
     parent::_initialize();
   }
 
   /**
    * 室外数据
    */
-  public function index(){
-    $this -> assign('currTitle','室外数据');
+  public function index()
+  {
+    $modelDcate = new commonDcate();
+    $parentDcate = json_decode($modelDcate->getByLevelAndType(2, 1));
+    $childDcate = json_decode($modelDcate->getByLevelAndType(2, 2));
+    $dataShow = json_decode($modelDcate->getWildAll());
+    $this->assign([
+      'currTitle' => '室外数据',
+      'parentDcate' => $parentDcate,
+      'childDcate' => $childDcate,
+      'dataShow' => $dataShow,
+    ]);
     return view();
   }
 
-   /**
+  /**
    * 显示数据
+   * @param id   当前选中分类的id
+   * @param type 当前数据对应的分类名
    */
-  public function dataShow(){
-    $this -> assign('currTitle','St12琼海96');
+  public function dataShow($id = 1, $type = '')
+  {
+    $modelData = new commonDcate();
+    $currType = $type;
+    $Data = json_decode($modelData->getDataByCid($id));
+    $this->assign([
+      'currTitle' => '室外数据',
+      'Data' => $Data,
+      'currType' => $currType,
+    ]);
     return view('dataShow');
+  }
+
+  /**
+   * 显示数据内容
+   * @param id 当前查看数据id
+   */
+  public function dataContent($id = 1)
+  {
+    $modelData = new commonDcate();
+    $Data = json_decode($modelData->getDataById($id));
+    $this->assign([
+      'currTitle' => '室外数据',
+      'Data' => $Data,
+    ]);
+    return view('dataContent');
   }
 }
