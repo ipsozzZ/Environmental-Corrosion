@@ -70,7 +70,8 @@
                                 {volist name="standard" id="vo"}
                                 {if condition="$vo->cid eq $child->id"}
                                 <li>
-                                    <a href=""><img src="__INDEX__/custom/images/a39.png" alt=""><span>{$vo->name}</span></a>
+                                    <a target="_content" href="{:url('index/standard/dataShow')}?id={$vo->id}"><img src="__INDEX__/custom/images/a39.png"
+                                            alt=""><span>{$vo->name}</span></a>
                                 </li>
                                 {/if}
                                 {/volist}
@@ -83,241 +84,63 @@
 
                 </div>
                 <div class="sc-fr data-content">
-                    <table class="st12">
-                        <tr>
-                            <th>序号</th>
-                            <th>标准编号</th>
-                            <th style="width: 400px;line-height: 30px;padding-right: 2%;">标准名称</th>
-                            <th>实施日期</th>
-                            <th>发布单位</th>
-                        </tr>
-                        <tr>
-                            <td>2252</td>
-                            <td>GB_T 30074-2013</td>
-                            <td>用电化学技术测量金属中氢渗透（吸收和迁移）的方法</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>2245</td>
-                            <td>GB_T 24195-2009</td>
-                            <td>金属和合金的腐蚀.酸性盐雾、“干燥”和“湿润”条件下的循环加速腐蚀试验</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>2242</td>
-                            <td>GB_T 22316-2008</td>
-                            <td>电镀锡钢板耐腐蚀性试验方法</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>2237</td>
-                            <td>GB_T 21433-2008</td>
-                            <td>不锈钢压力容器晶间腐蚀敏感性检验</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>2231</td>
-                            <td>GB_T 20120.2-2006</td>
-                            <td>金属和合金的腐蚀.腐蚀疲劳试验.第2部分;预裂纹试验裂纹扩展试验</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>2230</td>
-                            <td>GB_T 20120.1-2006</td>
-                            <td>金属和合金的腐蚀.腐蚀疲劳试验.第1部分;循环失效试验</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>2228</td>
-                            <td>GB_T 19747-2005</td>
-                            <td>金属和合金的腐蚀 双金属室外暴露腐蚀试验</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>2227</td>
-                            <td>GB_T 19746-2005</td>
-                            <td>金属和合金的腐蚀 盐溶液周浸试验</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>2223</td>
-                            <td>GB_T 18590-2001</td>
-                            <td>金属和合金的腐蚀 点蚀评定方法</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>2218</td>
-                            <td>GB_T 15970.9-2007</td>
-                            <td>金属和合金的腐蚀.应力腐蚀试验.第9部分:渐增式载荷或渐增式位移下的预裂纹试样的制备和应用</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>2217</td>
-                            <td>GB_T 15970.8-2005</td>
-                            <td>金属和合金的腐蚀 应力腐蚀试验 第8部分;焊接试样的制备和应用</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>2216</td>
-                            <td>GB_T 15970.7-2000</td>
-                            <td>金属和合金的腐蚀 应力腐蚀试验 第7部分:慢应变速率试验</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>2215</td>
-                            <td>GB_T 15970.6-2007</td>
-                            <td>金属和合金的腐蚀.应力腐蚀试验.第6部分:恒载荷或恒位移下的预裂纹试样的制备和应用</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>2214</td>
-                            <td>GB_T 15970.2-2000</td>
-                            <td>金属和合金的腐蚀 应力腐蚀试验 第2部分;弯梁试样的制备和应用</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>2213</td>
-                            <td>GB_T 15970.1-1995</td>
-                            <td>金属和合金的腐蚀 应力腐蚀试验 第1部分;试验方法总则</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>2208</td>
-                            <td>GB_T 13448-2006</td>
-                            <td>彩色涂层钢板及钢带试验方法</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>2207</td>
-                            <td>GB_T 13305-2008</td>
-                            <td>不锈钢中α-相面积含量金相测定法</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>2203</td>
-                            <td>GB_T 11377-2005</td>
-                            <td>金属和其它无机覆盖层 储存条件下腐蚀试验的一般规则</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>2177</td>
-                            <td>SH_T 0232-1992</td>
-                            <td>液化石油气铜片腐蚀试验法</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>2163</td>
-                            <td>QB_T 1901.2-2006</td>
-                            <td>表壳体及其附件 金合金覆盖层 第2部分：纯度、厚度、耐腐蚀性能和附着力的测试</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>2124</td>
-                            <td>YB_T 4396-2014</td>
-                            <td>不锈钢 多元素含量的测定 电感耦合等离子体原子发射光谱法</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>2050</td>
-                            <td>GB_T 6461-2002</td>
-                            <td>金属基体上金属和其他无机覆盖层 经腐蚀试验后的试样和试件的评级</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>2049</td>
-                            <td>GB_T 5776-2005</td>
-                            <td>金属和合金的腐蚀 金属和合金 在表层海水中暴露和评定的导则</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>2048</td>
-                            <td>GB_T 5252-2006</td>
-                            <td>锗单晶位错腐蚀坑密度测量方法</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>2047</td>
-                            <td>GB/T 4334-2008</td>
-                            <td>金属和合金的腐蚀.不锈钢晶间腐蚀试验方法</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                    </table>
-                    <div class="paging2">
-                        <b>126</b>
-                        <a href="javascript:;" class="cur">1</a>
-                        <a href="javascript:;">2</a>
-                        <a href="javascript:;">3</a>
-                        <a href="javascript:;">4</a>
-                        <a href="javascript:;">5</a>
-                        <a href="javascript:;">6</a>
-                        <a href="javascript:;">下一页</a>
-                        <a href="javascript:;">尾页</a>
-                    </div>
+                    <iframe id="_content" name="_content" src="{:url('index/standard/dataShow')}?id=1" scrolling="no"
+                        frameborder="no" width="100%" onload="setIframeHeight(this)">
+
+                    </iframe>
                 </div>
             </div>
+
         </div>
         <footer>{include file="common/footer"}</footer>
-    </div>
-    <script src="__INDEX__/custom/js/jquery.min.js"></script>
-    <script src="__INDEX__/custom/js/bootstrap-select.min.js"></script>
-    <script src="__INDEX__/custom/js/echarts.min.js"></script>
-    <script src="__INDEX__/custom/js/p.js"></script>
-    <script src="__INDEX__/custom/js/bootstrap.min.js"></script>
-    <script>
-        $(function () {
+        <script src="__INDEX__/custom/js/jquery.min.js"></script>
+        <script src="__INDEX__/custom/js/bootstrap-select.min.js"></script>
+        <script src="__INDEX__/custom/js/echarts.min.js"></script>
+        <script src="__INDEX__/custom/js/p.js"></script>
+        <script src="__INDEX__/custom/js/bootstrap.min.js"></script>
+        <script>
+            $(function () {
 
-            var mynav = $('nav li').find('a'); //寻找导航的a元素 　　
-            for (var i = 0; i < mynav.length; i++) {
-                var links = mynav[i].getAttribute('href'); //取出每个链接的href属性的值
-                var myurl = document.location.href; //取出当前窗口的链接
-                if (myurl.indexOf(links) != -1) { //判断浏览器地址是否等于当前a元素的href属性
-                    $(mynav[i]).parent().addClass('nav-hover')
+                var mynav = $('nav li').find('a'); //寻找导航的a元素 　　
+                for (var i = 0; i < mynav.length; i++) {
+                    var links = mynav[i].getAttribute('href'); //取出每个链接的href属性的值
+                    var myurl = document.location.href; //取出当前窗口的链接
+                    if (myurl.indexOf(links) != -1) { //判断浏览器地址是否等于当前a元素的href属性
+                        $(mynav[i]).parent().addClass('nav-hover')
+                    }
                 }
-            }
-            $('.ol-down').on('click', function (e) {
-                e.stopPropagation();
+                $('.ol-down').on('click', function (e) {
+                    e.stopPropagation();
 
-            })
-            $('.ol-down li').on('click', function () {
-                $(this).addClass('cur').siblings().removeClass('cur')
+                })
+                $('.ol-down li').on('click', function () {
+                    $(this).addClass('cur').siblings().removeClass('cur')
 
-            })
-            $('.platform-aside .parentA').on('click', function () {
-                $(this).next().slideToggle()
+                })
+                $('.platform-aside .parentA').on('click', function () {
+                    $(this).next().slideToggle()
 
-            })
-            $('.ul-down li').on('click', function () {
-                $(this).find('img').toggleClass('xia')
-                $(this).find('.ol-down').slideToggle()
+                })
+                $('.ul-down li').on('click', function () {
+                    $(this).find('img').toggleClass('xia')
+                    $(this).find('.ol-down').slideToggle()
 
+                })
+
+                window.onload = function () {
+                    setIframeHeight(document.getElementById('_content'));
+                };
             })
-        })
-    </script>
+
+            function setIframeHeight(iframe) {
+                if (iframe) {
+                    var iframeWin = iframe.contentWindow || iframe.contentDocument.parentWindow;
+                    if (iframeWin.document.body) {
+                        iframe.height = iframeWin.document.documentElement.scrollHeight || iframeWin.document.body.scrollHeight;
+                    }
+                }
+            };
+        </script>
 </body>
 
 </html>
