@@ -14,9 +14,15 @@ use think\Controller;
 
 class Login extends Common
 {
+    public function _initialize() {
+        parent::_initialize();
+
+        $this -> assign('hint', '');
+    }
     /* 用户登录 */
-    public function index()
+    public function index($hint = '')
     {
+        $this -> assign('hint', $hint);
         return view();
     }
 
@@ -31,68 +37,53 @@ class Login extends Common
      * @param  data 前台提交的未验证的数据
      * @return array['code','msg]
      */
-    protected function loginCheck($data)
+    public function loginCheck($data)
     {
-
         /* 账号密码登录 */
         if (isset($data['name']) == 1) {
-            /* 验证数据格式是否符合要求 */
-            $validate = Validate('Baby'); // 实例化一个User验证器类
-            if (!$validate->scene('loginByName')->check($data)) {
-                return [
-                    'code' => 0,
-                    'msg' => $validate->getError(),
-                ];
-            }
-
             /* 验证用户名和密码是否存在数据库中 */
-            $user = new Baby();
+            $user = new User();
             $result = json_decode($user->login($data['name'], $data['pass']));
             dump($result);
             if ($result->status == false) {
-                return [
+                $res = [
                     'code' => 0,
                     'msg' => '用户名或密码不正确!',
                 ];
+                return $this -> redirect('login/index', ['hint' => $res['msg']]);
             }
             /* 登录成功，将token存到cookie */
-            cookie('disney_token', $result->token);
-            return [
+            cookie('corrosion_token', $result->token);
+            $res =  [
                 'code' => 1,
                 'msg' => '登录成功',
             ];
+
+            return $this -> redirect('login/index', ['hint' => $res['msg']]);
         }
 
         /* 手机号码和验证码登录 */
         else {
-            /* 验证数据格式是否符合要求 */
-            $validate = Validate('Baby'); // 实例化一个User验证器类
-            if (!$validate->scene('loginByPhone')->check($data)) {
-                return [
-                    'code' => 0,
-                    'msg' => $validate->getError(),
-                ];
-            }
-
             /* 验证用户名和密码是否存在数据库中 */
-            $user = new Baby();
+            $user = new User();
             $result = json_decode($user->msgLogin($data['phone'], $data['code']));
             dump($result);
             die;
             if ($result->status == false) {
-                return [
+                $res =  [
                     'code' => 0,
                     'msg' => '用户名或密码不正确!',
                 ];
+                return $this -> redirect('login/index', ['hint' => $res['msg']]);
             }
             /* 登录成功，将token存到cookie */
-            cookie('disney_token', $result->token);
-            return [
+            cookie('corrosion_token', $result->token);
+            $res =  [
                 'code' => 1,
                 'msg' => '登录成功',
             ];
+            return $this -> redirect('login/index', ['hint' => $res['msg']]);
         }
-
     }
 
     /**

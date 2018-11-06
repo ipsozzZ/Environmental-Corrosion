@@ -12,7 +12,7 @@ class User extends Controller
   }
 
   public function logout () {
-    cookie('disney_token', null);
+    cookie('corrosion_token', null);
     return json_encode(1);
   }
 
@@ -56,7 +56,7 @@ class User extends Controller
     $model = new Model();
     $res = $model -> msgLogin($phone, $code);
     if($res['status'])
-      cookie("disney_token", $res['token']);
+      cookie("corrosion_token", $res['token']);
     return json_encode($res);
   }
 
@@ -64,7 +64,7 @@ class User extends Controller
    * 更新用户信息
    */
   public function update () {
-    $token = cookie('disney_token');
+    $token = cookie('corrosion_token');
     $tokenModel = new Token();
     $id = $tokenModel -> getUidByToken($token, 2);
     $model = new Model();
