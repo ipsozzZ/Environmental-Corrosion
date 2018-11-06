@@ -1,0 +1,1 @@
+INSERT INTO corrosion.wilddata (id, name, cid) VALUES (1, '33422', 11);
