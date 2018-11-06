@@ -132,10 +132,14 @@ alter table friends
 
 create table indoordata
 (
-  id   int auto_increment,
-  name varchar(100) not null,
-  cid  int          not null
+  id       int auto_increment,
+  name     varchar(100)    not null,
+  cid      int             not null
   comment '所属分类id',
+  collect  int default '0' not null
+  comment '收藏量',
+  download int default '0' not null
+  comment '下载量',
   constraint indoordata_id_uindex
   unique (id)
 )
@@ -277,17 +281,32 @@ alter table token
 
 create table user
 (
-  id     int auto_increment,
-  name   varchar(16)                                                                   not null
+  id        int auto_increment,
+  name      varchar(16)                                                                   not null
   comment '用户名',
-  pass   varchar(32)                                                                   not null
+  pass      varchar(32)                                                                   not null
   comment '密码',
-  phone  varchar(12) default ''                                                        null
+  phone     varchar(12) default ''                                                        null
   comment '手机号',
-  gender int default '1'                                                               null
+  gender    int default '1'                                                               null
   comment '性别 男1 女0',
-  avatar varchar(300) default '/uploads/20181031/5aff028e502416a22cab57304c3fee7f.jpg' not null
+  avatar    varchar(300) default '/uploads/20181031/5aff028e502416a22cab57304c3fee7f.jpg' not null
   comment '头像地址',
+  realname  varchar(10)                                                                   null
+  comment '姓名',
+  education varchar(20)                                                                   null
+  comment '学历',
+  job       varchar(20)                                                                   null
+  comment '职务',
+  email     varchar(20)                                                                   null
+  comment '邮箱',
+  workunit  varchar(50)                                                                   null
+  comment '工作单位',
+  unittype  int                                                                           null
+  comment '单位性质',
+  province  varchar(20)                                                                   null,
+  address   varchar(100)                                                                  null
+  comment '通信地址',
   constraint name
   unique (name),
   constraint user_id_uindex

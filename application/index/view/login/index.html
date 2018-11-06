@@ -24,25 +24,26 @@
     <header>{include file="common/header"}</header>
     <div class="login_next">
       <div class="width-1200">
-        <form action="">
+        <form action="./loginCheck" id="loginForm">
           <div class="login_popup">
             <h1>欢迎登录</h1>
             <ul>
               <li>
-                <input type="text" placeholder="请输入手机号">
+                <input type="text" name="name" required lay-verify="required" placeholder="请输入用户名">
               </li>
               <li>
-                <input type="password" placeholder="请输入密码">
+                <input type="password" name="pass" required lay-verify="required" placeholder="请输入密码">
               </li>
               <li>
                 <a href="new_forget.html">忘记密码</a>
               </li>
               <li>
-                <a href="">登录</a>
+                <a href="" id="login">登录</a>
               </li>
+              <span>{$hint}</span>
             </ul>
             <div class="login_bottom">
-              <p>还没有账户？那就注册一个吧! <a href="new_register.html">注册</a></p>
+              <p>还没有账户？那就注册一个吧! <a href="/index/login/register">注册</a></p>
             </div>
           </div>
         </form>
@@ -66,6 +67,12 @@
           $(mynav[i]).parent().addClass('nav-hover')
         }
       }
+    })
+
+    $(document).ready(e => {
+      $('#login').click(e => {
+        $("#loginForm").submit()
+      })
     })
   </script>
 </body>
