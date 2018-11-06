@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> -->
+  <!-- <meta name="full-screen" content="yes" /> -->
+  <!-- <meta name="x5-fullscreen" content="true" /> -->
+  <!-- 是否启用 WebApp 全屏模式，删除苹果默认的工具栏和菜单栏 -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <title>国家材料环境腐蚀科学数据中心</title>
+  <link rel="stylesheet" href="__INDEX__/custom/css/bootstrap.min.css">
+  <link rel="stylesheet" href="__INDEX__/custom/css/reset.css">
+  <link rel="stylesheet" href="__INDEX__/custom/css/p.css">
+  <link rel="stylesheet" href="__INDEX__/custom/css/acm.css">
+  <link rel="stylesheet" href="__INDEX__/custom/css/new.css">
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <div class="main">
+    <header>{include file="common/header"}</header>
+    <div class="login_next">
+      <div class="width-1200">
+        <form action="">
+          <div class="registter_popup">
+            <h1>用户注册</h1>
+            <ul>
+              <li>
+                <input type="text" placeholder="请输入手机号">
+              </li>
+              <li>
+                <input type="password" placeholder="请输入图片验证码">
+                <img src="__INDEX__/custom/images/verify.png" alt="">
+              </li>
+              <li>
+                <input type="password" placeholder="请输入验证码">
+                <a class="have" href="javscript:void(0);">发送验证码</a>
+                <a class="none" href="javscript:void(0);">60s后可重发</a>
+              </li>
+              <li>
+                <input type="password" placeholder="请输入密码">
+              </li>
+              <li>
+                <input type="password" placeholder="请再次输入密码">
+              </li>
+              <li>
+                <label for="agree"></label><span id="agree">我同意</span>
+                <a href="">《注册服务协议》</a>
+              </li>
+              <li>
+                <a href="">注册</a>
+              </li>
+            </ul>
+            <div class="login_bottom">
+              <p>已有账号马上登录？ <a href="new_login.html">马上登录</a></p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <footer class="new_footer">{include file="common/footer"}</footer>
+  </div>
+  <script src="__INDEX__/custom/js/jquery.min.js"></script>
+  <script src="__INDEX__/custom/js/p.js"></script>
+  <script src="__INDEX__/custom/js/bootstrap.min.js"></script>
+  <script>
+    $(function () {
+      $('.registter_popup ul li a.have').on('click', function () {
+        $('.registter_popup ul li a.have').hide();
+        $('.registter_popup ul li a.none').show();
+      })
+      $('.registter_popup label,.registter_popup span').on('click', function () {
+        if ($(".registter_popup label").hasClass("am_active")) {
+          $(".registter_popup label").removeClass("am_active")
+        } else {
+          $(".registter_popup label").addClass("am_active")
+        }
+      })
+      $('.qiehuan span').on('click', function () {
+        $(this).addClass('active').siblings().removeClass('active')
+      })
+      var mynav = $('nav li').find('a'); //寻找导航的a元素 　　
+      for (var i = 0; i < mynav.length; i++) {
+        var links = mynav[i].getAttribute('href'); //取出每个链接的href属性的值
+        var myurl = document.location.href; //取出当前窗口的链接
+        if (myurl.indexOf(links) != -1) { //判断浏览器地址是否等于当前a元素的href属性
+          $(mynav[i]).parent().addClass('nav-hover')
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
