@@ -32,10 +32,35 @@ class Indoor extends Common
 
   /**
    * 显示数据
+   * @param id   当前选中分类的id
+   * @param type 当前数据对应的分类名
    */
-  public function dataShow()
+  public function dataShow($id = 1, $type = '')
   {
-    $this->assign('currTitle', 'St12琼海96');
+    $modelData = new commonDcate();
+    $currType = $type;
+    $Data = json_decode($modelData->getDataByCid($id));
+    $parentData = json_decode($modelData->getByLevelAndType(1, 1));
+    $this->assign([
+      'currTitle' => '室内数据',
+      'parentDcate' => $parentData,
+      'Data' => $Data,
+      'currType' => $currType,
+    ]);
     return view('dataShow');
+  }
+
+  /**
+   * 显示数据内容
+   * @param id 当前查看数据id
+   */
+  public function dataContent($id = 1)
+  {
+    $modelData = new commonDcate();
+    $Data = json_decode($modelData->getDataById($id));
+    $this->assign([
+      'Data' => $Data,
+    ]);
+    return view('dataContent');
   }
 }

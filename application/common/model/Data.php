@@ -33,6 +33,17 @@ class Data extends Model
   }
 
   /**
+   * 通过id获取符合条件的一条记录
+   * @param id 数据id
+   */
+  public function getById($id)
+  {
+    $model = $this->newInstance();
+    $res = $model->where("id", $id)->find();
+    return $res;
+  }
+
+  /**
    * 根据id删除一个
    */
   public function deleteById($id)

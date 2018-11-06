@@ -60,7 +60,6 @@
         <div class="width-1200">
             <div class="sw pr clearfix">
                 <div class="platform-aside sc-fl">
-
                     {volist name="parentScate" id="parents"}
                     <a href="javascript:;" class="parentA">{$parents->name}</a>
                     <ul class="ul-down" style="display:block;">
@@ -87,76 +86,61 @@
                 <div class="sc-fr data-content">
                     <iframe id="_content" name="_content" src="{:url('index/standard/dataShow')}?id=1" scrolling="no"
                         frameborder="no" width="100%" onload="setIframeHeight(this)">
-                        <table class="st12">
-                            <tr>
-                                <th>序号</th>
-                                <th>标准编号</th>
-                                <th style="width: 400px;line-height: 30px;padding-right: 2%;">标准名称</th>
-                                <th>实施日期</th>
-                                <th>发布单位</th>
-                            </tr>
-                            <tr>
-                                <td>2252</td>
-                                <td>GB_T 30074-2013</td>
-                                <td>用电化学技术测量金属中氢渗透（吸收和迁移）的方法</td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                        </table>
+
                     </iframe>
                 </div>
             </div>
+
         </div>
         <footer>{include file="common/footer"}</footer>
-    </div>
-    <script src="__INDEX__/custom/js/jquery.min.js"></script>
-    <script src="__INDEX__/custom/js/bootstrap-select.min.js"></script>
-    <script src="__INDEX__/custom/js/echarts.min.js"></script>
-    <script src="__INDEX__/custom/js/p.js"></script>
-    <script src="__INDEX__/custom/js/bootstrap.min.js"></script>
-    <script>
-        $(function () {
+        <script src="__INDEX__/custom/js/jquery.min.js"></script>
+        <script src="__INDEX__/custom/js/bootstrap-select.min.js"></script>
+        <script src="__INDEX__/custom/js/echarts.min.js"></script>
+        <script src="__INDEX__/custom/js/p.js"></script>
+        <script src="__INDEX__/custom/js/bootstrap.min.js"></script>
+        <script>
+            $(function () {
 
-            var mynav = $('nav li').find('a'); //寻找导航的a元素 　　
-            for (var i = 0; i < mynav.length; i++) {
-                var links = mynav[i].getAttribute('href'); //取出每个链接的href属性的值
-                var myurl = document.location.href; //取出当前窗口的链接
-                if (myurl.indexOf(links) != -1) { //判断浏览器地址是否等于当前a元素的href属性
-                    $(mynav[i]).parent().addClass('nav-hover')
+                var mynav = $('nav li').find('a'); //寻找导航的a元素 　　
+                for (var i = 0; i < mynav.length; i++) {
+                    var links = mynav[i].getAttribute('href'); //取出每个链接的href属性的值
+                    var myurl = document.location.href; //取出当前窗口的链接
+                    if (myurl.indexOf(links) != -1) { //判断浏览器地址是否等于当前a元素的href属性
+                        $(mynav[i]).parent().addClass('nav-hover')
+                    }
                 }
-            }
-            $('.ol-down').on('click', function (e) {
-                e.stopPropagation();
+                $('.ol-down').on('click', function (e) {
+                    e.stopPropagation();
 
+                })
+                $('.ol-down li').on('click', function () {
+                    $(this).addClass('cur').siblings().removeClass('cur')
+
+                })
+                $('.platform-aside .parentA').on('click', function () {
+                    $(this).next().slideToggle()
+
+                })
+                $('.ul-down li').on('click', function () {
+                    $(this).find('img').toggleClass('xia')
+                    $(this).find('.ol-down').slideToggle()
+
+                })
+
+                window.onload = function () {
+                    setIframeHeight(document.getElementById('_content'));
+                };
             })
-            $('.ol-down li').on('click', function () {
-                $(this).addClass('cur').siblings().removeClass('cur')
 
-            })
-            $('.platform-aside .parentA').on('click', function () {
-                $(this).next().slideToggle()
-
-            })
-            $('.ul-down li').on('click', function () {
-                $(this).find('img').toggleClass('xia')
-                $(this).find('.ol-down').slideToggle()
-
-            })
-
-            window.onload = function () {
-                setIframeHeight(document.getElementById('_content'));
+            function setIframeHeight(iframe) {
+                if (iframe) {
+                    var iframeWin = iframe.contentWindow || iframe.contentDocument.parentWindow;
+                    if (iframeWin.document.body) {
+                        iframe.height = iframeWin.document.documentElement.scrollHeight || iframeWin.document.body.scrollHeight;
+                    }
+                }
             };
-        })
-
-        function setIframeHeight(iframe) {
-            if (iframe) {
-                var iframeWin = iframe.contentWindow || iframe.contentDocument.parentWindow;
-                if (iframeWin.document.body) {
-                    iframe.height = iframeWin.document.documentElement.scrollHeight || iframeWin.document.body.scrollHeight;
-                }
-            }
-        };
-    </script>
+        </script>
 </body>
 
 </html>
