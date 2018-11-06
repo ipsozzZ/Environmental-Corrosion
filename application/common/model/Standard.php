@@ -17,7 +17,12 @@ class Standard extends Model
   public function getAll() {
     $model = $this -> newInstance();
 
-    return $model -> all();
+    $res = $model
+      -> alias("s")
+      -> join("scate sc", "sc.id=s.cid")
+      -> field("s.*,sc.name as catename")
+      -> select();
+    return $res;
   }
 
   /**

@@ -71,17 +71,37 @@ create table data
   cycle    int                                 not null
   comment '实验周期 月',
   cid      int                                 not null
-  comment '材料分类id',
+  comment '数据分类id 关联indoordata 与wilddata',
   ctime    timestamp default CURRENT_TIMESTAMP not null
   on update CURRENT_TIMESTAMP,
   viewer   int                                 not null,
   content  text                                not null,
+  type     int                                 not null
+  comment '室内1 室外2 数据',
+  mname    varchar(30)                         not null
+  comment '材料名称',
   constraint data_id_uindex
   unique (id)
 )
   comment '野外/室内数据';
 
 alter table data
+  add primary key (id);
+
+create table dcate
+(
+  id     int auto_increment,
+  name   varchar(20)     not null,
+  parent int             null,
+  level  int default '1' not null,
+  type   int             not null
+  comment '室内1 室外2',
+  constraint cate_id_uindex
+  unique (id)
+)
+  comment '室内/野外数据分类';
+
+alter table dcate
   add primary key (id);
 
 create table focus
@@ -110,18 +130,18 @@ create table friends
 alter table friends
   add primary key (id);
 
-create table mcate
+create table indoordata
 (
-  id     int auto_increment,
-  name   varchar(20) not null,
-  parent int         not null,
-  level  int         not null,
-  constraint cate_id_uindex
+  id   int auto_increment,
+  name varchar(100) not null,
+  cid  int          not null
+  comment '所属分类id',
+  constraint indoordata_id_uindex
   unique (id)
 )
-  comment '材料分类';
+  comment '室内数据';
 
-alter table mcate
+alter table indoordata
   add primary key (id);
 
 create table msg
@@ -226,6 +246,8 @@ create table standard
 (
   id   int auto_increment,
   name varchar(100) not null,
+  cid  int          not null
+  comment '分类id',
   constraint standard_id_uindex
   unique (id)
 )
@@ -276,5 +298,19 @@ create table user
   comment '用户表';
 
 alter table user
+  add primary key (id);
+
+create table wilddata
+(
+  id   int auto_increment,
+  name varchar(100) not null,
+  cid  int          not null
+  comment '所属分类id',
+  constraint wilddata_id_uindex
+  unique (id)
+)
+  comment '野外数据';
+
+alter table wilddata
   add primary key (id);
 

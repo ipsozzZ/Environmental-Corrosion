@@ -6,9 +6,9 @@ use think\Model;
 use app\common\model\Token;
 
 /**
- * 科技焦点
+ * 室内/野外数据层
  */
-class Focus extends Model
+class Data extends Model
 {
 
   /**
