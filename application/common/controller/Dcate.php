@@ -55,4 +55,16 @@ class Dcate extends Controller
     $res = $model->getAllByCid($cid);
     return json_encode($res);
   }
+
+  /**
+   * 通过cid获取所有数据
+   * @param  id  数据id
+   * @return json
+   */
+  public function getDataById($id)
+  {
+    $model = new DataModel();
+    $res = $model->getById($id);
+    return json_encode($res);
+  }
 }

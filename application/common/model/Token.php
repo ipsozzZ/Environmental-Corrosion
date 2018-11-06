@@ -74,6 +74,6 @@ class Token extends Model {
   }
 
   private function genToken ($name) {
-    return md5($name . "disney" . time());
+    return md5($name . "corrosion" . time());
   }
 }

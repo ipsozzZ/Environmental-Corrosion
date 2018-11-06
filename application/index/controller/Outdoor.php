@@ -18,8 +18,8 @@ class Outdoor extends Common
   public function index()
   {
     $modelDcate = new commonDcate();
-    $parentDcate = json_decode($modelDcate->getByLevelAndType(1, 1));
-    $childDcate = json_decode($modelDcate->getByLevelAndType(1, 2));
+    $parentDcate = json_decode($modelDcate->getByLevelAndType(2, 1));
+    $childDcate = json_decode($modelDcate->getByLevelAndType(2, 2));
     $dataShow = json_decode($modelDcate->getWildAll());
     $this->assign([
       'currTitle' => '室外数据',
@@ -32,10 +32,34 @@ class Outdoor extends Common
 
   /**
    * 显示数据
+   * @param id   当前选中分类的id
+   * @param type 当前数据对应的分类名
    */
-  public function dataShow()
+  public function dataShow($id = 1, $type = '')
   {
-    $this->assign('currTitle', 'St12琼海96');
+    $modelData = new commonDcate();
+    $currType = $type;
+    $Data = json_decode($modelData->getDataByCid($id));
+    $this->assign([
+      'currTitle' => '室外数据',
+      'Data' => $Data,
+      'currType' => $currType,
+    ]);
     return view('dataShow');
+  }
+
+  /**
+   * 显示数据内容
+   * @param id 当前查看数据id
+   */
+  public function dataContent($id = 1)
+  {
+    $modelData = new commonDcate();
+    $Data = json_decode($modelData->getDataById($id));
+    $this->assign([
+      'currTitle' => '室外数据',
+      'Data' => $Data,
+    ]);
+    return view('dataContent');
   }
 }
