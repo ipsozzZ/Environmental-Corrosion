@@ -15,7 +15,7 @@ class Msg extends Model
 
     //生成验证码
     $code = $this -> genCode();
-    $content = '【Disney - 迪士尼】您的验证码为：'."$code";
+    $content = '【国家材料环境腐蚀科学数据中心】您的验证码为：'."$code";
     $res = $this -> doSend($phone, $content);
     if($res) {
       $model = $this -> newInstance();

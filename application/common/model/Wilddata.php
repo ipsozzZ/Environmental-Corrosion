@@ -6,9 +6,9 @@ use think\Model;
 use app\common\model\Token;
 
 /**
- * 科技焦点
+ * 野外数据
  */
-class Focus extends Model
+class Wilddata extends Model
 {
 
   /**
@@ -17,7 +17,13 @@ class Focus extends Model
   public function getAll() {
     $model = $this -> newInstance();
 
-    return $model -> all();
+    $res = $model
+      -> alias('i')
+      -> join("dcate d", "d.id = i.cid")
+      -> field("i.*, d.name as catename")
+      -> select();
+
+    return $res;
   }
 
   /**
@@ -43,7 +49,6 @@ class Focus extends Model
    */
   public function add ($data) {
     $model = $this -> newInstance();
-
     return $model -> save($data);
   }
 
