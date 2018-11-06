@@ -60,109 +60,28 @@
         <div class="width-1200">
             <div class="sw pr clearfix">
                 <div class="platform-aside sc-fl">
-                    <a href="javascript:;" class="parentA">基础数据标准</a>
-                    <ul class="ul-down" style="display:block;">
-                        <li class="toggle-li c-333"><img class="xia" src="__INDEX__/custom/images/a38.png" alt=""><span>基础数据标准</span>
-                            <ol class="ol-down" style="display:block">
-                                <li>
-                                    <a href=""><img src="__INDEX__/custom/images/a39.png" alt=""><span>金属材料的腐蚀试验</span></a>
-                                </li>
-                                <li> <a href=""><img src="__INDEX__/custom/images/a39.png" alt=""><span>涂镀层/涂料的腐蚀试验</span></a></li>
-                                <li><a href=""><img src="__INDEX__/custom/images/a39.png" alt=""><span>非金属材料的腐蚀试验</span></a></li>
-                                <li> <a href=""><img src="__INDEX__/custom/images/a39.png" alt=""><span>交互作用下的腐蚀试验</span></a></li>
-                                <li><a href=""><img src="__INDEX__/custom/images/a39.png" alt=""><span>其他腐蚀试验</span></a></li>
-                            </ol>
-                        </li>
-                        <li class="toggle-li c-333"><img src="__INDEX__/custom/images/a38.png" alt=""><span>耐蚀材料</span>
-                            <ol class="ol-down">
-                                <li>
-                                    <a href=""><img src="__INDEX__/custom/images/a39.png" alt=""><span>xx</span></a>
-                                </li>
-                                <li> <a href=""><img src="__INDEX__/custom/images/a39.png" alt=""><span>xx</span></a></li>
-                            </ol>
-                        </li>
-                        <li class="toggle-li c-333"><img src="__INDEX__/custom/images/a38.png" alt=""><span>电化学防护</span>
-                            <ol class="ol-down">
-                                <li>
-                                    <a href=""><img src="__INDEX__/custom/images/a39.png" alt=""><span>xx</span></a>
-                                </li>
-                                <li> <a href=""><img src="__INDEX__/custom/images/a39.png" alt=""><span>xx</span></a></li>
-                            </ol>
-                        </li>
-                    </ul>
 
-                    <a href="javascript:;" class="parentA">野外数据标准</a>
-                    <ul class="ul-down">
-                        <li class="toggle-li c-333"><img src="__INDEX__/custom/images/a38.png" alt=""><span>Xx</span>
-                            <ol class="ol-down">
+                    {volist name="parentScate" id="parents"}
+                    <a href="javascript:;" class="parentA">{$parents->name}</a>
+                    <ul class="ul-down" style="display:block;">
+                        {volist name="childScate" id="child"}
+                        {if condition="$child->parent eq $parents->id"}
+                        <li class="toggle-li c-333"><img class="xia" src="__INDEX__/custom/images/a38.png" alt=""><span>{$child->name}</span>
+                            <ol class="ol-down" style="display:block">
+                                {volist name="standard" id="vo"}
+                                {if condition="$vo->cid eq $child->id"}
                                 <li>
-                                    <a href=""><img src="__INDEX__/custom/images/a39.png" alt=""><span>xx</span></a>
+                                    <a href=""><img src="__INDEX__/custom/images/a39.png" alt=""><span>{$vo.name}</span></a>
                                 </li>
+                                {/if}
+                                {/volist}
                             </ol>
                         </li>
-                        <li class="toggle-li c-333"><img src="__INDEX__/custom/images/a38.png" alt=""><span>XX</span>
-                            <ol class="ol-down">
-                                <li>
-                                    <a href=""><img src="__INDEX__/custom/images/a39.png" alt=""><span>xx</span></a>
-                                </li>
-                            </ol>
-                        </li>
-                        <li class="toggle-li c-333"><img src="__INDEX__/custom/images/a38.png" alt=""><span>XX</span>
-                            <ol class="ol-down">
-                                <li>
-                                    <a href=""><img src="__INDEX__/custom/images/a39.png" alt=""><span>xx</span></a>
-                                </li>
-                            </ol>
-                        </li>
+                        {/if}
+                        {/volist}
                     </ul>
-                    <a href="javascript:;" class="parentA">室内数据标准</a>
-                    <ul class="ul-down">
-                        <li class="toggle-li c-333"><img src="__INDEX__/custom/images/a38.png" alt=""><span>Xx</span>
-                            <ol class="ol-down">
-                                <li>
-                                    <a href=""><img src="__INDEX__/custom/images/a39.png" alt=""><span>xx</span></a>
-                                </li>
-                            </ol>
-                        </li>
-                        <li class="toggle-li c-333"><img src="__INDEX__/custom/images/a38.png" alt=""><span>XX</span>
-                            <ol class="ol-down">
-                                <li>
-                                    <a href=""><img src="__INDEX__/custom/images/a39.png" alt=""><span>xx</span></a>
-                                </li>
-                            </ol>
-                        </li>
-                        <li class="toggle-li c-333"><img src="__INDEX__/custom/images/a38.png" alt=""><span>XX</span>
-                            <ol class="ol-down">
-                                <li>
-                                    <a href=""><img src="__INDEX__/custom/images/a39.png" alt=""><span>xx</span></a>
-                                </li>
-                            </ol>
-                        </li>
-                    </ul>
-                    <a href="javascript:;" class="parentA">实时数据标准</a>
-                    <ul class="ul-down">
-                        <li class="toggle-li c-333"><img src="__INDEX__/custom/images/a38.png" alt=""><span>Xx</span>
-                            <ol class="ol-down">
-                                <li>
-                                    <a href=""><img src="__INDEX__/custom/images/a39.png" alt=""><span>xx</span></a>
-                                </li>
-                            </ol>
-                        </li>
-                        <li class="toggle-li c-333"><img src="__INDEX__/custom/images/a38.png" alt=""><span>XX</span>
-                            <ol class="ol-down">
-                                <li>
-                                    <a href=""><img src="__INDEX__/custom/images/a39.png" alt=""><span>xx</span></a>
-                                </li>
-                            </ol>
-                        </li>
-                        <li class="toggle-li c-333"><img src="__INDEX__/custom/images/a38.png" alt=""><span>XX</span>
-                            <ol class="ol-down">
-                                <li>
-                                    <a href=""><img src="__INDEX__/custom/images/a39.png" alt=""><span>xx</span></a>
-                                </li>
-                            </ol>
-                        </li>
-                    </ul>
+                    {/volist}
+
                 </div>
                 <div class="sc-fr data-content">
                     <table class="st12">
