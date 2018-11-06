@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="__INDEX__/custom/css/p.css">
     <link rel="stylesheet" href="__INDEX__/custom/css/acm.css">
     <style>
-    footer {
+        footer {
         margin-top: 3%;
     }
 
@@ -31,14 +31,16 @@
         <div class="width-1200">
             <div class="sw pr clearfix">
                 <div class="platform-aside sc-fl">
-                    <a href="javascript:;" class="parentA">宏观电化学</a>
+                    {volist name="parentDcate" id="parents"}
+                    <a href="javascript:;" class="parentA">{$parents->name}</a>
                     <ul class="ul-down" style="display:block2;">
                         <li class="toggle-li c-333"><img src="__INDEX__/custom/images/a38.png" alt=""><span>开路电位</span>
                             <ol class="ol-down">
                                 <li>
                                     <a href="{:url('indoor/polarize')}"><img src="__INDEX__/custom/images/a39.png" alt=""><span>极化测试</span></a>
                                 </li>
-                                <li> <a href="{:url('indoor/hindrance')}"><img src="__INDEX__/custom/images/a39.png" alt=""><span>阻化测试</span></a></li>
+                                <li> <a href="{:url('indoor/hindrance')}"><img src="__INDEX__/custom/images/a39.png"
+                                            alt=""><span>阻化测试</span></a></li>
                             </ol>
                         </li>
                         <li class="toggle-li c-333"><img src="__INDEX__/custom/images/a38.png" alt=""><span>极化曲线</span>
@@ -63,126 +65,7 @@
                             </ol>
                         </li>
                     </ul>
-                    <a href="javascript:;" class="parentA"> 宏观照片</a>
-                    <ul class="ul-down">
-                        <li class="toggle-li c-333"><img src="__INDEX__/custom/images/a38.png" alt=""><span>Xx</span>
-                            <ol class="ol-down">
-                                <li>
-                                    <a href=""><img src="__INDEX__/custom/images/a39.png" alt=""><span>xx</span></a>
-                                </li>
-                            </ol>
-                        </li>
-                        <li class="toggle-li c-333"><img src="__INDEX__/custom/images/a38.png" alt=""><span>XX</span>
-                            <ol class="ol-down">
-                                <li>
-                                    <a href=""><img src="__INDEX__/custom/images/a39.png" alt=""><span>xx</span></a>
-                                </li>
-                            </ol>
-                        </li>
-                        <li class="toggle-li c-333"><img src="__INDEX__/custom/images/a38.png" alt=""><span>XX</span>
-                            <ol class="ol-down">
-                                <li>
-                                    <a href=""><img src="__INDEX__/custom/images/a39.png" alt=""><span>xx</span></a>
-                                </li>
-                            </ol>
-                        </li>
-                    </ul>
-                    <a href="javascript:;" class="parentA"> 微观电化学</a>
-                    <ul class="ul-down">
-                        <li class="toggle-li c-333"><img src="__INDEX__/custom/images/a38.png" alt=""><span>Xx</span>
-                            <ol class="ol-down">
-                                <li>
-                                    <a href=""><img src="__INDEX__/custom/images/a39.png" alt=""><span>xx</span></a>
-                                </li>
-                            </ol>
-                        </li>
-                        <li class="toggle-li c-333"><img src="__INDEX__/custom/images/a38.png" alt=""><span>XX</span>
-                            <ol class="ol-down">
-                                <li>
-                                    <a href=""><img src="__INDEX__/custom/images/a39.png" alt=""><span>xx</span></a>
-                                </li>
-                            </ol>
-                        </li>
-                        <li class="toggle-li c-333"><img src="__INDEX__/custom/images/a38.png" alt=""><span>XX</span>
-                            <ol class="ol-down">
-                                <li>
-                                    <a href=""><img src="__INDEX__/custom/images/a39.png" alt=""><span>xx</span></a>
-                                </li>
-                            </ol>
-                        </li>
-                    </ul>
-                    <a href="javascript:;" class="parentA"> 微观照片</a>
-                    <ul class="ul-down">
-                        <li class="toggle-li c-333"><img src="__INDEX__/custom/images/a38.png" alt=""><span>Xx</span>
-                            <ol class="ol-down">
-                                <li>
-                                    <a href=""><img src="__INDEX__/custom/images/a39.png" alt=""><span>xx</span></a>
-                                </li>
-                            </ol>
-                        </li>
-                        <li class="toggle-li c-333"><img src="__INDEX__/custom/images/a38.png" alt=""><span>XX</span>
-                            <ol class="ol-down">
-                                <li>
-                                    <a href=""><img src="__INDEX__/custom/images/a39.png" alt=""><span>xx</span></a>
-                                </li>
-                            </ol>
-                        </li>
-                        <li class="toggle-li c-333"><img src="__INDEX__/custom/images/a38.png" alt=""><span>XX</span>
-                            <ol class="ol-down">
-                                <li>
-                                    <a href=""><img src="__INDEX__/custom/images/a39.png" alt=""><span>xx</span></a>
-                                </li>
-                            </ol>
-                        </li>
-                    </ul>
-                    <a href="javascript:;" class="parentA"> 谱图数据</a>
-                    <ul class="ul-down">
-                        <li class="toggle-li c-333"><img src="__INDEX__/custom/images/a38.png" alt=""><span>Xx</span>
-                            <ol class="ol-down">
-                                <li>
-                                    <a href=""><img src="__INDEX__/custom/images/a39.png" alt=""><span>xx</span></a>
-                                </li>
-                            </ol>
-                        </li>
-                        <li class="toggle-li c-333"><img src="__INDEX__/custom/images/a38.png" alt=""><span>XX</span>
-                            <ol class="ol-down">
-                                <li>
-                                    <a href=""><img src="__INDEX__/custom/images/a39.png" alt=""><span>xx</span></a>
-                                </li>
-                            </ol>
-                        </li>
-                        <li class="toggle-li c-333"><img src="__INDEX__/custom/images/a38.png" alt=""><span>XX</span>
-                            <ol class="ol-down">
-                                <li>
-                                    <a href=""><img src="__INDEX__/custom/images/a39.png" alt=""><span>xx</span></a>
-                                </li>
-                            </ol>
-                        </li>
-                    </ul>
-                    <a href="javascript:;" class="parentA"> 更多</a>
-                    <ul class="ul-down">
-                        <li class="toggle-li c-333"><img src="__INDEX__/custom/images/a38.png" alt=""><span>Xx</span>
-                            <ol class="ol-down">
-                                <li>
-                                    <a href=""><img src="__INDEX__/custom/images/a39.png" alt=""><span>xx</span></a>
-                                </li>
-                            </ol>
-                        </li>
-                        <li class="toggle-li c-333"><img src="__INDEX__/custom/images/a38.png" alt=""><span>XX</span>
-                            <ol class="ol-down">
-                                <li>
-                                    <a href=""><img src="__INDEX__/custom/images/a39.png" alt=""><span>xx</span></a>
-                                </li>
-                            </ol>
-                        </li>
-                        <li class="toggle-li c-333"><img src="__INDEX__/custom/images/a38.png" alt=""><span>XX</span>
-                            <ol class="ol-down">
-                                <li>
-                                    <a href=""><img src="__INDEX__/custom/images/a39.png" alt=""><span>xx</span></a>
-                                </li>
-                            </ol>
-                        </li>
-                    </ul>
+                    {/volist}
                 </div>
                 <div class="sc-fr dataBox">
                     <div class="clearfix">
@@ -204,21 +87,23 @@
                         <li class="clearfix"><a href="data_fs.html"><img src="__INDEX__/custom/images/a46.png" alt=""><p class="sc-fl c-666">极化测试</p><span class="sc-fr c-666">3312</span></a></li>
                         <li class="clearfix"><a href="data_fs.html"><img src="__INDEX__/custom/images/a46.png" alt=""><p class="sc-fl c-666">阻抗测试</p><span class="sc-fr c-666">3312</span></a></li>
                     </ul>-->
-					<ul class="equipmentdata-ul" style="margin-top:20px;">
+                    <ul class="equipmentdata-ul" style="margin-top:20px;">
                         <li>
                             <h5><a href="{:url('indoor/openPotential')}">Q235 4045</a></h5>
                             <div class="clearfix">
                                 <a href="{:url('indoor/dataShow')}" class="sc-fl left">
                                     <table>
-                                        <tbody><tr>
-                                            <td>材料名称：Q235</td>
-                                            <td>材料类别：碳钢</td>
-                                        </tr>
-                                        <tr>
-                                            <td>实验周期（月）：无</td>
-                                            <td>试验地点：无</td>
-                                        </tr>
-                                    </tbody></table>
+                                        <tbody>
+                                            <tr>
+                                                <td>材料名称：Q235</td>
+                                                <td>材料类别：碳钢</td>
+                                            </tr>
+                                            <tr>
+                                                <td>实验周期（月）：无</td>
+                                                <td>试验地点：无</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </a>
                                 <div class="sc-fl right clearfix">
                                     <div class="sc-fl browse">浏览量：22</div>
@@ -232,8 +117,9 @@
                             </div>
                         </li>
                     </ul>
-					<div class="paging">
-                        <span>页次：1/100 每页15 总数1486 </span>&nbsp; <a href="index.html">首页</a> <span class="">上一页</span> <a class="blue">下一页</a> <a class="blue">尾页</a> 转到：
+                    <div class="paging">
+                        <span>页次：1/100 每页15 总数1486 </span>&nbsp; <a href="index.html">首页</a> <span class="">上一页</span>
+                        <a class="blue">下一页</a> <a class="blue">尾页</a> 转到：
                         <div class="col-md-2">
                             <select class="form-control ">
                                 <option>第1页</option>
@@ -244,7 +130,7 @@
                             </select>
                         </div>
                     </div>
-					
+
                 </div>
             </div>
         </div>
@@ -254,34 +140,34 @@
     <script src="__INDEX__/custom/js/p.js"></script>
     <script src="__INDEX__/custom/js/bootstrap.min.js"></script>
     <script>
-    $(function() {
+        $(function () {
 
-        var mynav = $('nav li').find('a'); //寻找导航的a元素 　　
-        for (var i = 0; i < mynav.length; i++) {　　　
-            var links = mynav[i].getAttribute('href'); //取出每个链接的href属性的值
-            var myurl = document.location.href; //取出当前窗口的链接
-            if (myurl.indexOf(links) != -1) { //判断浏览器地址是否等于当前a元素的href属性
-                $(mynav[i]).parent().addClass('nav-hover')
-            }　　
-        }
-        $('.ol-down').on('click', function(e) {
-            e.stopPropagation();
+            var mynav = $('nav li').find('a'); //寻找导航的a元素 　　
+            for (var i = 0; i < mynav.length; i++) {
+                var links = mynav[i].getAttribute('href'); //取出每个链接的href属性的值
+                var myurl = document.location.href; //取出当前窗口的链接
+                if (myurl.indexOf(links) != -1) { //判断浏览器地址是否等于当前a元素的href属性
+                    $(mynav[i]).parent().addClass('nav-hover')
+                }
+            }
+            $('.ol-down').on('click', function (e) {
+                e.stopPropagation();
 
+            })
+            $('.ol-down li').on('click', function () {
+                $(this).addClass('cur').siblings().removeClass('cur')
+
+            })
+            $('.platform-aside .parentA').on('click', function () {
+                $(this).next().slideToggle()
+
+            })
+            $('.ul-down .toggle-li').on('click', function () {
+                $(this).find('img').toggleClass('xia')
+                $(this).find('.ol-down').slideToggle()
+
+            })
         })
-        $('.ol-down li').on('click', function() {
-            $(this).addClass('cur').siblings().removeClass('cur')
-
-        })
-        $('.platform-aside .parentA').on('click', function() {
-            $(this).next().slideToggle()
-
-        })
-        $('.ul-down .toggle-li').on('click', function() {
-            $(this).find('img').toggleClass('xia')
-            $(this).find('.ol-down').slideToggle()
-
-        })
-    })
     </script>
 </body>
 
