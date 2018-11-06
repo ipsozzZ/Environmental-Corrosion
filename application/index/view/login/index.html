@@ -15,7 +15,20 @@
   <link rel="stylesheet" href="__INDEX__/custom/css/acm.css">
   <link rel="stylesheet" href="__INDEX__/custom/css/new.css">
   <style>
-
+    .login-btn {
+      width: 100%;
+    background: #0093d6;
+    color: #fff;
+    height: 48px;
+    text-align: center;
+    line-height: 48px;
+    display: block;
+    font-size: 16px;
+    letter-spacing: 2px;
+    }
+    .hint {
+      color: red;
+    }
   </style>
 </head>
 
@@ -24,7 +37,7 @@
     <header>{include file="common/header"}</header>
     <div class="login_next">
       <div class="width-1200">
-        <form action="./loginCheck" id="loginForm">
+        <form action="" id="loginForm">
           <div class="login_popup">
             <h1>欢迎登录</h1>
             <ul>
@@ -38,9 +51,9 @@
                 <a href="new_forget.html">忘记密码</a>
               </li>
               <li>
-                <a href="" id="login">登录</a>
+                <span class="hint">{$hint}</span>
+                <button class="login-btn" type="submit">登录</button>
               </li>
-              <span>{$hint}</span>
             </ul>
             <div class="login_bottom">
               <p>还没有账户？那就注册一个吧! <a href="/index/login/register">注册</a></p>
@@ -67,12 +80,6 @@
           $(mynav[i]).parent().addClass('nav-hover')
         }
       }
-    })
-
-    $(document).ready(e => {
-      $('#login').click(e => {
-        $("#loginForm").submit()
-      })
     })
   </script>
 </body>

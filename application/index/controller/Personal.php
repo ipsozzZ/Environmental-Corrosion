@@ -3,6 +3,8 @@ namespace app\index\controller;
 
 use think\Controller;
 use app\index\controller\Common;
+use app\common\model\User;
+use app\common\model\Token;
 
 class Personal extends Common
 {
@@ -17,6 +19,12 @@ class Personal extends Common
   public function index()
   {
     $this->assign('currTitle', '个人信息');
+    $userModel = new User();
+    $token = cookie('corrosion_token');
+    if(!$token) $this -> redirect('login/index');
+    $userInfo = $userModel -> getUserByToken($token);
+    if(!$userInfo) $this -> redirect('login/index');
+    $this -> assign('user', $userInfo);
     return view();
   }
 

@@ -15,7 +15,14 @@ class User extends Model
   protected function initialize(){
     parent::initialize();
   }
-
+  
+  /**
+   * 登出
+   */
+  public function logout () {
+    cookie('corrosion_token', null);
+    return json_encode(1);
+  }
   /**
    * 登录
    * @param name 用户名
@@ -41,7 +48,7 @@ class User extends Model
     }
 
     $tokenModel = new Token();
-    $token = $tokenModel -> addToken($user['id'], 2);
+    $token = $tokenModel -> addToken($user['id'], 1);
     if($token['status'] == true) {
       $res['token'] = $token['token'];
     } else {
@@ -93,11 +100,9 @@ class User extends Model
    */
   public function register ($data) {
     $model = $this -> newInstance();
+    //TODO: $data['pass'] = md5($data['pass']);
 
-    $model -> name = $data['name'];
-    $model -> pass = md5($data['pass']);
-
-    $res = $model -> allowField(true) -> save();
+    $res = $model -> allowField(true) -> save($data);
     return $res == 1;
   }
 
@@ -118,5 +123,17 @@ class User extends Model
 
     $res = $model -> save($data, ['id' => $id]);
     return $res;
+  }
+
+  /**
+   * 根据token获取用户
+   */
+  public function getUserByToken($token) {
+    $tokenModel = new Token();
+    $uid = $tokenModel -> getUidByToken($token, 1);
+    if(!$uid) return false;
+    $userModel = $this -> newInstance();
+
+    return $userModel -> get($uid);
   }
 }
