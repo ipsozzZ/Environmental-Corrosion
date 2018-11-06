@@ -14,37 +14,51 @@ class Slist extends Model
   /**
    * 获取所有行
    */
-  public function getAll() {
-    $model = $this -> newInstance();
+  public function getAll()
+  {
+    $model = $this->newInstance();
 
-    return $model -> all();
+    return $model->all();
+  }
+
+  /**
+   * 通过sid获取符合条件的记录
+   */
+  public function getSlistBySid($sid)
+  {
+    $model = $this->newInstance();
+    $res = $model->where('sid', $sid)->select();
+    return $res;
   }
 
   /**
    * 根据id删除一个
    */
-  public function deleteById ($id) {
-    $model = $this -> newInstance();
+  public function deleteById($id)
+  {
+    $model = $this->newInstance();
 
-    return $model -> where("id", $id) -> delete();
+    return $model->where("id", $id)->delete();
   }
 
   /**
    * 根据id更新
    */
-  public function updateById ($id, $data) {
-    $model = $this -> newInstance();
+  public function updateById($id, $data)
+  {
+    $model = $this->newInstance();
 
-    return $model -> save($data, ['id' => $id]);
+    return $model->save($data, ['id' => $id]);
   }
 
   /**
    * 新增一个
    */
-  public function add ($data) {
-    $model = $this -> newInstance();
+  public function add($data)
+  {
+    $model = $this->newInstance();
 
-    return $model -> save($data);
+    return $model->save($data);
   }
 
 }
