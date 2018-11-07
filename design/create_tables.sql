@@ -58,6 +58,51 @@ create table article
 alter table article
   add primary key (id);
 
+create table bdata
+(
+  id   int auto_increment,
+  name varchar(50) not null,
+  cid  int         not null
+  comment 'bdcate的id',
+  constraint bdata_id_uindex
+  unique (id)
+)
+  comment '基础数据';
+
+alter table bdata
+  add primary key (id);
+
+create table bdcate
+(
+  id   int auto_increment,
+  name varchar(10)                                                not null,
+  icon varchar(100) default '/static/index/custom/images/a50.png' not null
+  comment '图标',
+  constraint bdcate_id_uindex
+  unique (id)
+)
+  comment '基础数据分类';
+
+alter table bdcate
+  add primary key (id);
+
+create table bdsrc
+(
+  id      int auto_increment,
+  content text        not null
+  comment '数据内容',
+  search  varchar(50) not null
+  comment '检索值',
+  bdid    int         not null
+  comment 'bdata 的id',
+  constraint bdate_id_uindex
+  unique (id)
+)
+  comment '基础数据';
+
+alter table bdsrc
+  add primary key (id);
+
 create table carousel
 (
   id     int auto_increment,

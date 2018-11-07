@@ -1,14 +1,6 @@
 .idea
-<<<<<<< HEAD
-# composer.lock
-.log
-# thinkphp
-runtime
-bushu
-=======
 composer.lock
 .log
 thinkphp
 runtime
 bushu
->>>>>>> 74284d2f53aad22fc784289ae4d75f3a5f007785
