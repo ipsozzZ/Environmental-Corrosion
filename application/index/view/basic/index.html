@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="__INDEX__/custom/css/p.css">
     <link rel="stylesheet" href="__INDEX__/custom/css/acm.css">
     <style>
-    footer {
+        footer {
         margin-top: 3%;
     }
     </style>
@@ -26,41 +26,9 @@
         <nav>{include file="common/nav"}</nav>
         <div class="width-1200 clearfix">
             <div class="Basicdata">
-                <a href="javascript:;">
+                <a class="Cate" href="javascript:;">
                     <img src="__INDEX__/custom/images/a50.png" alt="">
                     <p>腐蚀数据</p>
-                </a>
-                <a href="javascript:;">
-                    <img src="__INDEX__/custom/images/a51.png" alt="">
-                    <p>化学成分</p>
-                </a>
-                <a href="javascript:;">
-                    <img src="__INDEX__/custom/images/a52.png" alt="">
-                    <p>组织结构</p>
-                </a>
-                <a href="javascript:;">
-                    <img src="__INDEX__/custom/images/a53.png" alt="">
-                    <p>力学性能</p>
-                </a>
-                <a href="javascript:;">
-                    <img src="__INDEX__/custom/images/a54.png" alt="">
-                    <p>热力学</p>
-                </a>
-                <a href="javascript:;">
-                    <img src="__INDEX__/custom/images/a55.png" alt="">
-                    <p>物理性质</p>
-                </a>
-                <a href="javascript:;">
-                    <img src="__INDEX__/custom/images/a56.png" alt="">
-                    <p>电位-pH图</p>
-                </a>
-                <a href="javascript:;">
-                    <img src="__INDEX__/custom/images/a57.png" alt="">
-                    <p>金相图谱</p>
-                </a>
-                <a href="javascript:;">
-                    <img src="__INDEX__/custom/images/a59.png" alt="">
-                    <p>相图</p>
                 </a>
             </div>
             <h4 class="jsh4">腐蚀数据</h4>
@@ -513,9 +481,9 @@
                 </tr>
             </table>
             <div class="table-paging c-333 sc-center">
-                <span class="prev">←   向前</span>
+                <span class="prev">← 向前</span>
                 <span class="num">1</span>
-                <span class="next">向后   →</span>
+                <span class="next">向后 →</span>
             </div>
         </div>
         <footer>{include file="common/footer"}</footer>
@@ -524,20 +492,20 @@
     <script src="__INDEX__/custom/js/p.js"></script>
     <script src="__INDEX__/custom/js/bootstrap.min.js"></script>
     <script>
-    $(function() {
-        var mynav = $('nav li').find('a'); //寻找导航的a元素 　　
-        for (var i = 0; i < mynav.length; i++) {　　　
-            var links = mynav[i].getAttribute('href'); //取出每个链接的href属性的值
-            var myurl = document.location.href; //取出当前窗口的链接
-            if (myurl.indexOf(links) != -1) { //判断浏览器地址是否等于当前a元素的href属性
-                $(mynav[i]).parent().addClass('nav-hover')
-            }　　
-        }
-        $('.zhouqibiao').on('click', function() {
-            $('.Periodic-table').toggle()
+        $(function () {
+            var mynav = $('nav li').find('a'); //寻找导航的a元素 　　
+            for (var i = 0; i < mynav.length; i++) {
+                var links = mynav[i].getAttribute('href'); //取出每个链接的href属性的值
+                var myurl = document.location.href; //取出当前窗口的链接
+                if (myurl.indexOf(links) != -1) { //判断浏览器地址是否等于当前a元素的href属性
+                    $(mynav[i]).parent().addClass('nav-hover')
+                }
+            }
+            $('.zhouqibiao').on('click', function () {
+                $('.Periodic-table').toggle()
 
+            })
         })
-    })
     </script>
 </body>
 
