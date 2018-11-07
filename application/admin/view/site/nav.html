@@ -10,12 +10,14 @@
                 <col width="80">
                 <col>
                 <col width="200">
+                <col width="80">
                 <col width="250">
             </colgroup>
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>图片</th>
+                    <th>导航名</th>
+                    <th>排序优先级</th>
                     <th>链接地址</th>
                     <th>操作</th>
                 </tr>
@@ -26,6 +28,9 @@
                     <td>{$vo.id}</td>
                     <td>
                         {$vo.name}
+                    </td>
+                    <td>
+                        {$vo.priority}
                     </td>
                     <td><a href="{$vo.linkto}" target="_blank">{$vo.linkto}</a></td>
                     <td>

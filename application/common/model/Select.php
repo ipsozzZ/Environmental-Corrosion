@@ -21,7 +21,33 @@ class Select extends Model
       -> alias('s')
       -> join('article a', 's.aid=a.id')
       -> field('s.*, a.title')
+      -> order('id', 'desc')
       -> select();
+  }
+
+    /**
+   * 获取所有行
+   */
+  public function getAllCard() {
+    $model = $this -> newInstance();
+
+    return $model
+      -> alias('f')
+      -> join('article a', 'f.aid=a.id')
+      -> field('f.*, a.title, a.cover, a.content, a.ctime, a.authors, a.src')
+      -> order('id', 'desc')
+      -> select();
+  }
+
+  public function getTop() {
+    $model = $this -> newInstance();
+
+    return $model
+      -> alias('s')
+      -> join('article a', 's.aid=a.id')
+      -> field('s.*, a.title, a.content, a.cover')
+      -> order('id', 'desc')
+      -> find();
   }
 
   /**

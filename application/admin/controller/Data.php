@@ -30,6 +30,13 @@ class Data extends Common
           'cid' => $cid,
           'type' => $type
       ]);
+      if($type == 1) {
+        $parentModel = new Indoordata();
+      } else {
+        $parentModel = new Wilddata();
+      }
+      $parentData = $parentModel -> get($cid);
+      $this -> assign('parentData', $parentData);
 
       $this -> assign('data', $data);
 
@@ -125,5 +132,16 @@ class Data extends Common
         $this -> assign ("data", $data);
 
         return view();
+    }
+
+    public function del ($id = 0) {
+        if($id == 0) {
+            $this->assign('result', "无效的id！");
+            return view('result');
+        }
+        $model = new Model();
+        $model -> deleteById($id);
+        $this->assign('result', "删除成功！");
+        return view('result');
     }
 }

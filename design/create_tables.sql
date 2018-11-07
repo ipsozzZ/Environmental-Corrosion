@@ -1,4 +1,3 @@
-
 create table about
 (
   id      int  not null,
@@ -93,6 +92,8 @@ create table data
   comment '室内1 室外2 数据',
   mname    varchar(30)                         not null
   comment '材料名称',
+  collect  int default '0'                     not null,
+  download int default '0'                     not null,
   constraint data_id_uindex
   unique (id)
 )
@@ -145,14 +146,10 @@ alter table friends
 
 create table indoordata
 (
-  id       int auto_increment,
-  name     varchar(100)    not null,
-  cid      int             not null
+  id   int auto_increment,
+  name varchar(100) not null,
+  cid  int          not null
   comment '所属分类id',
-  collect  int default '0' not null
-  comment '收藏量',
-  download int default '0' not null
-  comment '下载量',
   constraint indoordata_id_uindex
   unique (id)
 )
@@ -175,11 +172,13 @@ alter table msg
 
 create table nav
 (
-  id     int auto_increment,
-  name   varchar(12)  not null
+  id       int auto_increment,
+  name     varchar(12)     not null
   comment '名字',
-  linkto varchar(100) not null
+  linkto   varchar(100)    not null
   comment '链接到',
+  priority int default '1' not null
+  comment '排序优先级',
   constraint nav_id_uindex
   unique (id)
 )

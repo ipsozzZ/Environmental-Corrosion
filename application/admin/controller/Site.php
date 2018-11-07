@@ -47,7 +47,7 @@ class Site extends Common {
     if($res) {
       $this -> assign('modifyed', true);
     }
-    return view("edit");
+    return $this -> redirect("site");
   }
 
   /**
@@ -97,7 +97,7 @@ class Site extends Common {
       $this -> assign('modifyed', true);
     }
 
-    return view("edit");
+    return $this -> redirect("site/carousel");
   }
 
   /**
@@ -145,9 +145,11 @@ class Site extends Common {
     $id = $this -> request -> post('id');
     $img = $this -> request -> post('name');
     $linkto = $this -> request -> post('linkto');
+    $priority = $this -> request -> post('priority');
     $data = [
       'name' => $img,
-      'linkto' => $linkto
+      'linkto' => $linkto,
+      'priority' => $priority,
     ];
     $navModel = new Nav();
     if(!$id) {
@@ -159,7 +161,7 @@ class Site extends Common {
       $this -> assign('modifyed', true);
     }
 
-    return view("edit");
+    return $this -> redirect("site/nav");
   }
 
   public function addNav () {
@@ -221,7 +223,7 @@ class Site extends Common {
       $this -> assign('modifyed', true);
     }
 
-    return view("edit");
+    return $this -> redirect("site/friends");
   }
 
   public function addFriends () {

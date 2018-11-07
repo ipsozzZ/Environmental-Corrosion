@@ -23,6 +23,18 @@ class Standard extends Controller
     $standard = $model->getAll();
     return json_encode($standard);
   }
+
+  /**
+   * 通过id获取符合条件的标准详情
+   * @param sid 标准id
+   */
+  public function getSlistBySid($sid)
+  {
+    $model = new Model();
+    $slist = $model->getSlistBySid($sid);
+    return json_encode($slist);
+  }
+
   /**
    * 导入excel并写入
    */

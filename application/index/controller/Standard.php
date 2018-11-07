@@ -38,4 +38,17 @@ class Standard extends Common
     ]);
     return view();
   }
+
+  /**
+   * 标准详情
+   */
+  public function dataShow($id = 0)
+  {
+    $modelSlist = new commonStandard();
+    $slist = json_decode($modelSlist->getSlistBySid($id));
+    $this->assign([
+      'slist' => $slist,
+    ]);
+    return view('dataShow');
+  }
 }

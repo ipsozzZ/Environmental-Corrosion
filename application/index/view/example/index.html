@@ -2,144 +2,94 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> -->
-    <!-- <meta name="full-screen" content="yes" /> -->
-    <!-- <meta name="x5-fullscreen" content="true" /> -->
-    <!-- 是否启用 WebApp 全屏模式，删除苹果默认的工具栏和菜单栏 -->
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <title>国家材料环境腐蚀科学数据中心-{$currTitle}</title>
-    <link rel="stylesheet" href="__INDEX__/custom/css/bootstrap.min.css">
-    <link rel="stylesheet" href="__INDEX__/custom/css/reset.css">
-    <link rel="stylesheet" href="__INDEX__/custom/css/p.css">
-    <link rel="stylesheet" href="__INDEX__/custom/css/acm.css">
-    <style>
+  <meta charset="UTF-8">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> -->
+  <!-- <meta name="full-screen" content="yes" /> -->
+  <!-- <meta name="x5-fullscreen" content="true" /> -->
+  <!-- 是否启用 WebApp 全屏模式，删除苹果默认的工具栏和菜单栏 -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <title>国家材料环境腐蚀科学数据中心-{$currTitle}</title>
+  <link rel="stylesheet" href="__INDEX__/custom/css/bootstrap.min.css">
+  <link rel="stylesheet" href="__INDEX__/custom/css/reset.css">
+  <link rel="stylesheet" href="__INDEX__/custom/css/p.css">
+  <link rel="stylesheet" href="__INDEX__/custom/css/acm.css">
+  <style>
     footer {
-        margin-top: 80px;
+      margin-top: 80px;
     }
-    </style>
+  </style>
 </head>
 
 <body>
-    <div class="main">
-        <header>{include file="common/header"}</header>
-        <nav>{include file="common/nav"}</nav>
-        <div class="width-1200" style="margin-top:50px">
-            <div id="pone0">
-                <div class="border-title clearfix">
-                    <span></span>
-                    <span>重大案例</span>
-                    <div class="sc-fr"><b>更多</b><img src="__INDEX__/custom/images/a7.png" alt=""></div>
-                </div>
-                <div class="box-new clearfix">
-                    <div class="sc-fl left"><img src="__INDEX__/custom/images/a15.png" alt=""></div>
-                    <div class="sc-fl right">
-                        <a href="{:url('index/example/majorCase')}">
-                            <h5>输电线路超疏水防覆冰涂层研究进展</h5>
-                            <p>温度较低的雨水落在零度以下的输电线路上会出现结冰现象，为输电线路覆冰。输电线路覆冰是电力系统最严重的灾害之一，因覆冰导致绝缘子冰闪、过载、线路舞动，甚至断线倒塔等事故，严重威胁着电网的安全运行。<span>[详细]</span>
-                            </p>
-                        </a>
-                        <a href="al2.html">
-                            <h5>碳纳米管改性铝合金技术成功应用在电网领域</h5>
-                            <p>近日，由国网电力科学研究院武汉南瑞有限责任公司（以下简称“武汉南瑞”）承担的《环保型轻量化线路用的高强碳纳米管/铝合金及应用》项目获得国家电网公司科技进步二等奖，该新材料产品的应用将有助于提升电网技术装备水平。<span>[详细]</span>
-                            </p>
-                        </a>
-                    </div>
-                </div>
-                <div class="box-new clearfix">
-                    <div class="sc-fl left"><img src="__INDEX__/custom/images/111.png" alt=""></div>
-                    <div class="sc-fl right">
-                        <a href="al3.html">
-                            <h5>海上风电塔架防腐蚀涂料研究现状</h5>
-                            <p>风力发电的大力发展，带动了风力发电装备用防腐蚀涂料的发展。目前风力发电防腐蚀涂料市场中，丹麦的赫普（HEMPEL）塔架涂料市场占有率最高，另外还有挪威的佐敦（JOTUN）、荷兰的阿克苏诺贝尔（AKZO-NOBEL）以及美国的PPG等。国内做风电防腐蚀涂料的企业主要有中远关西、金鱼、普兰纳等。<span>[详细]</span>
-                            </p>
-                        </a>
-                        <a href="al4.html">
-                            <h5>无限风光在海洋——兼谈海上风电防腐蚀</h5>
-                            <p> 风是大自然馈赠给我们的礼物，人类对于风能的利用已经有数千年的历史了。现代社会随着科学技术的发展进步，风能作为一种清洁能源，越来越受到人们的关注。其中，风力发电是利用涡轮叶片将气体流动时所产生的机械能转变为电能，实现了人类对于风能的利用。由此可见，风力发电具有广阔的应用前景和开发价值。<span>[详细]</span>
-                            </p>
-                        </a>
-                    </div>
-                </div>
-                <div class="gray-div m25"></div>
+  <div class="main">
+    <header>{include file="common/header"}</header>
+    <nav>{include file="common/nav"}</nav>
+    <div class="width-1200" style="margin-top:50px">
+
+      {volist name="data" id="vo"}
+        <div id="pone{$vo.index}">
+          <div class="border-title clearfix">
+            <span></span>
+            <span>{$vo.name}</span>
+            <div class="sc-fr"><b>更多</b><img src="__INDEX__/custom/images/a7.png" alt=""></div>
+          </div>
+          {volist name="$vo.articles" id="article"}
+          <div class="box-new clearfix">
+            <div class="sc-fl left"><img src="{$article.cover}" alt=""></div>
+            <div class="sc-fl right">
+              <a href="/index/article/index?id={$article.id}">
+                <h5>{$article.title}</h5>
+                <p>{$article.content}<span>[详细]</span>
+                </p>
+              </a>
             </div>
-            <div id="pone1">
-                <div class="border-title clearfix">
-                    <span></span>
-                    <span>专题服务</span>
-                    <div class="sc-fr"><b>更多</b><img src="__INDEX__/custom/images/a7.png" alt=""></div>
-                </div>
-                <div class="box-new clearfix">
-                    <div class="sc-fl left"><img src="__INDEX__/custom/images/a14.png" alt=""></div>
-                    <div class="sc-fl right">
-                        <a href="{:url('index/example/special')}">
-                            <h5>核电厂金属疲劳监测过程中环境影响疲劳评价方法研究</h5>
-                            <p>低周疲劳(LCF)损伤被认为是核电厂结构材料的主要老化机理之一,它一直是运行反应堆延寿应用以及新反应堆设计和许可所需技术评估和安全审查的关键内容之一｡尽管ASME第Ⅲ卷规定了核电结构材料的设计疲劳曲线,但这些设计曲线并没有包括冷却剂腐蚀环境对低周疲劳寿命的影响。
-                                <span>[详细]</span>
-                            </p>
-                        </a>
-                        <a href="al6.html">
-                            <h5>核电用高性能不锈钢管的应用</h5>
-                            <p>新材料专题近年来，我国关键基础钢铁新材料的质量、性能、绿色化水平显着提高，新材料产业的发展也为钢铁企业的转型升级提供了新的契机，同时，钢铁企业也要建立健全上下游产业合作机制，加快钢铁新材料产业化应用。
-                                <span>[详细]</span>
-                            </p>
-                        </a>
-                    </div>
-                </div>
-                <div class="box-new clearfix">
-                    <div class="sc-fl left"><img src="__INDEX__/custom/images/222.png" alt=""></div>
-                    <div class="sc-fl right">
-                        <a href="al7.html">
-                            <h5>公路桥梁典型腐蚀失效案例分析</h5>
-                            <p> 江西省南昌新八一大桥由主桥、引桥、引道三部分组成，全长约6公里，桥面有效宽度26米，双向四车道，设计速度为60公里/小时，1997年9月29日建成通车。主桥1040m，桥孔布置为（50+2×160+3×50）+（3×50+2×160+50）m，斜拉索采用双索面、扇形密索布置，梁上索距为8m，拉索为PE护套冷铸锚拉索，全桥拉索144根，钢筋混凝土预应力梁。
-                                <span>[详细]</span>
-                            </p>
-                        </a>
-                        <a href="al8.html">
-                            <h5>桥梁疲劳延寿新技术：Needle Peening</h5>
-                            <p>明尼苏达大桥最近倒塌，提醒我们在日常工作中质量设计、制造和检查的重要性。NTSB将进行充分的调查和报告，但由于事故涉及腐蚀和疲劳开裂信息，它也提出了一个问题，例如喷丸技术是否可能已经用于这种类型的焊接结构。
-                                <span>[详细]</span>
-                            </p>
-                        </a>
-                    </div>
-                </div>
-                <div class="gray-div m25"></div>
-            </div>
+          </div>
+          {/volist}
+
+          <div class="gray-div m25"></div>
         </div>
-        <div class="px-aside">
-            <div class="platform-aside">
-                <a href="javascript:;" class="current">重大案例</a>
-                <a href="javascript:;">专题服务</a>
-            </div>
-        </div>
-        <footer>{include file="common/footer"}</footer>
+      {/volist}
+
     </div>
-    <script src="__INDEX__/custom/js/jquery.min.js"></script>
-    <script src="__INDEX__/custom/js/p.js"></script>
-    <script src="__INDEX__/custom/js/bootstrap.min.js"></script>
-    <script>
-    $(function() {
-        $('.qiehuan span').on('click', function() {
-            $(this).addClass('active').siblings().removeClass('active')
-        })
-        var mynav = $('nav li').find('a'); //寻找导航的a元素 　　
-        for (var i = 0; i < mynav.length; i++) {　　　
-            var links = mynav[i].getAttribute('href'); //取出每个链接的href属性的值
-            var myurl = document.location.href; //取出当前窗口的链接
-            if (myurl.indexOf(links) != -1) { //判断浏览器地址是否等于当前a元素的href属性
-                $(mynav[i]).parent().addClass('nav-hover')
-            }　　
+    <div class="px-aside">
+      <div class="platform-aside">
+        {volist name="data" id="vo"}
+        {if condition="$i==0"}
+        <a href="javascript:;" data-panel="{$vo.index}" class="current">{$vo.name}</a>
+        {else}
+        <a href="javascript:;" data-panel="{$vo.index}">{$vo.name}</a>
+        {/if}
+        {/volist}
+      </div>
+    </div>
+    <footer>{include file="common/footer"}</footer>
+  </div>
+  <script src="__INDEX__/custom/js/jquery.min.js"></script>
+  <script src="__INDEX__/custom/js/p.js"></script>
+  <script src="__INDEX__/custom/js/bootstrap.min.js"></script>
+  <script>
+    $(function () {
+      $('.qiehuan span').on('click', function () {
+        $(this).addClass('active').siblings().removeClass('active')
+      })
+      var mynav = $('nav li').find('a'); //寻找导航的a元素 　　
+      for (var i = 0; i < mynav.length; i++) {
+        var links = mynav[i].getAttribute('href'); //取出每个链接的href属性的值
+        var myurl = document.location.href; //取出当前窗口的链接
+        if (myurl.indexOf(links) != -1) { //判断浏览器地址是否等于当前a元素的href属性
+          $(mynav[i]).parent().addClass('nav-hover')
         }
-        //描点定位
-        $('.platform-aside a').each(function(i) {
-            $('.platform-aside a').eq(i).on('click', function() {
-                $('html, body').animate({ scrollTop: $('#pone' + i).offset().top }, 500);
-                $(this).addClass('current').siblings().removeClass('current');
-            })
+      }
+      //描点定位
+      $('.platform-aside a').each(function (i) {
+        $('.platform-aside a').eq(i).on('click', function () {
+          $('html, body').animate({ scrollTop: $('#pone' + i).offset().top }, 500);
+          $(this).addClass('current').siblings().removeClass('current');
         })
+      })
 
     })
-    </script>
+  </script>
 </body>
 
 </html>
