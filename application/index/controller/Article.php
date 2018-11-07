@@ -60,6 +60,14 @@ class Article extends Common{
     return view();
   }
 
+  public function search ($key, $page = 1) {
+    $model = new Model();
+    $length = 10;
+    $start = ($page - 1) * $length;
+    $articles = $model -> search($key, $start, $length);    
+    return view('list');
+  }
+
 
   public function dataProList($page = 0) {
     $model = new Model();

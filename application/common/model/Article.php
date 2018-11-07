@@ -71,7 +71,13 @@ class Article extends Model
   }
 
   public function search ($key, $start = 1, $length = 10) {
-    
+    $model = $this -> newInstance();
+
+    return $Model
+      -> where('title', 'like', $key)
+      -> order('id', 'desc')
+      -> limit($start, $length)
+      -> select();
   }
 
   /**
