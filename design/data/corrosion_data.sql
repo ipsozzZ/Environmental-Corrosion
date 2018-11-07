@@ -1,4 +1,4 @@
-INSERT INTO corrosion.data (id, title, position, cycle, cid, ctime, viewer, content, type, mname) VALUES (1, 'asdsads', '111', 4, 11, '2018-11-06 13:33:20', 3, '<table border="0" width="100%" cellpadding="0" cellspacing="0">
+INSERT INTO corrosion.data (id, title, position, cycle, cid, ctime, viewer, content, type, mname) VALUES (1, 'asdsads', '111', 4, 1, '2018-11-07 09:02:46', 3, '<table border="0" width="100%" cellpadding="0" cellspacing="0">
                     <tbody>
                       <tr>
                         <th>&nbsp;项目</th>
@@ -22,7 +22,7 @@ INSERT INTO corrosion.data (id, title, position, cycle, cid, ctime, viewer, cont
                       </tr>
                     </tbody>
                   </table><p><br></p>', 1, 'Na');
-INSERT INTO corrosion.data (id, title, position, cycle, cid, ctime, viewer, content, type, mname) VALUES (2, 'asd', 'sss', 3, 2, '2018-11-06 13:13:03', 0, '<table border="0" width="100%" cellpadding="0" cellspacing="0">
+INSERT INTO corrosion.data (id, title, position, cycle, cid, ctime, viewer, content, type, mname) VALUES (2, 'asd', 'sss', 3, 4, '2018-11-07 09:02:46', 0, '<table border="0" width="100%" cellpadding="0" cellspacing="0">
                     <tbody>
                       <tr>
                         <th>&nbsp;项目</th>
@@ -46,3 +46,27 @@ INSERT INTO corrosion.data (id, title, position, cycle, cid, ctime, viewer, cont
                       </tr>
                     </tbody>
                   </table><p><br></p>', 1, 'ss#');
+INSERT INTO corrosion.data (id, title, position, cycle, cid, ctime, viewer, content, type, mname) VALUES (3, 'asdsa', 'aaa', 2, 1, '2018-11-07 10:57:51', 0, '<table border="0" width="100%" cellpadding="0" cellspacing="0">
+              <tbody>
+                <tr>
+                  <th>&nbsp;项目</th>
+                  <th>数据&nbsp;</th>
+                </tr>
+                <tr>
+                  <td>&nbsp;sdasdsa</td>
+                  <td>&nbsp;assaaaaa</td>
+                </tr>
+                <tr>
+                  <td>&nbsp;ww</td>
+                  <td>&nbsp;ssa</td>
+                </tr>
+                <tr>
+                  <td>&nbsp;sss</td>
+                  <td>&nbsp;fff</td>
+                </tr>
+                <tr>
+                  <td>23&nbsp;</td>
+                  <td>&nbsp;a11</td>
+                </tr>
+              </tbody>
+            </table><p><br></p>', 1, 'aaaaa');

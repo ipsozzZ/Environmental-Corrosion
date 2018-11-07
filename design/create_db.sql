@@ -1,11 +1,24 @@
-create schema corrosion character set utf8 collate utf8_general_ci;
 
-use corrosion;
+create table about
+(
+  id      int  not null,
+  `desc`  text null
+  comment '平台简介',
+  pro     text null
+  comment '平台专家',
+  example text null
+  comment '应用案例',
+  unit    text not null
+  comment '组织机构',
+  constraint about_id_uindex
+  unique (id)
+)
+  comment '平台介绍';
 
 create table acate
 (
   id   int auto_increment,
-  name int not null,
+  name varchar(20) not null,
   constraint acate_id_uindex
   unique (id)
 )
@@ -191,7 +204,7 @@ create table scate
 alter table scate
   add primary key (id);
 
-create table selected
+create table `select`
 (
   id  int auto_increment,
   aid int not null,
@@ -200,7 +213,7 @@ create table selected
 )
   comment '每周精选';
 
-alter table selected
+alter table `select`
   add primary key (id);
 
 create table site
@@ -279,6 +292,40 @@ create table token
 alter table token
   add primary key (id);
 
+create table ucollect
+(
+  id   int auto_increment,
+  uid  int    not null
+  comment '用户id',
+  did  int    not null
+  comment '数据id',
+  type int(1) not null
+  comment '数据类型 1室内 2野外',
+  constraint usecollect_id_uindex
+  unique (id)
+)
+  comment '用户收藏表';
+
+alter table ucollect
+  add primary key (id);
+
+create table udownload
+(
+  id   int auto_increment,
+  uid  int    not null
+  comment '用户id',
+  did  int    not null
+  comment '数据id',
+  type int(1) not null
+  comment '数据类型 1室内 2野外',
+  constraint udownload_id_uindex
+  unique (id)
+)
+  comment '用户下载表';
+
+alter table udownload
+  add primary key (id);
+
 create table user
 (
   id        int auto_increment,
@@ -302,11 +349,14 @@ create table user
   comment '邮箱',
   workunit  varchar(50)                                                                   null
   comment '工作单位',
-  unittype  int                                                                           null
+  unittype  varchar(10)                                                                   null
   comment '单位性质',
-  province  varchar(20)                                                                   null,
+  province  varchar(20)                                                                   null
+  comment '省份',
   address   varchar(100)                                                                  null
   comment '通信地址',
+  telephone varchar(15)                                                                   not null
+  comment '座机电话',
   constraint name
   unique (name),
   constraint user_id_uindex
@@ -321,10 +371,12 @@ alter table user
 
 create table wilddata
 (
-  id   int auto_increment,
-  name varchar(100) not null,
-  cid  int          not null
+  id       int auto_increment,
+  name     varchar(100)    not null,
+  cid      int             not null
   comment '所属分类id',
+  collect  int default '0' not null,
+  download int default '0' not null,
   constraint wilddata_id_uindex
   unique (id)
 )
