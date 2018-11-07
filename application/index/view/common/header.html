@@ -14,7 +14,8 @@
                 <span class="">EN</span>
             </div>
             {if condition="cookie('corrosion_token')"}
-            <a href="{:url('index/personal/index')}" class="login sc-fr">个人中心</a>
+            <a href="{:url('index/login/logout')}" class="register sc-fr">退出</a>
+            <a href="{:url('index/personal/index')}" class="login sc-fr" style="width: 80px;">个人中心</a>
             {else}
             <a href="{:url('index/login/register')}" class="register sc-fr">注册</a>
             <a href="{:url('index/login/index')}" class="login sc-fr">登录</a>

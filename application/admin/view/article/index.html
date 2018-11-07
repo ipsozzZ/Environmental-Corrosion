@@ -4,7 +4,7 @@
 <!-- 内容主体区域 -->
 <div class="layui-body">
   <div style="padding: 15px;">
-    <a href="/admin/data/add" class="layui-btn">添加</a>
+    <a href="/admin/article/add" class="layui-btn">发布文章</a>
     <table class="layui-table">
       <colgroup>
         <col width="80">
@@ -34,14 +34,16 @@
           <td>{$vo.id}</td>
           <td>{$vo.title}</td>
           <td>{$vo.authors}</td>
-          <td>{$vo.cover}</td>
+          <td>
+            <img src="{$vo.cover}" alt="">
+          </td>
           <td>{$vo.ctime}</td>
           <td>{$vo.src}</td>
           <td>{$vo.viewer}</td>
           <td>
-            <a href="/admin/data/edit?id={$vo.id}" class="layui-btn layui-btn-warm layui-btn-mini">
+            <a href="/admin/article/edit?id={$vo.id}" class="layui-btn layui-btn-warm layui-btn-mini">
               <i class="layui-icon">&#xe642;</i>编辑</a>
-            <a href="/admin/data/del?id={$vo.id}" class="layui-btn layui-btn-danger layui-btn-mini del">
+            <a href="/admin/article/del?id={$vo.id}" class="layui-btn layui-btn-danger layui-btn-mini del">
               <i class="layui-icon">&#xe640;</i>删除</a>
           </td>
         </tr>

@@ -6,22 +6,17 @@ use think\Model;
 use app\common\model\Token;
 
 /**
- * 科技焦点
+ * 管理员层
  */
-class Focus extends Model
+class Admin extends Model
 {
-
   /**
    * 获取所有行
    */
   public function getAll() {
     $model = $this -> newInstance();
 
-    return $model
-      -> alias('f')
-      -> join('article a', 'f.aid=a.id')
-      -> field('f.*, a.title')
-      -> select();
+    return $model -> order('id', 'desc') -> select();
   }
 
   /**

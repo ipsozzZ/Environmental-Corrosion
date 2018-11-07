@@ -9,7 +9,8 @@
 
 namespace app\index\controller;
 
-use app\common\controller\Baby;
+use app\common\model\User;
+use app\common\model\Msg;
 use think\Controller;
 
 class Login extends Common
@@ -20,16 +21,68 @@ class Login extends Common
         $this -> assign('hint', '');
     }
     /* 用户登录 */
-    public function index($hint = '')
-    {
-        $this -> assign('hint', $hint);
+    public function index ($name = '', $pass = '') {
+        $this -> assign('hint', '');
+        $this -> assign('status', 0); //未登录
+        $this -> assign('pageTitle', '登录');
+        if($name != '' && $pass != '') {
+          $userModel = new User();
+          $token = $userModel -> login($name, $pass);
+          $token = $token;
+          if($token['status']) {
+            //登录成功
+            //设置cookie
+            cookie('corrosion_token', $token['token']);
+            $this -> assign('hint', '登录成功！');
+            return $this -> redirect('/index');
+          } else {
+            //登录失败
+            $this -> assign('hint', '用户名或密码错误！');
+            return view();
+          }
+        }
         return view();
-    }
+      }
 
     /* 用户注册 */
     public function register()
     {
+        $this -> assign('hint', '');
         return view();
+    }
+
+    public function dealRegister ($phone = '', $name = '', $pass = '', $code = '', $msg = '') {
+        $data = [
+            'phone' => $phone,
+            'name' => $name,
+            'pass' => $pass,
+            'code' => $code,
+            'msg'  => $msg,
+        ];
+        $validate = Validate('User');
+        if (!$validate->scene('login')->check($data)) {
+            $this -> assign('hint', '验证码错误！');
+            return view('register');
+        }
+        $userModel = new User();
+        $msgModel = new Msg();
+        if(!$msgModel -> checkCode($phone, $msg)) {
+            $this -> assign('hint', '手机验证码错误！');
+            return view('register');
+        }
+        $res = $userModel -> register($data);
+        if($res) {
+            return $this -> redirect("/index/login");
+        }
+        $this -> assign('hint', '注册失败！');
+        return view('register');
+    }
+
+    public function logout() {
+        $userModel = new User();
+        $token = $userModel -> logout();
+
+        return $this -> redirect("/index");
     }
 
     /**
@@ -37,8 +90,7 @@ class Login extends Common
      * @param  data 前台提交的未验证的数据
      * @return array['code','msg]
      */
-    public function loginCheck($data)
-    {
+    public function loginCheck($data) {
         /* 账号密码登录 */
         if (isset($data['name']) == 1) {
             /* 验证用户名和密码是否存在数据库中 */
@@ -92,8 +144,7 @@ class Login extends Common
      * @param  data 用户注册信息
      * @return array['code','msg']
      */
-    public function registerCheck($data)
-    {
+    public function registerCheck($data) {
 
         /* 验证数据格式是否符合规定 */
         $validate = Validate('Baby');

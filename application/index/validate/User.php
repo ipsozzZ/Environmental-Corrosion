@@ -5,17 +5,17 @@ namespace app\index\validate;
 
 use think\Validate;
 
-class Baby extends Validate
+class User extends Validate
 {
     /* 验证规则 */
     protected $rule  = [
         'name'       => 'require|min:4',
         'phone'      => 'require|max:11|/^1[3-8]{1}[0-9]{9}$/',
-        'code'       => 'require',
         'pass'       => 'require|min:8',
         'repass'     => 'confirm:pass',
         'gender'     => 'between:0,1|require',
         'saying'     => 'max:600',
+        'code'       => 'require|captcha',
     ];
 
     /* 验证提示信息 */
@@ -36,7 +36,7 @@ class Baby extends Validate
 
     /* 场景验证 */
     protected $scene   =  [
-        'loginByName'  => ['name', 'pass'],
+        'login'  => ['code'],
         'loginByPhone' => ['phone','code'],
         'register'     => ['name' => 'require|min:4','pass','repass'],
         'safeInfo'     => ['pass', 'repass'],
