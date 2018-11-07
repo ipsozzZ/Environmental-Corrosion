@@ -133,7 +133,6 @@ class Data extends Common
 
         return view();
     }
-<<<<<<< HEAD
 
     public function del ($id = 0) {
         if($id == 0) {
@@ -145,6 +144,4 @@ class Data extends Common
         $this->assign('result', "删除成功！");
         return view('result');
     }
-=======
->>>>>>> 71758c884d773219fb0ee59e1f17d7df6ae7a160
 }

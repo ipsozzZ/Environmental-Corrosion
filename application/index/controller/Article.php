@@ -60,6 +60,9 @@ class Article extends Common{
     return view();
   }
 
+  /**
+   * 搜索页面
+   */
   public function search ($key, $page = 1) {
     $model = new Model();
     $length = 10;
@@ -69,7 +72,7 @@ class Article extends Common{
   }
 
 
-  public function dataProList($page = 0) {
+  public function dataProList($page = 1) {
     $model = new Model();
     $length = 10;
     $start = $length * ($page - 1);
