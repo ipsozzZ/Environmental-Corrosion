@@ -24,13 +24,21 @@
         <header>{include file="common/header"}</header>
         <nav>{include file="common/nav"}</nav>
 
-        <div class="layui-carousel" id="test1">
-            <div carousel-item>
-                {volist name="banner" id="vo"}
-                <div>
-                    <a href="{$vo.linkto}"><img src="{$vo.img}" alt="..."></a>
+        <div style="height:400px" class="banner-index">
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+
+                </ol>
+                <div class="layui-carousel carousel-inner" role="listbox" id="test1">
+
+                    <div carousel-item>
+                        {volist name="banner" id="vo"}
+                        <div class="item">
+                            <img style="height:100%" src="{$vo.img}" alt="...">
+                        </div>
+                        {/volist}
+                    </div>
                 </div>
-                {/volist}
             </div>
         </div>
 
