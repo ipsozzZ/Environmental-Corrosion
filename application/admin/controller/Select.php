@@ -3,18 +3,18 @@
 namespace app\admin\controller;
 
 use app\common\model\Dcate;
-use app\common\model\Focus as Model;
+use app\common\model\Select as Model;
 use app\common\model\Article;
 
 use think\Controller;
 
-class Focus extends Common
+class Select extends Common
 {
     public function _initialize() {
         parent::_initialize();
 
         $this->assign([
-            "pageTitle" => "科技焦点管理",
+            "pageTitle" => "每周精选管理",
         ]);
     }
 
