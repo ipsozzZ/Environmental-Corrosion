@@ -1,1 +1,0 @@
-INSERT INTO corrosion.site (id, title, vicetitle, description, vicedesc) VALUES (1, '国家科技基础条件平台', '国家材料环境腐蚀科学数据中心', 'National Material Environmental Corrosion Science Data Center', 'National Science & Technology Infrastructure');

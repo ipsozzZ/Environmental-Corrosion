@@ -21,6 +21,21 @@ class Focus extends Model
       -> alias('f')
       -> join('article a', 'f.aid=a.id')
       -> field('f.*, a.title')
+      -> order('id', 'desc')
+      -> select();
+  }
+
+  /**
+   * 获取所有行
+   */
+  public function getAllCard() {
+    $model = $this -> newInstance();
+
+    return $model
+      -> alias('f')
+      -> join('article a', 'f.aid=a.id')
+      -> field('f.*, a.title, a.cover, a.content, a.ctime, a.authors, a.src')
+      -> order('id', 'desc')
       -> select();
   }
 

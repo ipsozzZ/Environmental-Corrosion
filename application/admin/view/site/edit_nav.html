@@ -11,6 +11,12 @@
         </div>
       </div>
       <div class="layui-form-item">
+          <label class="layui-form-label">排序优先级</label>
+          <div class="layui-input-block">
+            <input type="number" name="priority" required lay-verify="required" value="{$nav.priority}" autocomplete="off" class="layui-input">
+          </div>
+        </div>
+      <div class="layui-form-item">
         <label class="layui-form-label">地址</label>
         <div class="layui-input-block">
           <input type="text" name="linkto" required lay-verify="required" value="{$nav.linkto}" autocomplete="off" class="layui-input">

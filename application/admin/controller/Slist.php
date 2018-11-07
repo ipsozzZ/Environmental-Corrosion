@@ -4,6 +4,8 @@ namespace app\admin\controller;
 
 use think\Controller;
 use app\common\model\Slist as Model;
+use app\common\model\Standard;
+
 
 class Slist extends Common
 {
@@ -23,6 +25,9 @@ class Slist extends Common
       $model = new Model();
       $slist =  $model -> where("sid", $sid) -> order("id", "desc") -> select();
     }
+    $parentModel = new Standard();
+    $parentData = $parentModel -> get($sid);
+    $this -> assign('parentData', $parentData);
     $this -> assign("slist", $slist);
     $this -> assign("sid", $sid);
 

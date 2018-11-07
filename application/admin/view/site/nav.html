@@ -10,12 +10,14 @@
                 <col width="80">
                 <col>
                 <col width="200">
+                <col width="80">
                 <col width="250">
             </colgroup>
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>图片</th>
+                    <th>导航名</th>
+                    <th>排序优先级</th>
                     <th>链接地址</th>
                     <th>操作</th>
                 </tr>
@@ -27,6 +29,12 @@
                     <td>
                         {$vo.name}
                     </td>
+<<<<<<< HEAD
+                    <td>
+                        {$vo.priority}
+                    </td>
+=======
+>>>>>>> 71758c884d773219fb0ee59e1f17d7df6ae7a160
                     <td><a href="{$vo.linkto}" target="_blank">{$vo.linkto}</a></td>
                     <td>
                         <a href="/admin/site/editNav?id={$vo.id}" class="layui-btn layui-btn-warm layui-btn-mini">
