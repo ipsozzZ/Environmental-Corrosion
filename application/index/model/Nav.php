@@ -18,7 +18,9 @@ class Nav extends Model
      */
     public function getNav(){
       $model = $this->newInstance();
-      $ModelNav = $model -> all();
+      $ModelNav = $model
+        -> order('priority', 'desc')
+        -> select();
       return $ModelNav;
     }
 }

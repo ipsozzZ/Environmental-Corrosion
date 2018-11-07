@@ -21,7 +21,7 @@ class Indoordata extends Common
     {
         $model = new Model();
         $data = $model->getAll();
-
+        
         $this->assign('data', $data);
         return view();
     }

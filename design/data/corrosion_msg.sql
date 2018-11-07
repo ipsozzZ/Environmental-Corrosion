@@ -1,1 +1,0 @@
-INSERT INTO corrosion.msg (id, code, phone) VALUES (4, '347029', '18857516463');

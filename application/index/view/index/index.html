@@ -23,8 +23,7 @@
     <div class="main">
         <header>{include file="common/header"}</header>
         <nav>{include file="common/nav"}</nav>
-
-        <div style="height:400px" class="banner-index">
+        <div class="banner-index">
             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
 
@@ -41,7 +40,6 @@
                 </div>
             </div>
         </div>
-
         <div class="width-1200">
             <div class="public-title">
                 <img src="__INDEX__/custom/images/a3.png" alt="">
@@ -49,48 +47,42 @@
             </div>
             <div class="content-one clearfix">
                 <div class="sc-fl left">
-                    <a href="{:url('index/show')}">
-                        <img src="__INDEX__/custom/images/a4.png" alt="">
-                        <h4>国家材料环境腐蚀平台完成智能化改造</h4>
+                    <a href="/index/article/index?id={$selected.aid}">
+                        <img src="{$selected.cover}" alt="">
+                        <h4>{$selected.title}</h4>
 
-                        <p>国家材料环境腐蚀平台通过50余年积累的材料腐蚀（老化）数据及环境数据，建成我国腐蚀数据量最大的材料腐蚀（老化）数据共享平台，为企业、国防、事业单位在海洋环境腐蚀试验与技术研发等方面提供了不可或缺的科技支撑...
-                        </p>
+                        <p>{$selected.content}</p>
                     </a>
                 </div>
                 <div class="sc-fl right">
-                    <h4><span></span>科技焦点<a href="more.html" class="sc-fr"><span>更多</span><img src="__INDEX__/custom/images/a31.png"
-                                alt=""></a></h4>
-                    <a href="{:url('index/show')}">
-                        <p class="text-overflow-one">“双一流”建设的三个基础性问题</p>
+                    <h4><span></span>科技焦点<a href="/index/focus" class="sc-fr">
+                            <span>更多</span>
+                        <img src="__INDEX__/custom/images/a31.png"
+                                alt="">
+                        </a></h4>
+                    {volist name="focus" id="vo"}
+                    <a href="/index/article/index?id={$vo.aid}">
+                        <p class="text-overflow-one">{$vo.title}</p>
                     </a>
-                    <a href="{:url('index/show')}">
-                        <p class="text-overflow-one">15种金相组织大汇总，速收藏！</p>
+                    {/volist}
+                    <h4><span></span>每周精选
+                        <a href="/index/select" class="sc-fr">
+                            <span>更多</span><img src="__INDEX__/custom/images/a31.png" alt="">
+                        </a>
+                    </h4>
+                    {volist name="select" id="vo"}
+                    <a href="/index/article/index?id={$vo.aid}">
+                        <p class="text-overflow-one">{$vo.title}</p>
                     </a>
-                    <a href="{:url('index/show')}">
-                        <p class="text-overflow-one">中国科技期刊之怪现状</p>
+                    {/volist}
+                    <h4><span></span>最新资讯<a href="/index/article/list" class="sc-fr">
+                            <span>更多</span><img src="__INDEX__/custom/images/a31.png" alt="">
+                        </a></h4>
+                    {volist name="news" id="vo"}
+                    <a href="/index/article/index?id={$vo.id}">
+                        <p class="text-overflow-one">{$vo.title}</p>
                     </a>
-                    <h4><span></span>每周精选<a href="more.html" class="sc-fr"><span>更多</span><img src="__INDEX__/custom/images/a31.png"
-                                alt=""></a></h4>
-                    <a href="{:url('index/show')}">
-                        <p class="text-overflow-one">各类材料失效检测分析方法汇总</p>
-                    </a>
-                    <a href="{:url('index/show')}">
-                        <p class="text-overflow-one">如何搜索你所在领域的SCI杂志及排名？</p>
-                    </a>
-                    <a href="{:url('index/show')}">
-                        <p class="text-overflow-one">如何通过文献检索来了解本学科的前沿领域？</p>
-                    </a>
-                    <h4><span></span>最新资讯<a href="more.html" class="sc-fr"><span>更多</span><img src="__INDEX__/custom/images/a31.png"
-                                alt=""></a></h4>
-                    <a href="{:url('index/show')}">
-                        <p class="text-overflow-one">2018第五届海洋材料与腐蚀防护大会暨海洋新材料及防护新技术展览会第二轮通知</p>
-                    </a>
-                    <a href="{:url('index/show')}">
-                        <p class="text-overflow-one">腐蚀电化学基本方程探讨</p>
-                    </a>
-                    <a href="{:url('index/show')}">
-                        <p class="text-overflow-one">美军航母腐蚀防控技术研制与应用进展</p>
-                    </a>
+                    {/volist}
                 </div>
             </div>
             <div class="gray-div"></div>
@@ -104,7 +96,7 @@
                         <span></span>
                         <span>实时数据</span>
                     </div>
-                    <img src="__INDEX__/custom/images/a30.png" alt="">
+                    <a href="/index/realtime"><img src="__INDEX__/custom/images/a30.png" alt=""></a>
                 </div>
                 <div class="sc-fl right">
                     <div class="title">
@@ -122,95 +114,24 @@
                         <p class="text-overflow-much">随着我国核电站数量的快速增加，在有效缓解能源短缺巨大 压力的同时，也产生了大量的核废料。由于高度放射...
                         </p>
                     </a>
-                    <!--   <h4>高放核废料地质处置用材料腐蚀数据库专题</h4>
-                    <p class="text-overflow-much">随着我国核电站数量的快速增加，在有效缓解能源短缺巨大 压力的同时，也产生了大量的核废料。由于高度放射...
-                    </p> -->
                 </div>
             </div>
-            <!--       <div class="content-three">
-                <div class="title">
-                    <span></span>
-                    <span>数据分类</span>
-                </div>
-                <div class="m25 clearfix">
-                    <div class="classify-one sc-fl">
-                        <img src="__INDEX__/custom/images/a17.png" alt="" class="sc-fl">
-                        <div class="sc-fr right">
-                            <p class="text-overflow-one">中国地面气象站逐小时观测资料</p>
-                            <p class="text-overflow-one">中国地面气象站逐小时观测资料</p>
-                            <p class="text-overflow-one">中国地面气象站逐小时观测资料</p>
-                        </div>
-                    </div>
-                    <div class="classify-one sc-fl">
-                        <img src="__INDEX__/custom/images/a17.png" alt="" class="sc-fl">
-                        <div class="sc-fr right">
-                            <p class="text-overflow-one">中国地面气象站逐小时观测资料</p>
-                            <p class="text-overflow-one">中国地面气象站逐小时观测资料</p>
-                            <p class="text-overflow-one">中国地面气象站逐小时观测资料</p>
-                        </div>
-                    </div>
-                    <div class="classify-one sc-fl">
-                        <img src="__INDEX__/custom/images/a17.png" alt="" class="sc-fl">
-                        <div class="sc-fr right">
-                            <p class="text-overflow-one">中国地面气象站逐小时观测资料</p>
-                            <p class="text-overflow-one">中国地面气象站逐小时观测资料</p>
-                            <p class="text-overflow-one">中国地面气象站逐小时观测资料</p>
-                        </div>
-                    </div>
-                    <div class="classify-one sc-fl">
-                        <img src="__INDEX__/custom/images/a17.png" alt="" class="sc-fl">
-                        <div class="sc-fr right">
-                            <p class="text-overflow-one">中国地面气象站逐小时观测资料</p>
-                            <p class="text-overflow-one">中国地面气象站逐小时观测资料</p>
-                            <p class="text-overflow-one">中国地面气象站逐小时观测资料</p>
-                        </div>
-                    </div>
-                    <div class="classify-one sc-fl">
-                        <img src="__INDEX__/custom/images/a17.png" alt="" class="sc-fl">
-                        <div class="sc-fr right">
-                            <p class="text-overflow-one">中国地面气象站逐小时观测资料</p>
-                            <p class="text-overflow-one">中国地面气象站逐小时观测资料</p>
-                            <p class="text-overflow-one">中国地面气象站逐小时观测资料</p>
-                        </div>
-                    </div>
-                    <div class="classify-one sc-fl">
-                        <img src="__INDEX__/custom/images/a17.png" alt="" class="sc-fl">
-                        <div class="sc-fr right">
-                            <p class="text-overflow-one">中国地面气象站逐小时观测资料</p>
-                            <p class="text-overflow-one">中国地面气象站逐小时观测资料</p>
-                            <p class="text-overflow-one">中国地面气象站逐小时观测资料</p>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
             <div class="gray-div"></div>
             <div class="public-title m25">
                 <img src="__INDEX__/custom/images/a6.png" alt="">
                 <span>专题数据</span>
                 <div class="sc-fr more">
-                    <span class="c-333">更多</span>
-                    <img src="__INDEX__/custom/images/a7.png" alt="">
+                    <a href="/index/article/dataProList"><span class="c-333">更多</span>
+                    <img src="__INDEX__/custom/images/a7.png" alt=""></a>
                 </div>
             </div>
             <ul class="content-four clearfix m25">
-                <li class="sc-fl "><a href="{:url('index/show')}"><img src="__INDEX__/custom/images/n10/image003.png"
-                            alt="">
-                        <p class="c-333 text-overflow-much">青岛2017~2018年环境腐蚀性数据</p>
-                    </a></li>
-                <li class="sc-fl "><a href="{:url('index/show')}"><img src="__INDEX__/custom/images/n11/image004.png"
-                            alt="">
-                        <p class="c-333 text-overflow-much">泉州2017~2018年环境腐蚀性数据</p>
-                    </a></li>
-                <li class="sc-fl "><a href="{:url('index/show')}"><img src="__INDEX__/custom/images/a109.jpg" alt="">
-                        <p class="c-333 text-overflow-much">文昌2017~2018年环境腐蚀性数据</p>
-                    </a></li>
-                <li class="sc-fl "><a href="{:url('index/show')}"><img src="__INDEX__/custom/images/n13/image005.png"
-                            alt="">
-                        <p class="c-333 text-overflow-much">2018年8月份青岛、武汉、三亚、杭州、吐鲁番、北京环境腐蚀性分析</p>
-                    </a></li>
-                <li class="sc-fl "><a href="n14.html"><img src="__INDEX__/custom/images/n14/image003.png" alt="">
-                        <p class="c-333 text-overflow-much">青岛、武汉、三亚、杭州、北京、吐鲁番等大气腐蚀站完成腐蚀挂片及腐蚀大数据监测工作</p>
-                    </a></li>
+                {volist name="dataPro" id="vo"}
+                <li class="sc-fl "><a href="/index/article/index?id={$vo.id}">
+                    <img src="{$vo.cover}" alt="">
+                <p class="c-333 text-overflow-much">{$vo.title}</p>
+                </a></li>
+                {/volist}
             </ul>
             <div class="gray-div"></div>
             <div class="public-title m25">

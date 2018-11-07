@@ -46,7 +46,6 @@ class Article extends Common
         $data = [
           'cid' => $cid,
           'title' => $title,
-          'title' => $title,
           'authors' => $authors,
           'src' => $src,
           'cover' => $cover,
