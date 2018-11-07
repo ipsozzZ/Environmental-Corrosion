@@ -5,6 +5,10 @@ namespace app\admin\controller;
 use think\Controller;
 use app\common\model\Data as Model;
 use app\common\model\Dcate;
+use app\common\model\Indoordata;
+use app\common\model\Wilddata;
+
+
 
 class Data extends Common
 {
@@ -22,7 +26,10 @@ class Data extends Common
         return 0;
       }
       $model = new Model();
-      $data = $model -> getAll();
+      $data = $model -> getAllByFilter([
+          'cid' => $cid,
+          'type' => $type
+      ]);
 
       $this -> assign('data', $data);
 
@@ -30,8 +37,8 @@ class Data extends Common
     }
 
     public function addIndoor () {
-        $cateModel = new Dcate();
-        $icates = $cateModel -> getByFilter(['type' => 1, 'level' => 2]); //室内数据二级分类
+        $indoorModel = new Indoordata();
+        $icates = $indoorModel -> getAll();
 
         $this -> assign([
             'icates' => $icates,
@@ -39,11 +46,23 @@ class Data extends Common
         return view();
     }
     public function addWild () {
-        $cateModel = new Dcate();
-        $wcates = $cateModel -> getByFilter(['type' => 2, 'level' => 2]); //野外数据二级分类
+        $wildModel   = new Wilddata();        
+        $wcates = $wildModel -> getAll();
 
         $this -> assign([
             'wcates' => $wcates
+        ]);
+        return view();
+    }
+
+    public function add() {
+        $indoorModel = new Indoordata();
+        $wildModel   = new Wilddata();
+        $icates = $indoorModel -> getAll();
+        $wcates = $wildModel -> getAll();   
+        $this -> assign([
+            'wcates' => $wcates,
+            'icates' => $icates,
         ]);
         return view();
     }
