@@ -6,9 +6,9 @@ use think\Model;
 use app\common\model\Token;
 
 /**
- * 科技焦点
+ * 用户下载层
  */
-class Focus extends Model
+class Udownload extends Model
 {
 
   /**
@@ -17,11 +17,26 @@ class Focus extends Model
   public function getAll() {
     $model = $this -> newInstance();
 
-    return $model
-      -> alias('f')
-      -> join('article a', 'f.aid=a.id')
-      -> field('f.*, a.title')
+    return $model -> all();
+  }
+
+  public function getByUid ($uid) {
+    $model = $this -> newInstance();
+    $resIndoorData = $model
+      -> alias('ud')
+      -> join('indoordata i', 'ud.did=i.id')
+      -> field('ud.*, i.name')
+      -> where('id', $uid)
       -> select();
+    
+    $resWildData = $model
+      -> alias('ud')
+      -> join('wilddata w', 'ud.did=w.id')
+      -> field('ud.*, w.name')
+      -> where('id', $uid)
+      -> select();
+
+    return array_merge($resIndoorData, $resWildData);
   }
 
   /**

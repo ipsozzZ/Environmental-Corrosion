@@ -21,6 +21,17 @@ class Data extends Model
   }
 
   /**
+   * 根据筛选条件获取所有
+   */
+  public function getAllByFilter($filter) {
+    $model = $this -> newInstance();
+
+    return $model
+      -> where($filter)
+      -> select();
+  }
+
+  /**
    * 根据id删除一个
    */
   public function deleteById ($id) {

@@ -33,4 +33,12 @@ class Userinfo extends Common
         $this -> assign('user', $user);
         return view();
     }
+
+    public function del($id = 0) {
+        if($id != 0) {
+            db('user') -> where('id', $id) -> delete();
+        }
+        
+        return $this -> redirect("index");
+    }
 }

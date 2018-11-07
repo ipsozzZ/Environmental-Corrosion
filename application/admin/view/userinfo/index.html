@@ -34,8 +34,8 @@
                     <td>
                         <a href="{:url('edit')}?id={$vo.id}" class="layui-btn layui-btn-warm layui-btn-mini">
                             <i class="layui-icon">&#xe642;</i>编辑</a>
-                            <a href="{:url('info')}?id={$vo.id}" class="layui-btn layui-btn-warm layui-btn-mini">
-                                <i class="layui-icon">&#xe66f;</i>详情</a>
+                            <a href="/admin/userinfo/del?id={$vo.id}" class="layui-btn layui-btn-danger layui-btn-mini del">
+                                    <i class="layui-icon">&#xe640;</i>删除</a>
                     </td>
                 </tr>
                 {/volist}
@@ -43,5 +43,19 @@
         </table>
     </div>
 </div>
+
+<script>
+    layui.use('layer', function(){
+        var layer = layui.layer;
+        $(".del").on('click',function(){
+            var url = $(this).attr('href');
+            layer.confirm('确定要删除吗?', {icon: 3, title:'温馨提示'}, function(index){
+                location.href = url;
+                layer.close(index);
+            });
+            return false;
+        });
+    });
+</script>
 
 {include file="public/footer"}
