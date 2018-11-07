@@ -28,8 +28,17 @@ class Userinfo extends Common
 
     /* 用户编辑 */
     public function edit($id = 0){
-        $userinfo = db('user') -> where('id', $id) -> find();
+        $user = db('user') -> where('id', $id) -> find();
         // dump($userinfo);exit;
+        $this -> assign('user', $user);
         return view();
+    }
+
+    public function del($id = 0) {
+        if($id != 0) {
+            db('user') -> where('id', $id) -> delete();
+        }
+        
+        return $this -> redirect("index");
     }
 }

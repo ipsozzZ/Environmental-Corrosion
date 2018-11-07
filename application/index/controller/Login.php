@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: 19753
@@ -8,44 +9,80 @@
 
 namespace app\index\controller;
 
-use app\common\controller\Baby;
+use app\common\model\User;
+use app\common\model\Msg;
 use think\Controller;
 
 class Login extends Common
 {
+    public function _initialize() {
+        parent::_initialize();
+
+        $this -> assign('hint', '');
+    }
     /* 用户登录 */
-    public function index()
-    {
-        if (request()->isPost()) {
-            $data = input('post.');
-            // dump($data);die;
-            /* 登录数据验证 */
-            $result = $this->loginCheck($data);
-            /* 登录异常 */
-            if ($result['code'] == 0) {
-                $this->error($result['msg'], '', '', '2');
-            }
-            $this->redirect('index/index');
+    public function index ($name = '', $pass = '') {
+        $this -> assign('hint', '');
+        $this -> assign('status', 0); //未登录
+        $this -> assign('pageTitle', '登录');
+        if($name != '' && $pass != '') {
+          $userModel = new User();
+          $token = $userModel -> login($name, $pass);
+          $token = $token;
+          if($token['status']) {
+            //登录成功
+            //设置cookie
+            cookie('corrosion_token', $token['token']);
+            $this -> assign('hint', '登录成功！');
+            return $this -> redirect('/index');
+          } else {
+            //登录失败
+            $this -> assign('hint', '用户名或密码错误！');
+            return view();
+          }
         }
         return view();
-    }
+      }
 
     /* 用户注册 */
     public function register()
     {
-        if (request()->isPost()) {
-            /* 接收数据 */
-            $data = input('post.');
-            /* 数据验证 */
-            $result = $this -> registerCheck($data);
-            if ($result['code'] == 0) {
-                /* 注册失败 */
-                $this -> error($result['msg']);
-            }
-            /* 注册成功 */
-            $this -> redirect('login/index');
-        }
+        $this -> assign('hint', '');
         return view();
+    }
+
+    public function dealRegister ($phone = '', $name = '', $pass = '', $code = '', $msg = '') {
+        $data = [
+            'phone' => $phone,
+            'name' => $name,
+            'pass' => $pass,
+            'code' => $code,
+            'msg'  => $msg,
+        ];
+        $validate = Validate('User');
+        if (!$validate->scene('login')->check($data)) {
+            $this -> assign('hint', '验证码错误！');
+            return view('register');
+        }
+        $userModel = new User();
+        $msgModel = new Msg();
+        if(!$msgModel -> checkCode($phone, $msg)) {
+            $this -> assign('hint', '手机验证码错误！');
+            return view('register');
+        }
+        $res = $userModel -> register($data);
+        if($res) {
+            return $this -> redirect("/index/login");
+        }
+        $this -> assign('hint', '注册失败！');
+        return view('register');
+    }
+
+    public function logout() {
+        $userModel = new User();
+        $token = $userModel -> logout();
+
+        return $this -> redirect("/index");
     }
 
     /**
@@ -53,67 +90,52 @@ class Login extends Common
      * @param  data 前台提交的未验证的数据
      * @return array['code','msg]
      */
-    protected function loginCheck($data)
-    {
-
+    public function loginCheck($data) {
         /* 账号密码登录 */
         if (isset($data['name']) == 1) {
-            /* 验证数据格式是否符合要求 */
-            $validate = Validate('Baby'); // 实例化一个User验证器类
-            if (!$validate->scene('loginByName')->check($data)) {
-                return [
-                    'code' => 0,
-                    'msg' => $validate->getError(),
-                ];
-            }
-
             /* 验证用户名和密码是否存在数据库中 */
-            $user = new Baby();
-            $result = json_decode($user->login($data['name'],$data['pass']));
+            $user = new User();
+            $result = json_decode($user->login($data['name'], $data['pass']));
             dump($result);
-            if ($result -> status == false) {
-                return [
+            if ($result->status == false) {
+                $res = [
                     'code' => 0,
                     'msg' => '用户名或密码不正确!',
                 ];
+                return $this -> redirect('login/index', ['hint' => $res['msg']]);
             }
             /* 登录成功，将token存到cookie */
-            cookie('disney_token', $result -> token);
-            return [
+            cookie('corrosion_token', $result->token);
+            $res =  [
                 'code' => 1,
                 'msg' => '登录成功',
             ];
+
+            return $this -> redirect('login/index', ['hint' => $res['msg']]);
         }
 
         /* 手机号码和验证码登录 */
-        else{
-            /* 验证数据格式是否符合要求 */
-            $validate = Validate('Baby'); // 实例化一个User验证器类
-            if (!$validate->scene('loginByPhone')->check($data)) {
-                return [
-                    'code' => 0,
-                    'msg' => $validate->getError(),
-                ];
-            }
-
+        else {
             /* 验证用户名和密码是否存在数据库中 */
-            $user = new Baby();
-            $result = json_decode($user->msgLogin($data['phone'],$data['code']));
-            dump($result);die;
-            if ($result -> status == false) {
-                return [
+            $user = new User();
+            $result = json_decode($user->msgLogin($data['phone'], $data['code']));
+            dump($result);
+            die;
+            if ($result->status == false) {
+                $res =  [
                     'code' => 0,
                     'msg' => '用户名或密码不正确!',
                 ];
+                return $this -> redirect('login/index', ['hint' => $res['msg']]);
             }
             /* 登录成功，将token存到cookie */
-            cookie('disney_token', $result -> token);
-            return [
+            cookie('corrosion_token', $result->token);
+            $res =  [
                 'code' => 1,
                 'msg' => '登录成功',
             ];
+            return $this -> redirect('login/index', ['hint' => $res['msg']]);
         }
-
     }
 
     /**
@@ -122,8 +144,7 @@ class Login extends Common
      * @param  data 用户注册信息
      * @return array['code','msg']
      */
-    public function registerCheck($data)
-    {
+    public function registerCheck($data) {
 
         /* 验证数据格式是否符合规定 */
         $validate = Validate('Baby');
@@ -137,16 +158,16 @@ class Login extends Common
         /* 通过验证,整理数据将数据写入数据库 */
         $Baby = new Baby();
         $res = json_decode($Baby->register($data));
-        if ($res -> status == false) {
+        if ($res->status == false) {
             return [
                 'code' => 0,
-                'msg' => $res -> msg,
+                'msg' => $res->msg,
             ];
         }
         /* 注册成功 */
         return [
             'code' => 1,
-            'msg' => $res -> msg,
+            'msg' => $res->msg,
         ];
     }
 }

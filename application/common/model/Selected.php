@@ -6,9 +6,9 @@ use think\Model;
 use app\common\model\Token;
 
 /**
- * 精选文章
+ * 每周精选
  */
-class Selected extends Model
+class Select extends Model
 {
 
   /**
@@ -17,7 +17,11 @@ class Selected extends Model
   public function getAll() {
     $model = $this -> newInstance();
 
-    return $model -> all();
+    return $model
+      -> alias('s')
+      -> join('article a', 's.aid=a.id')
+      -> field('s.*, a.title')
+      -> select();
   }
 
   /**
@@ -35,7 +39,7 @@ class Selected extends Model
   public function updateById ($id, $data) {
     $model = $this -> newInstance();
 
-    return $Model -> save($data, ['id' => $id]);
+    return $model -> save($data, ['id' => $id]);
   }
 
   /**

@@ -17,7 +17,11 @@ class Focus extends Model
   public function getAll() {
     $model = $this -> newInstance();
 
-    return $model -> all();
+    return $model
+      -> alias('f')
+      -> join('article a', 'f.aid=a.id')
+      -> field('f.*, a.title')
+      -> select();
   }
 
   /**
