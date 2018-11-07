@@ -6,9 +6,9 @@ use think\Model;
 use app\common\model\Token;
 
 /**
- * 科技焦点
+ * 文章分类层
  */
-class Focus extends Model
+class Acate extends Model
 {
 
   /**
@@ -17,11 +17,7 @@ class Focus extends Model
   public function getAll() {
     $model = $this -> newInstance();
 
-    return $model
-      -> alias('f')
-      -> join('article a', 'f.aid=a.id')
-      -> field('f.*, a.title')
-      -> select();
+    return $model -> all();
   }
 
   /**

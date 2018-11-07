@@ -20,6 +20,15 @@ class Article extends Model
   }
 
   /**
+   * 获取最新咨询
+   */
+  public function getNews () {
+    $model = $this -> newInstance();
+
+    return $model -> order('id', 'desc') -> limit(5) -> select();
+  }
+
+  /**
    * 根据id删除一个
    */
   public function deleteById ($id) {
