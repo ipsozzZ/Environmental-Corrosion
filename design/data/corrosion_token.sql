@@ -1,0 +1,1 @@
+INSERT INTO corrosion.token (id, token, expire, uid, identity) VALUES (11, 'fc67f10bf5748d5b314281ef50c3f805', '2018-11-08 08:46:27', 1, 1);
