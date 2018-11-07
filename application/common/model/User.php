@@ -12,14 +12,16 @@ class User extends Model
   /**
    * 初始化模型类
    */
-  protected function initialize(){
+  protected function initialize()
+  {
     parent::initialize();
   }
-  
+
   /**
    * 登出
    */
-  public function logout () {
+  public function logout()
+  {
     cookie('corrosion_token', null);
     return json_encode(1);
   }
@@ -33,23 +35,24 @@ class User extends Model
    *  token: 'asdasdas9dasd7',
    * ]
    */
-  public function login ($name, $pass) {
+  public function login($name, $pass)
+  {
     $res = [
       'status' => true,
       'token' => '',
     ];
-    $model = $this -> newInstance();
+    $model = $this->newInstance();
     $passMD5 = md5($pass);
-    $user = $model -> where('name', $name) -> where('pass', $passMD5) -> find();
+    $user = $model->where('name', $name)->where('pass', $passMD5)->find();
 
-    if(@!$user['id']) {
+    if (@!$user['id']) {
       $res['status'] = false;
       return $res;
     }
 
     $tokenModel = new Token();
-    $token = $tokenModel -> addToken($user['id'], 1);
-    if($token['status'] == true) {
+    $token = $tokenModel->addToken($user['id'], 1);
+    if ($token['status'] == true) {
       $res['token'] = $token['token'];
     } else {
       $res['status'] = false;
@@ -67,24 +70,25 @@ class User extends Model
    *  token: 'asdasdas9dasd7',
    * ]
    */
-  public function msgLogin($phone, $code) {
+  public function msgLogin($phone, $code)
+  {
     $msgModel = new Msg();
     $res = [
       'status' => true,
       'token' => '',
     ];
-    if(!$msgModel -> checkCode($phone, $code)) {
+    if (!$msgModel->checkCode($phone, $code)) {
       //验证码无效
       $res['status'] = false;
       return $res;
     }
 
     //验证码有效
-    $model = $this -> newInstance();
-    $user = $model -> where('phone', $phone) -> find();
+    $model = $this->newInstance();
+    $user = $model->where('phone', $phone)->find();
     $tokenModel = new Token();
-    $token = $tokenModel -> addToken($user['id'], 2);
-    if($token['status'] == true) {
+    $token = $tokenModel->addToken($user['id'], 2);
+    if ($token['status'] == true) {
       $res['token'] = $token['token'];
     } else {
       $res['status'] = false;
@@ -98,42 +102,57 @@ class User extends Model
    *
    * @return status bool 是否注册成功
    */
-  public function register ($data) {
-    $model = $this -> newInstance();
+  public function register($data)
+  {
+    $model = $this->newInstance();
     //TODO: $data['pass'] = md5($data['pass']);
 
-    $res = $model -> allowField(true) -> save($data);
+    $res = $model->allowField(true)->save($data);
     return $res == 1;
   }
 
   /**
    * 根据id获取用户信息
    */
-  public function getById ($id) {
-    $model = $this -> newInstance();
+  public function getById($id)
+  {
+    $model = $this->newInstance();
 
-    return $model -> get($id);
+    return $model->get($id);
   }
 
   /**
    * 更新用户信息
    */
-  public function updateById ($id, $data) {
-    $model = $this -> newInstance();
+  public function updateById($id, $data)
+  {
+    $model = $this->newInstance();
 
-    $res = $model -> save($data, ['id' => $id]);
+    $res = $model->save($data, ['id' => $id]);
     return $res;
+  }
+
+  /**
+   * 根据id重置用户密码
+   */
+  public function updatePassById($id, $pass)
+  {
+    $model = $this->newInstance();
+
+    $res = $model->where('id', $id)->update(['pass' => $pass]);
+    return json_encode($res);
   }
 
   /**
    * 根据token获取用户
    */
-  public function getUserByToken($token) {
+  public function getUserByToken($token)
+  {
     $tokenModel = new Token();
-    $uid = $tokenModel -> getUidByToken($token, 1);
-    if(!$uid) return false;
-    $userModel = $this -> newInstance();
+    $uid = $tokenModel->getUidByToken($token, 1);
+    if (!$uid) return false;
+    $userModel = $this->newInstance();
 
-    return $userModel -> get($uid);
+    return $userModel->get($uid);
   }
 }

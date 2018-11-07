@@ -4,6 +4,7 @@ namespace app\index\controller;
 use think\Controller;
 use app\index\controller\Common;
 use app\common\controller\Dcate as commonDcate;
+use app\common\model\Data;
 
 class Indoor extends Common
 {
@@ -62,5 +63,21 @@ class Indoor extends Common
       'Data' => $Data,
     ]);
     return view('dataContent');
+  }
+
+  /**
+   * 用户进入数据详情页之后浏览数加1
+   */
+  public function addDataView()
+  {
+    if (request()->isAjax()) {
+      $data = input('post.');
+      $model = new Data();
+      $Data = json_decode($model->getDataById($data['id']));
+      $Data->viewer += 1;
+
+      $update = json_encode($model->updateDataById($data['id'], $Data));
+      return 'ok';
+    }
   }
 }

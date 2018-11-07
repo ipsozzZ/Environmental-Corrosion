@@ -44,14 +44,26 @@ class Data extends Model
   }
 
   /**
+   * 通过id获取符合条件的一条记录
+   * @param id 数据id
+   */
+  public function getDataById($id)
+  {
+    $model = $this->newInstance();
+    $res = $model->where("id", $id)->find();
+    return json_encode($res);
+  }
+
+  /**
    * 根据筛选条件获取所有
    */
-  public function getAllByFilter($filter) {
-    $model = $this -> newInstance();
+  public function getAllByFilter($filter)
+  {
+    $model = $this->newInstance();
 
     return $model
-      -> where($filter)
-      -> select();
+      ->where($filter)
+      ->select();
   }
 
   /**
@@ -72,6 +84,16 @@ class Data extends Model
     $model = $this->newInstance();
 
     return $model->save($data, ['id' => $id]);
+  }
+
+  /**
+   * 根据id更新
+   */
+  public function updateDataById($id, $data)
+  {
+    $model = $this->newInstance();
+
+    return json_encode($model->save($data, ['id' => $id]));
   }
 
   /**

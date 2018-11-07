@@ -14,48 +14,63 @@ class Indoordata extends Model
   /**
    * 获取所有行
    */
-  public function getAll() {
-    $model = $this -> newInstance();
+  public function getAll()
+  {
+    $model = $this->newInstance();
 
     $res = $model
-      -> alias('i')
-      -> join("dcate d", "d.id = i.cid")
-      -> field("i.*, d.name as catename")
-      -> select();
+      ->alias('i')
+      ->join("dcate d", "d.id = i.cid")
+      ->field("i.*, d.name as catename")
+      ->select();
 
     return $res;
   }
 
-  public function getByFilter ($filter) {
-    $model = $this -> newInstance();
+  public function getByFilter($filter)
+  {
+    $model = $this->newInstance();
 
-    return $model -> where($filter) -> select();
+    return $model->where($filter)->select();
   }
 
   /**
    * 根据id删除一个
    */
-  public function deleteById ($id) {
-    $model = $this -> newInstance();
+  public function deleteById($id)
+  {
+    $model = $this->newInstance();
 
-    return $model -> where("id", $id) -> delete();
+    return $model->where("id", $id)->delete();
   }
 
   /**
    * 根据id更新
    */
-  public function updateById ($id, $data) {
-    $model = $this -> newInstance();
+  public function updateById($id, $data)
+  {
+    $model = $this->newInstance();
 
-    return $model -> save($data, ['id' => $id]);
+    return $model->save($data, ['id' => $id]);
+  }
+
+  /**
+   * 根据id更新
+   */
+  public function updateCollectById($id, $data)
+  {
+    $model = $this->newInstance();
+
+    return $model->where('id', $id)->update($data);
   }
 
   /**
    * 新增一个
    */
-  public function add ($data) {
-    $model = $this -> newInstance();
-    return $model -> save($data);
+  public function add($data)
+  {
+    $model = $this->newInstance();
+    return $model->save($data);
   }
 
 }

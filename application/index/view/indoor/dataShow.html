@@ -13,6 +13,8 @@
   <link rel="stylesheet" href="__INDEX__/custom/css/reset.css">
   <link rel="stylesheet" href="__INDEX__/custom/css/p.css">
   <link rel="stylesheet" href="__INDEX__/custom/css/acm.css">
+  <link rel="stylesheet" href="__VENDOR__/layui/css/layui.css">
+
   <style>
     footer {
         margin-top: 3%;
@@ -30,7 +32,7 @@
       <div class="dataBox">
         <div class="clearfix">
           <div class="select sc-fl">
-            <select name="" id="">
+            <select name="" id="search" lay-filter="search">
               {volist name="parentDcate" id="vo"}
               <option value="0">{$vo->name}</option>
               {/volist}
@@ -50,14 +52,16 @@
                     </ul>-->
         <ul class="equipmentdata-ul" style="margin-top:20px;">
           {volist name="Data" id="vo"}
+          {if condition="$vo->type eq 1"}
           <li>
-            <h5><a href="{:url('index/indoor/dataContent')}?id={$vo->id}">{$vo->title}</a></h5>
-            <div class="clearfix">
-              <a href="{:url('index/indoor/dataContent')}?id={$vo->id}" class="sc-fl left">
+            <h5 style="margin-top:-10px;"><a class="getViewer" href="#">{$vo->title}</a><span hidden class="ID">{$vo->id}</span></h5>
+            <span hidden class="dataCid">{$vo->cid}</span>
+            <div style="height:130px" class="clearfix">
+              <a href="javascrip:;" class="sc-fl left">
                 <table>
                   <tbody>
                     <tr>
-                      <td>材料名称：{$vo->name}</td>
+                      <td>材料名称：{$vo->title}</td>
                       <td>材料类别：{$currType}</td>
                     </tr>
                     <tr>
@@ -70,14 +74,16 @@
               <div class="sc-fl right clearfix">
                 <div class="sc-fl browse">浏览量：{$vo->viewer}</div>
                 <div class="sc-fr operation">
-                  <p class="sc-fl"><img src="__INDEX__/custom/images/a40.png" alt=""><span>收藏</span></p>
+                  <p class="sc-fl"><img class="collection" src="__INDEX__/custom/images/a40.png" alt="{$vo->id}"><span
+                      class="Collect">{$vo->collect}</span></p>
                   <p class="sc-fl"><img src="__INDEX__/custom/images/a41.png" alt=""><span>引用</span></p>
                   <p class="sc-fl"><img src="__INDEX__/custom/images/a42.png" alt=""><span>相关文章</span></p>
-                  <p class="sc-fl"><img src="__INDEX__/custom/images/a44.png" alt=""><span>下载</span></p>
+                  <p class="sc-fl"><img class="download" src="__INDEX__/custom/images/a44.png" alt="{$vo->id}"><span>下载</span></p>
                 </div>
               </div>
             </div>
           </li>
+          {/if}
           {/volist}
 
         </ul>
@@ -88,6 +94,7 @@
   <script src="__INDEX__/custom/js/jquery.min.js"></script>
   <script src="__INDEX__/custom/js/p.js"></script>
   <script src="__INDEX__/custom/js/bootstrap.min.js"></script>
+  <script src="__VENDOR__/layui/layui.js"></script>
   <script>
     $(function () {
 
@@ -116,6 +123,85 @@
         $(this).find('.ol-down').slideToggle()
 
       })
+    })
+
+    layui.use(['form', 'layer'], function () {
+      var form = layui.form,
+        layer = layui.layer;
+
+      //监听提交
+      form.on('submit(formDemo)', function (data) {});
+
+      // 监听检索事件（layui）
+      form.on('select(search)', function (data) {
+        var like = data.value;
+        location.href = "{:url('admin/indoor/search')}?like=" + like;
+      });
+
+      // 点击收藏
+      $(".collection").on('click', function () {
+        var id = $(this).attr("alt");
+        var type = 'indoor';
+        $.ajax({
+          'type': 'post',
+          'url': "{:url('index/personal/addCollect')}",
+          'data': {
+            'id': id,
+            'type': type,
+          },
+          'datatype': 'json',
+          success: function (msg) {
+            if (msg == 1) {
+              layer.msg('添加收藏成功');
+            } else if (msg == 2) {
+              layer.msg('请先登录')
+            } else {
+              layer.msg('您已经收藏过此条目');
+            }
+          }
+        })
+      })
+
+      // 点击进入详情页并浏览数加1
+      $(".getViewer").on('click', function () {
+        var id = $(this).siblings(".ID").text();
+        $.ajax({
+          'type': 'post',
+          'url': "{:url('index/indoor/addDataView')}",
+          'data': {
+            'id': id,
+          },
+          'datatype': 'json',
+          success: function (msg) {
+            if (msg == 'ok') {
+              location.href = "{:url('index/indoor/dataContent')}?id=" + id;
+            }
+          }
+        })
+      })
+
+      // 点击下载
+      $(".download").on('click', function () {
+        var id = $(this).attr("alt");
+        $.ajax({
+          'type': 'post',
+          'url': "{:url('index/personal/myDownload')}",
+          'data': {
+            'id': id,
+          },
+          'datatype': 'json',
+          success: function (msg) {
+            if (msg == 1) {
+              layer.msg('正在下载请等待……');
+            } else if (msg == 2) {
+              layer.msg('请先登录');
+            } else {
+              layer.msg('您已经下载过此条目');
+            }
+          }
+        })
+      })
+
     })
   </script>
 </body>

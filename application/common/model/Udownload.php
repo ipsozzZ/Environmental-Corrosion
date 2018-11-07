@@ -14,27 +14,39 @@ class Udownload extends Model
   /**
    * 获取所有行
    */
-  public function getAll() {
-    $model = $this -> newInstance();
+  public function getAll()
+  {
+    $model = $this->newInstance();
 
-    return $model -> all();
+    return $model->all();
   }
 
-  public function getByUid ($uid) {
-    $model = $this -> newInstance();
+  /**
+   * 根据did获取一行
+   */
+  public function getByDid($did)
+  {
+    $model = $this->newInstance();
+    $myLoad = $model->where('did')->find();
+    return json_encode($myLoad);
+  }
+
+  public function getByUid($uid)
+  {
+    $model = $this->newInstance();
     $resIndoorData = $model
-      -> alias('ud')
-      -> join('indoordata i', 'ud.did=i.id')
-      -> field('ud.*, i.name')
-      -> where('id', $uid)
-      -> select();
-    
+      ->alias('ud')
+      ->join('indoordata i', 'ud.did=i.id')
+      ->field('ud.*, i.name')
+      ->where('id', $uid)
+      ->select();
+
     $resWildData = $model
-      -> alias('ud')
-      -> join('wilddata w', 'ud.did=w.id')
-      -> field('ud.*, w.name')
-      -> where('id', $uid)
-      -> select();
+      ->alias('ud')
+      ->join('wilddata w', 'ud.did=w.id')
+      ->field('ud.*, w.name')
+      ->where('id', $uid)
+      ->select();
 
     return array_merge($resIndoorData, $resWildData);
   }
@@ -42,28 +54,31 @@ class Udownload extends Model
   /**
    * 根据id删除一个
    */
-  public function deleteById ($id) {
-    $model = $this -> newInstance();
+  public function deleteById($id)
+  {
+    $model = $this->newInstance();
 
-    return $model -> where("id", $id) -> delete();
+    return $model->where("id", $id)->delete();
   }
 
   /**
    * 根据id更新
    */
-  public function updateById ($id, $data) {
-    $model = $this -> newInstance();
+  public function updateById($id, $data)
+  {
+    $model = $this->newInstance();
 
-    return $model -> save($data, ['id' => $id]);
+    return $model->save($data, ['id' => $id]);
   }
 
   /**
    * 新增一个
    */
-  public function add ($data) {
-    $model = $this -> newInstance();
+  public function add($data)
+  {
+    $model = $this->newInstance();
 
-    return $model -> save($data);
+    return $model->save($data);
   }
 
 }
