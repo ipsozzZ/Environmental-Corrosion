@@ -23,6 +23,6 @@ INSERT INTO corrosion.slist (id, num, name, impletime, department, pdf, sid) VAL
 INSERT INTO corrosion.slist (id, num, name, impletime, department, pdf, sid) VALUES (2242, 'GB_T 22316-2008', '电镀锡钢板耐腐蚀性试验方法', '2018-11-05 19:33:15', null, '', 2);
 INSERT INTO corrosion.slist (id, num, name, impletime, department, pdf, sid) VALUES (2245, 'GB_T 24195-2009', '金属和合金的腐蚀.酸性盐雾、“干燥”和“湿润”条件下的循环加速腐蚀试验', '2018-11-05 19:33:15', null, '', 2);
 INSERT INTO corrosion.slist (id, num, name, impletime, department, pdf, sid) VALUES (2252, 'GB_T 30074-2013', '用电化学技术测量金属中氢渗透（吸收和迁移）的方法', '2018-11-05 19:33:15', null, '', 2);
-INSERT INTO corrosion.slist (id, num, name, impletime, department, pdf, sid) VALUES (2261, '556', '&&&%^%111', null, 'asdds', '/uploads/20181105/ff0fa033bc19b1af8850fcda761fb62c.pdf', 1);
-INSERT INTO corrosion.slist (id, num, name, impletime, department, pdf, sid) VALUES (2263, 'asdsad', 'ff', null, '233', '/uploads/20181105/02a973e58de4b09a72eeb636845c8273.pdf', 1);
-INSERT INTO corrosion.slist (id, num, name, impletime, department, pdf, sid) VALUES (2265, 'ss', '22', null, 'adsad', '', 2);
+INSERT INTO corrosion.slist (id, num, name, impletime, department, pdf, sid) VALUES (2261, '556', '&&&%^%111', '2018-11-06 20:01:54', 'asdds', '/uploads/20181105/ff0fa033bc19b1af8850fcda761fb62c.pdf', 1);
+INSERT INTO corrosion.slist (id, num, name, impletime, department, pdf, sid) VALUES (2263, 'asdsad', 'ff', '2018-11-06 20:01:54', '233', '/uploads/20181105/02a973e58de4b09a72eeb636845c8273.pdf', 1);
+INSERT INTO corrosion.slist (id, num, name, impletime, department, pdf, sid) VALUES (2265, 'ss', '22', '2018-11-06 20:01:54', 'adsad', '', 2);
