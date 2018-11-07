@@ -8,6 +8,10 @@ use app\common\model\Token;
 use app\common\controller\Dcate;
 use app\common\model\Ucollect;
 use app\common\model\Udownload;
+use app\common\model\Data;
+use app\common\controller\Excel;
+
+
 use app\common\model\Msg;
 
 class Personal extends Common
@@ -115,24 +119,42 @@ class Personal extends Common
 
   public function myDownload()
   {
-    if (request()->isAjax()) {
-      $data = input('post.');
+      $id = $this -> request -> get('id');
+
+      if(!$id) return "<h1>无内容！</h1>";
 
       /* 通过session取得uid */
       $userModel = new User();
       $token = cookie('corrosion_token');
-      if (!$token) return json(2);
       $userInfo = $userModel->getUserByToken($token);
-      if (!$userInfo) return json(2);
 
-      $DataId = $data['id'];
+      $DataId = $id;
+
       $uLoadModel = new Udownload();
       $isExist = json_decode($uLoadModel->getByDid($DataId));
-      if ($isExist) {
-        return json(0);
-      }
-      return json(1);
-    }
+      $dataModel = new Data();
+      $fileData = $dataModel->getById($DataId);
+
+
+      $before = file_get_contents("static/index/custom/txt/before.txt");
+      $after = file_get_contents("static/index/custom/txt/after.txt");
+      $content = $fileData['content'];
+      $res = $before . $content . $after;
+
+      $ua = $_SERVER["HTTP_USER_AGENT"];    
+      $filename = "数据.doc";    
+      $encoded_filename = urlencode($filename);    
+      $encoded_filename = str_replace("+", "%20", $encoded_filename);
+
+      header("Content-Type: application/octet-stream");      
+      if (preg_match("/MSIE/", $_SERVER['HTTP_USER_AGENT']) ) {      
+          header('Content-Disposition:  attachment; filename="' . $encoded_filename . '"');      
+      } elseif (preg_match("/Firefox/", $_SERVER['HTTP_USER_AGENT'])) {      
+          header('Content-Disposition: attachment; filename*="utf8' .  $filename . '"');      
+      } else {      
+          header('Content-Disposition: attachment; filename="' .  $filename . '"');      
+      }  
+      echo $res;
   }
 
   /**

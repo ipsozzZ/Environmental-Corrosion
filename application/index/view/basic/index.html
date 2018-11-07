@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="__INDEX__/custom/css/reset.css">
     <link rel="stylesheet" href="__INDEX__/custom/css/p.css">
     <link rel="stylesheet" href="__INDEX__/custom/css/acm.css">
+    <link rel="stylesheet" href="__VENDOR__/layui/css/layui.css">
     <style>
         footer {
         margin-top: 3%;
@@ -26,18 +27,20 @@
         <nav>{include file="common/nav"}</nav>
         <div class="width-1200 clearfix">
             <div class="Basicdata">
+                {volist name="Cate" id="vo"}
                 <a class="Cate" href="javascript:;">
-                    <img src="__INDEX__/custom/images/a50.png" alt="">
-                    <p>腐蚀数据</p>
+                    <img src="{$vo->icon}" alt="{$vo->id}">
+                    <p>{$vo->name}</p>
                 </a>
+                {/volist}
             </div>
-            <h4 class="jsh4">腐蚀数据</h4>
+            <h4 class="jsh4">{$cateName}</h4>
             <div class="Periodic-table-box pr">
                 <div class="clearfix Periodic-search pa">
                     <div class="select sc-fl">
                         <select name="" id="">
                             <option value="0">按元素种类搜索</option>
-                            <option value="1">按元素种类搜索</option>
+                            <!-- <option value="1">按元素种类搜索</option> -->
                         </select>
                     </div>
                     <div class="search2 sc-fl">
@@ -450,35 +453,16 @@
                 <tr>
                     <td>材料</td>
                     <td>类型</td>
-                    <td>开路电位</td>
-                    <td>腐蚀速率</td>
-                    <td>腐蚀介质</td>
-                    <td>参考文献</td>
                 </tr>
+                {volist name="Data" id="v"}
                 <tr>
-                    <td> </td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td><a class="Data" style="color:#7d7d7d" href="javascript:;">{$v->name} <span hidden class="DataId">{$v->id}</span>
+                        </a>
+                        <span hidden class="DataCid">{$v->cid}</span>
+                    </td>
+                    <td>{$currCateName}</td>
                 </tr>
-                <tr>
-                    <td> </td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td> </td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+                {/volist}
             </table>
             <div class="table-paging c-333 sc-center">
                 <span class="prev">← 向前</span>
@@ -491,6 +475,7 @@
     <script src="__INDEX__/custom/js/jquery.min.js"></script>
     <script src="__INDEX__/custom/js/p.js"></script>
     <script src="__INDEX__/custom/js/bootstrap.min.js"></script>
+    <script src="__VENDOR__/layui/layui.js"></script>
     <script>
         $(function () {
             var mynav = $('nav li').find('a'); //寻找导航的a元素 　　
@@ -505,6 +490,28 @@
                 $('.Periodic-table').toggle()
 
             })
+        })
+
+        layui.use(['form', 'layer'], function () {
+            var form = layui.form,
+                layer = layui.layer;
+
+            //监听提交
+            form.on('submit(formDemo)', function (data) {});
+
+            // 切换分类
+            $(".Cate").on('click', function () {
+                var cid = $(this).children('img').attr("alt");
+                location.href = "{:url('index/basic/index')}?cid=" + cid;
+            })
+
+            // 切换数据分类
+            $(".Data").on('click', function () {
+                var Did = $(this).children('.DataId').text();
+                var cid = $(this).siblings('.DataCid').text();
+                location.href = "{:url('index/basic/dataContent')}?cid=" + cid + "&bid=" + Did;
+            })
+
         })
     </script>
 </body>

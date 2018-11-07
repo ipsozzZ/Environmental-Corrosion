@@ -14,39 +14,53 @@ class Bdcate extends Model
   /**
    * 获取所有行
    */
-  public function getAll() {
-    $model = $this -> newInstance();
+  public function getAll()
+  {
+    $model = $this->newInstance();
 
     return $model
-      -> order('id', 'desc')
-      -> select();
+      ->order('id', 'desc')
+      ->select();
+  }
+
+  /**
+   * 通过id获取一行
+   */
+  public function getById($id)
+  {
+    $model = $this->newInstance();
+    $Cate = $model->get($id);
+    return json_encode($Cate);
   }
 
   /**
    * 根据id删除一个
    */
-  public function deleteById ($id) {
-    $model = $this -> newInstance();
+  public function deleteById($id)
+  {
+    $model = $this->newInstance();
 
-    return $model -> where("id", $id) -> delete();
+    return $model->where("id", $id)->delete();
   }
 
   /**
    * 根据id更新
    */
-  public function updateById ($id, $data) {
-    $model = $this -> newInstance();
+  public function updateById($id, $data)
+  {
+    $model = $this->newInstance();
 
-    return $model -> save($data, ['id' => $id]);
+    return $model->save($data, ['id' => $id]);
   }
 
   /**
    * 新增一个
    */
-  public function add ($data) {
-    $model = $this -> newInstance();
+  public function add($data)
+  {
+    $model = $this->newInstance();
 
-    return $model -> save($data);
+    return $model->save($data);
   }
 
 }

@@ -78,7 +78,10 @@
                       class="Collect">{$vo->collect}</span></p>
                   <p class="sc-fl"><img src="__INDEX__/custom/images/a41.png" alt=""><span>引用</span></p>
                   <p class="sc-fl"><img src="__INDEX__/custom/images/a42.png" alt=""><span>相关文章</span></p>
-                  <p class="sc-fl"><img class="download" src="__INDEX__/custom/images/a44.png" alt="{$vo->id}"><span>下载</span></p>
+                  <p class="sc-fl">
+                    <a href="/index/personal/myDownload?id={$vo->id}" target="_blank">
+                      <img src="__INDEX__/custom/images/a44.png" alt="{$vo->id}">
+                      下载</a></p>
                 </div>
               </div>
             </div>

@@ -9,21 +9,14 @@
     ],
     "homepage": "http://thinkphp.cn/",
     "license": "Apache-2.0",
-    "authors": [
-        {
-            "name": "liu21st",
-            "email": "liu21st@gmail.com"
-        }
-    ],
+    "authors": [{
+        "name": "liu21st",
+        "email": "liu21st@gmail.com"
+    }],
     "require": {
         "php": ">=5.4.0",
         "topthink/framework": "5.0.*",
-<<<<<<< HEAD
-        "topthink/think-captcha": "1.*"
-=======
-        "topthink/think-captcha": "1.*",
         "phpoffice/phpexcel": "^1.8"
->>>>>>> 74284d2f53aad22fc784289ae4d75f3a5f007785
     },
     "autoload": {
         "psr-4": {

@@ -1,7 +1,5 @@
 [
     {
-<<<<<<< HEAD
-=======
         "name": "phpoffice/phpexcel",
         "version": "1.8.1",
         "version_normalized": "1.8.1.0",
@@ -68,7 +66,6 @@
         "abandoned": "phpoffice/phpspreadsheet"
     },
     {
->>>>>>> 74284d2f53aad22fc784289ae4d75f3a5f007785
         "name": "topthink/framework",
         "version": "v5.0.22",
         "version_normalized": "5.0.22.0",
