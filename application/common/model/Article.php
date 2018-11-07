@@ -70,7 +70,11 @@ class Article extends Model
     return $result;
   }
 
-     /**
+  public function search ($key, $start = 1, $length = 10) {
+    
+  }
+
+  /**
    * 获取所有行
    */
   public function getAllCardLimit($start = 1, $length = 10) {
