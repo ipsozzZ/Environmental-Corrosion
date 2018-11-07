@@ -1,1 +1,0 @@
-INSERT INTO corrosion.bdata (id, name, cid) VALUES (1, '常用金属材料化学成份', 2);

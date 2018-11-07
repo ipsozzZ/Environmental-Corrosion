@@ -25,9 +25,12 @@ class Slist extends Common
       $model = new Model();
       $slist =  $model -> where("sid", $sid) -> order("id", "desc") -> select();
     }
+<<<<<<< HEAD
     $parentModel = new Standard();
     $parentData = $parentModel -> get($sid);
     $this -> assign('parentData', $parentData);
+=======
+>>>>>>> 71758c884d773219fb0ee59e1f17d7df6ae7a160
     $this -> assign("slist", $slist);
     $this -> assign("sid", $sid);
 

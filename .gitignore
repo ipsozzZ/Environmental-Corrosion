@@ -1,7 +1,21 @@
 .idea
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+# composer.lock
+.log
+# thinkphp
+runtime
+bushu
+=======
+>>>>>>> 71758c884d773219fb0ee59e1f17d7df6ae7a160
 composer.lock
 .log
 thinkphp
 runtime
 bushu
+<<<<<<< HEAD
 *.zip
+=======
+>>>>>>> 74284d2f53aad22fc784289ae4d75f3a5f007785
+>>>>>>> 71758c884d773219fb0ee59e1f17d7df6ae7a160

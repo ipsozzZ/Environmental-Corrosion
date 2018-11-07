@@ -42,10 +42,7 @@ INSERT INTO corrosion.site (id, title, vicetitle, description, vicedesc) VALUES 
 INSERT INTO corrosion.`select` (id, aid) VALUES (2, 2);
 INSERT INTO corrosion.`select` (id, aid) VALUES (3, 3);
 INSERT INTO corrosion.`select` (id, aid) VALUES (4, 5);
-
 INSERT INTO corrosion.scate (id, name, parent, level) VALUES (1, '基础数据标准', null, 1);
-INSERT INTO corrosion.scate (id, name, parent, level) VALUES (2, '基础数据标准', 1, 2);
-INSERT INTO corrosion.scate (id, name, parent, level) VALUES (3, '耐蚀材料', 1, 2);
 INSERT INTO corrosion.scate (id, name, parent, level) VALUES (4, '电化学防护', 1, 2);
 INSERT INTO corrosion.scate (id, name, parent, level) VALUES (5, '11', null, 1);
 INSERT INTO corrosion.scate (id, name, parent, level) VALUES (7, '222@', 5, 2);
