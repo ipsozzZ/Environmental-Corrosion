@@ -1,13 +1,58 @@
+INSERT INTO corrosion.wilddata (id, name, cid) VALUES (1, '33422', 11);
+
 INSERT INTO corrosion.admin (id, name, pass, lltime) VALUES (1, 'admin', '25d55ad283aa400af464c76d713c07ad', '2018-10-28 13:58:16');
-
-
-INSERT INTO corrosion.user (id, name, pass, phone, gender, avatar) VALUES (1, 'iimt', 'e10adc3949ba59abbe56e057f20f883e', '12345678', 1, '/uploads/20181031/5aff028e502416a22cab57304c3fee7f.jpg');
-INSERT INTO corrosion.user (id, name, pass, phone, gender, avatar) VALUES (2, 'ipso', 'e10adc3949ba59abbe56e057f20f883e', '2222', 0, '/uploads/20181031/5aff028e502416a22cab57304c3fee7f.jpg');
 
 INSERT INTO corrosion.carousel (id, img, linkto) VALUES (2, '/uploads/20181105/4d92c86d046a6de9b28cc310be25529a.jpg', '/');
 INSERT INTO corrosion.carousel (id, img, linkto) VALUES (3, '/uploads/20181105/66f96b9a8b45c9ba8a885d8b05d55581.jpg', '/');
 
-INSERT INTO corrosion.data (id, title, position, cycle, cid, ctime, viewer, content, type, mname) VALUES (1, 'asdsads', '111', 4, 1, '2018-11-05 17:38:45', 3, 'sadsasa', 1, 'Na');
+INSERT INTO corrosion.data (id, title, position, cycle, cid, ctime, viewer, content, type, mname) VALUES (1, 'asdsads', '111', 4, 11, '2018-11-06 13:33:20', 3, '<table border="0" width="100%" cellpadding="0" cellspacing="0">
+                    <tbody>
+                      <tr>
+                        <th>&nbsp;项目</th>
+                        <th>数据&nbsp;</th>
+                      </tr>
+                      <tr>
+                        <td>&nbsp; &nbsp; 123</td>
+                        <td>&nbsp;456</td>
+                      </tr>
+                      <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                      </tr>
+                    </tbody>
+                  </table><p><br></p>', 1, 'Na');
+INSERT INTO corrosion.data (id, title, position, cycle, cid, ctime, viewer, content, type, mname) VALUES (2, 'asd', 'sss', 3, 2, '2018-11-06 13:13:03', 0, '<table border="0" width="100%" cellpadding="0" cellspacing="0">
+                    <tbody>
+                      <tr>
+                        <th>&nbsp;项目</th>
+                        <th>数据&nbsp;</th>
+                      </tr>
+                      <tr>
+                        <td>&nbsp; &nbsp; 123</td>
+                        <td>&nbsp;456</td>
+                      </tr>
+                      <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                      </tr>
+                    </tbody>
+                  </table><p><br></p>', 1, 'ss#');
 
 INSERT INTO corrosion.dcate (id, name, parent, level, type) VALUES (1, '宏观电化学', null, 1, 1);
 INSERT INTO corrosion.dcate (id, name, parent, level, type) VALUES (2, '开路电位', 10, 2, 1);
@@ -24,19 +69,17 @@ INSERT INTO corrosion.friends (id, name, linkto) VALUES (5, '1112233111111', '1'
 INSERT INTO corrosion.friends (id, name, linkto) VALUES (6, '111223322222', '2');
 INSERT INTO corrosion.friends (id, name, linkto) VALUES (7, '1112233111111', '1');
 
-INSERT INTO corrosion.indoordata (id, name, cid) VALUES (1, '极化测试', 2);
-INSERT INTO corrosion.indoordata (id, name, cid) VALUES (2, '88545', 13);
-INSERT INTO corrosion.indoordata (id, name, cid) VALUES (3, 'tt3', 11);
+INSERT INTO corrosion.indoordata (id, name, cid, collect, download) VALUES (1, '极化测试', 2, 0, 0);
+INSERT INTO corrosion.indoordata (id, name, cid, collect, download) VALUES (4, 'ttr', 11, 0, 0);
 
-INSERT INTO corrosion.nav (id, name, linkto) VALUES (1, '平台简介', '/');
-INSERT INTO corrosion.nav (id, name, linkto) VALUES (2, '基础数据', '/');
-INSERT INTO corrosion.nav (id, name, linkto) VALUES (3, '野外数据', '/');
-INSERT INTO corrosion.nav (id, name, linkto) VALUES (4, '室内数据', '/');
-INSERT INTO corrosion.nav (id, name, linkto) VALUES (5, '实时数据', '/');
-INSERT INTO corrosion.nav (id, name, linkto) VALUES (6, '标准规范', '/');
-INSERT INTO corrosion.nav (id, name, linkto) VALUES (7, '应用案例', '/');
-INSERT INTO corrosion.nav (id, name, linkto) VALUES (8, '平台简介1', '/');
-INSERT INTO corrosion.nav (id, name, linkto) VALUES (9, '平台简介', '/');
+INSERT INTO corrosion.nav (id, name, linkto) VALUES (1, '平台简介', '/index/about');
+INSERT INTO corrosion.nav (id, name, linkto) VALUES (2, '基础数据', '/index/basic');
+INSERT INTO corrosion.nav (id, name, linkto) VALUES (3, '野外数据', '/index/outdoor');
+INSERT INTO corrosion.nav (id, name, linkto) VALUES (4, '室内数据', '/index/indoor');
+INSERT INTO corrosion.nav (id, name, linkto) VALUES (5, '实时数据', '/index/realtime');
+INSERT INTO corrosion.nav (id, name, linkto) VALUES (6, '标准规范', '/index/standard');
+INSERT INTO corrosion.nav (id, name, linkto) VALUES (7, '应用案例', '/index/example');
+
 
 INSERT INTO corrosion.scate (id, name, parent, level) VALUES (1, '基础数据标准', null, 1);
 INSERT INTO corrosion.scate (id, name, parent, level) VALUES (2, '基础数据标准', 1, 2);
@@ -76,6 +119,12 @@ INSERT INTO corrosion.slist (id, num, name, impletime, department, pdf, sid) VAL
 INSERT INTO corrosion.slist (id, num, name, impletime, department, pdf, sid) VALUES (2252, 'GB_T 30074-2013', '用电化学技术测量金属中氢渗透（吸收和迁移）的方法', '2018-11-05 19:33:15', null, '', 2);
 INSERT INTO corrosion.slist (id, num, name, impletime, department, pdf, sid) VALUES (2261, '556', '&&&%^%111', null, 'asdds', '/uploads/20181105/ff0fa033bc19b1af8850fcda761fb62c.pdf', 1);
 INSERT INTO corrosion.slist (id, num, name, impletime, department, pdf, sid) VALUES (2263, 'asdsad', 'ff', null, '233', '/uploads/20181105/02a973e58de4b09a72eeb636845c8273.pdf', 1);
+INSERT INTO corrosion.slist (id, num, name, impletime, department, pdf, sid) VALUES (2265, 'ss', '22', null, 'adsad', '', 2);
+
 
 INSERT INTO corrosion.standard (id, name, cid) VALUES (1, '金属材料的腐蚀试验1', 4);
 INSERT INTO corrosion.standard (id, name, cid) VALUES (2, 'sahja', 2);
+
+
+INSERT INTO corrosion.user (id, name, pass, phone, gender, avatar, realname, education, job, email, workunit, unittype, province, address) VALUES (1, 'iimt', 'e10adc3949ba59abbe56e057f20f883e', '12345678', 1, '/uploads/20181031/5aff028e502416a22cab57304c3fee7f.jpg', null, null, null, null, null, null, null, null);
+INSERT INTO corrosion.user (id, name, pass, phone, gender, avatar, realname, education, job, email, workunit, unittype, province, address) VALUES (2, 'ipso', 'e10adc3949ba59abbe56e057f20f883e', '2222', 0, '/uploads/20181031/5aff028e502416a22cab57304c3fee7f.jpg', null, null, null, null, null, null, null, null);

@@ -13,8 +13,13 @@
                 <span class="active">中</span>
                 <span class="">EN</span>
             </div>
-            <a href="zhuce.html" class="register sc-fr">注册</a>
-            <a href="denglu.html" class="login sc-fr">登录</a>
+            {if condition="cookie('corrosion_token')"}
+            <a href="{:url('index/login/logout')}" class="register sc-fr">退出</a>
+            <a href="{:url('index/personal/index')}" class="login sc-fr" style="width: 80px;">个人中心</a>
+            {else}
+            <a href="{:url('index/login/register')}" class="register sc-fr">注册</a>
+            <a href="{:url('index/login/index')}" class="login sc-fr">登录</a>
+            {/if}
             <div class="sc-fl search">
                 <button><img src="./images/a.png" alt=""></button>
                 <input type="text" placeholder="请输入您要搜索的内容" id="lang">

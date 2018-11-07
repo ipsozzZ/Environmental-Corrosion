@@ -44,17 +44,17 @@
 </div>
 
 <script>
-     layui.use('layer', function(){
-        var layer = layui.layer;
-        $(".del").on('click',function(){
-            var url = $(this).attr('href');
-            layer.confirm('确定要删除吗?', {icon: 3, title:'温馨提示'}, function(index){
-                location.href = url;
-                layer.close(index);
-            });
-            return false;
-        });
-    });
+    layui.use('layer', function(){
+       var layer = layui.layer;
+       $(".del").on('click',function(){
+           var url = $(this).attr('href');
+           layer.confirm('确定要删除吗?', {icon: 3, title:'温馨提示'}, function(index){
+               location.href = url;
+               layer.close(index);
+           });
+           return false;
+       });
+   });
 </script>
 
 {include file="public/footer">

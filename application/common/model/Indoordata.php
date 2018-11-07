@@ -26,6 +26,12 @@ class Indoordata extends Model
     return $res;
   }
 
+  public function getByFilter ($filter) {
+    $model = $this -> newInstance();
+
+    return $model -> where($filter) -> select();
+  }
+
   /**
    * 根据id删除一个
    */
